@@ -32,7 +32,7 @@ export const Roast: React.FC = () => {
   const phase1PanY = interpolate(
     frame,
     [0, 45, 72, 125],
-    [-180, -280, -475, -480],
+    [-180, -300, -665, -670],
     { extrapolateRight: 'clamp' }
   );
 
@@ -47,7 +47,7 @@ export const Roast: React.FC = () => {
   const phase4PanY = interpolate(
     frame,
     [180, 240],
-    [-615, -625],
+    [-840, -850],
     { extrapolateRight: 'clamp' }
   );
 
