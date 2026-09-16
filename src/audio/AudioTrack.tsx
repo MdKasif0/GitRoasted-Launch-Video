@@ -4,85 +4,73 @@ import { Audio, Sequence, staticFile } from 'remotion';
 export const AudioTrack: React.FC = () => {
   return (
     <>
-      {/* 2. Problem Scene Snaps (270 - 510f) */}
-      <Sequence from={270} durationInFrames={30}>
-        <Audio src={staticFile('audio/click.wav')} volume={0.6} />
-      </Sequence>
-      <Sequence from={330} durationInFrames={30}>
-        <Audio src={staticFile('audio/click.wav')} volume={0.6} />
-      </Sequence>
-      <Sequence from={390} durationInFrames={30}>
-        <Audio src={staticFile('audio/click.wav')} volume={0.6} />
-      </Sequence>
-      <Sequence from={450} durationInFrames={60}>
-        <Audio src={staticFile('audio/whoosh.wav')} volume={0.5} />
-      </Sequence>
+      {/* Note: Scenes 1 and 2 (0 - 600f) have self-contained procedurally synchronized audio cues */}
 
-      {/* 3. Reveal Flame Impact */}
-      <Sequence from={510} durationInFrames={90}>
+      {/* 3. Reveal Flame Impact (Starts at frame 600) */}
+      <Sequence from={600} durationInFrames={90}>
         <Audio src={staticFile('audio/impact.wav')} volume={0.75} />
       </Sequence>
       {/* Typing into input bar */}
-      {[630, 636, 642, 648, 654, 660, 666, 672].map((f, i) => (
+      {[690, 696, 702, 708, 714, 720, 726, 732].map((f, i) => (
         <Sequence key={i} from={f} durationInFrames={10}>
           <Audio src={staticFile('audio/keystroke.wav')} volume={0.45} />
         </Sequence>
       ))}
       {/* Click Roast Me */}
-      <Sequence from={740} durationInFrames={30}>
+      <Sequence from={780} durationInFrames={30}>
         <Audio src={staticFile('audio/click.wav')} volume={0.7} />
       </Sequence>
-      <Sequence from={750} durationInFrames={60}>
+      <Sequence from={790} durationInFrames={60}>
         <Audio src={staticFile('audio/whoosh.wav')} volume={0.6} />
       </Sequence>
 
-      {/* 4. The Roast Scene Impact */}
-      <Sequence from={810} durationInFrames={90}>
+      {/* 4. The Roast Scene Impact (Starts at frame 870) */}
+      <Sequence from={870} durationInFrames={90}>
         <Audio src={staticFile('audio/impact.wav')} volume={0.7} />
       </Sequence>
       {/* Roast punchlines */}
-      <Sequence from={930} durationInFrames={30}>
+      <Sequence from={990} durationInFrames={30}>
         <Audio src={staticFile('audio/click.wav')} volume={0.5} />
       </Sequence>
-      <Sequence from={1050} durationInFrames={30}>
+      <Sequence from={1110} durationInFrames={30}>
         <Audio src={staticFile('audio/click.wav')} volume={0.5} />
       </Sequence>
 
-      {/* 5. Score Scene: Rollup ticks & impact */}
-      <Sequence from={1200} durationInFrames={60}>
+      {/* 5. Score Scene: Rollup ticks & impact (Starts at frame 1260) */}
+      <Sequence from={1260} durationInFrames={60}>
         <Audio src={staticFile('audio/whoosh.wav')} volume={0.5} />
       </Sequence>
-      {[1215, 1225, 1235, 1245, 1255, 1265].map((f, i) => (
+      {[1275, 1285, 1295, 1305, 1315, 1325].map((f, i) => (
         <Sequence key={`tick-${i}`} from={f} durationInFrames={10}>
           <Audio src={staticFile('audio/tick.wav')} volume={0.5} />
         </Sequence>
       ))}
-      <Sequence from={1270} durationInFrames={60}>
+      <Sequence from={1330} durationInFrames={60}>
         <Audio src={staticFile('audio/impact.wav')} volume={0.6} />
       </Sequence>
 
-      {/* 6. Quick Wins Scene Chime */}
-      <Sequence from={1560} durationInFrames={60}>
+      {/* 6. Quick Wins Scene Chime (Starts at frame 1620) */}
+      <Sequence from={1620} durationInFrames={60}>
         <Audio src={staticFile('audio/whoosh.wav')} volume={0.5} />
       </Sequence>
-      <Sequence from={1630} durationInFrames={90}>
+      <Sequence from={1690} durationInFrames={90}>
         <Audio src={staticFile('audio/chime.wav')} volume={0.7} />
       </Sequence>
-      {[1680, 1720, 1760, 1800, 1840].map((f, i) => (
+      {[1740, 1780, 1820].map((f, i) => (
         <Sequence key={`win-${i}`} from={f} durationInFrames={15}>
           <Audio src={staticFile('audio/click.wav')} volume={0.4} />
         </Sequence>
       ))}
 
-      {/* 7. Product Montage rapid cuts */}
-      <Sequence from={1920} durationInFrames={60}>
+      {/* 7. Product Montage rapid cuts (Starts at frame 1980) */}
+      <Sequence from={1980} durationInFrames={60}>
         <Audio src={staticFile('audio/whoosh.wav')} volume={0.5} />
       </Sequence>
-      <Sequence from={2040} durationInFrames={60}>
+      <Sequence from={2100} durationInFrames={60}>
         <Audio src={staticFile('audio/whoosh.wav')} volume={0.5} />
       </Sequence>
 
-      {/* 8. Finale Final Impact */}
+      {/* 8. Finale Final Impact (Starts at frame 2220) */}
       <Sequence from={2220} durationInFrames={90}>
         <Audio src={staticFile('audio/impact.wav')} volume={0.8} />
       </Sequence>

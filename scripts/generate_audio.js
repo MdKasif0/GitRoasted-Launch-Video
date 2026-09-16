@@ -209,6 +209,9 @@ if (!fs.existsSync(outDir)) {
     const tone = Math.sin(2 * Math.PI * 1760 * t) * 0.6 + Math.sin(2 * Math.PI * 2200 * t) * 0.4;
     samples[i] = tone * env * 0.35;
   }
+  writeWavFile(path.join(outDir, 'notif_click.wav'), samples);
+}
+
 // 11. Minimal Electronic Pulse Bed (12.0s) - smart, restrained 16th-note pulse that filters up
 {
   const duration = 12.0;

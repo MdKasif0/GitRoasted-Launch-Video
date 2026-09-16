@@ -29,13 +29,13 @@ export const GitRoastedLaunch: React.FC = () => {
           <ColdOpen />
         </Series.Sequence>
 
-        {/* Scene 2: Problem (8s / 240 frames) */}
-        <Series.Sequence durationInFrames={240}>
+        {/* Scene 2: The Problem & Second Opinion (11s / 330 frames) */}
+        <Series.Sequence durationInFrames={330}>
           <Problem />
         </Series.Sequence>
 
-        {/* Scene 3: Reveal & Home UI (10s / 300 frames) */}
-        <Series.Sequence durationInFrames={300}>
+        {/* Scene 3: Reveal & Home UI (9s / 270 frames) */}
+        <Series.Sequence durationInFrames={270}>
           <Reveal />
         </Series.Sequence>
 
@@ -54,8 +54,8 @@ export const GitRoastedLaunch: React.FC = () => {
           <QuickWins />
         </Series.Sequence>
 
-        {/* Scene 7: Product Montage (10s / 300 frames) */}
-        <Series.Sequence durationInFrames={300}>
+        {/* Scene 7: Product Montage (8s / 240 frames) */}
+        <Series.Sequence durationInFrames={240}>
           <ProductMontage />
         </Series.Sequence>
 
