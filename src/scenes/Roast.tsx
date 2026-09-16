@@ -209,10 +209,10 @@ export const Roast: React.FC = () => {
                   <div
                     style={{
                       position: 'absolute',
-                      top: '38%',
-                      left: '10%',
-                      width: '80%',
-                      height: '24%',
+                      top: 310,
+                      left: 60,
+                      width: 1320,
+                      height: 200,
                       border: '1px solid #FF8A00',
                       borderRadius: 4,
                       background: 'rgba(255, 138, 0, 0.04)',
