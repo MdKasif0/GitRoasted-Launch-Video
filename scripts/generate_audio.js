@@ -249,6 +249,54 @@ if (!fs.existsSync(outDir)) {
   writeWavFile(path.join(outDir, 'pulse_bed.wav'), samples);
 }
 
+// 12. Energetic Product Reveal Groove (12.0s) - driving 120 BPM electronic groove with sub kick & synth bass
+{
+  const duration = 12.0;
+  const numSamples = Math.floor(sampleRate * duration);
+  const samples = new Float32Array(numSamples);
+  const bpm = 122;
+  const beatDur = 60 / bpm; // 0.4918s
+  const stepDur = beatDur / 4; // 16th note ~0.123s
+
+  for (let i = 0; i < numSamples; i++) {
+    const t = i / sampleRate;
+    const progress = t / duration;
+
+    // Sub kick on every quarter note
+    const beatTime = t % beatDur;
+    const kickEnv = Math.exp(-beatTime * 18);
+    const kickFreq = 110 * Math.exp(-beatTime * 28) + 42;
+    const kick = Math.sin(2 * Math.PI * kickFreq * beatTime) * kickEnv * 0.65;
+
+    // Driving 16th-note synth bassline (D minor / F / C / G)
+    const stepIdx = Math.floor(t / stepDur);
+    const stepTime = t % stepDur;
+    const barStep = stepIdx % 16;
+    
+    // Pattern pitch selection
+    let baseFreq = 73.42; // D2
+    if (barStep >= 4 && barStep < 8) baseFreq = 87.31; // F2
+    if (barStep >= 8 && barStep < 12) baseFreq = 65.41; // C2
+    if (barStep >= 12) baseFreq = 98.0; // G2
+
+    const bassEnv = Math.exp(-stepTime * 16);
+    const oscSaw = (2 * ((baseFreq * t) % 1) - 1);
+    const oscSub = Math.sin(2 * Math.PI * (baseFreq * 0.5) * t);
+    const bass = (oscSaw * 0.4 + oscSub * 0.6) * bassEnv * 0.45;
+
+    // High frequency micro percussion tick on off-beats
+    const offbeatTime = (t + stepDur * 0.5) % (stepDur * 2);
+    const hatEnv = Math.exp(-offbeatTime * 90);
+    const hat = (Math.random() * 2 - 1) * hatEnv * 0.08;
+
+    // Gradual energy swell: starts tight and builds confidence
+    const masterGain = Math.min(1.0, 0.4 + progress * 0.6);
+    samples[i] = (kick + bass + hat) * masterGain * 0.7;
+  }
+  writeWavFile(path.join(outDir, 'reveal_beat.wav'), samples);
+}
+
 console.log('All procedural launch film sound cues generated successfully.');
+
 
 
