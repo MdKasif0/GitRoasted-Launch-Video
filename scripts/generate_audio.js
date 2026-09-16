@@ -62,9 +62,9 @@ if (!fs.existsSync(outDir)) {
   writeWavFile(path.join(outDir, 'keystroke.wav'), samples);
 }
 
-// 2. Sub-bass Drone: Atmospheric cinematic rumble (8.0s)
+// 2. Sub-bass Drone: Atmospheric cinematic rumble (12.0s)
 {
-  const duration = 8.0;
+  const duration = 12.0;
   const numSamples = Math.floor(sampleRate * duration);
   const samples = new Float32Array(numSamples);
   for (let i = 0; i < numSamples; i++) {
