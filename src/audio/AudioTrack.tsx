@@ -4,19 +4,7 @@ import { Audio, Sequence, staticFile } from 'remotion';
 export const AudioTrack: React.FC = () => {
   return (
     <>
-      {/* Note: Scenes 1, 2, and 3 (0 - 930f) have self-contained procedurally synchronized audio cues */}
-
-      {/* 4. The Roast Scene Impact (Starts at frame 930) */}
-      <Sequence from={930} durationInFrames={90}>
-        <Audio src={staticFile('audio/impact.wav')} volume={0.7} />
-      </Sequence>
-      {/* Roast punchlines */}
-      <Sequence from={1050} durationInFrames={30}>
-        <Audio src={staticFile('audio/click.wav')} volume={0.5} />
-      </Sequence>
-      <Sequence from={1170} durationInFrames={30}>
-        <Audio src={staticFile('audio/click.wav')} volume={0.5} />
-      </Sequence>
+      {/* Note: Scenes 1, 2, 3, and 4 (0 - 1290f) have self-contained procedurally synchronized audio cues */}
 
       {/* 5. Score Scene: Rollup ticks & impact (Starts at frame 1290) */}
       <Sequence from={1290} durationInFrames={60}>

@@ -52,7 +52,7 @@ export const Root: React.FC = () => {
       <Composition
         id="04-Roast"
         component={Roast}
-        durationInFrames={390}
+        durationInFrames={360}
         fps={30}
         width={1920}
         height={1080}

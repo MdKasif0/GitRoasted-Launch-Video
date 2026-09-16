@@ -296,7 +296,38 @@ if (!fs.existsSync(outDir)) {
   writeWavFile(path.join(outDir, 'reveal_beat.wav'), samples);
 }
 
+// 13. Deadpan Roast Ambience & Tech Pulse (12.0s) - low-key, moody, understated suspense groove
+{
+  const duration = 12.0;
+  const numSamples = Math.floor(sampleRate * duration);
+  const samples = new Float32Array(numSamples);
+  const bpm = 110;
+  const beatDur = 60 / bpm; // ~0.545s
+
+  for (let i = 0; i < numSamples; i++) {
+    const t = i / sampleRate;
+
+    // Subtle sub kick pulse on beats 1 and 3 (half note)
+    const subTime = t % (beatDur * 2);
+    const subEnv = Math.exp(-subTime * 12);
+    const subOsc = Math.sin(2 * Math.PI * (48 * Math.exp(-subTime * 8) + 38) * subTime);
+    const subKick = subOsc * subEnv * 0.55;
+
+    // Subtle server humming bed (filtered low droning intervals D1 + A1)
+    const hum = (
+      Math.sin(2 * Math.PI * 73.4 * t) * 0.15 +
+      Math.sin(2 * Math.PI * 110.0 * t) * 0.08 +
+      Math.sin(2 * Math.PI * 146.8 * t) * 0.04
+    );
+
+    // Delicate micro-tick on offbeat
+    const tickTime = (t + beatDur * 0.5) % beatDur;
+    const tickEnv = Math.exp(-tickTime * 120);
+    const tick = (Math.random() * 2 - 1) * tickEnv * 0.04;
+
+    samples[i] = (subKick + hum + tick) * 0.7;
+  }
+  writeWavFile(path.join(outDir, 'roast_ambience.wav'), samples);
+}
+
 console.log('All procedural launch film sound cues generated successfully.');
-
-
-
