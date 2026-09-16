@@ -491,8 +491,8 @@ export const Reveal: React.FC = () => {
                   >
                     <ScreenshotReveal
                       src="roast_page.png"
-                      scale={1.12}
-                      panY={-80}
+                      scale={1.2}
+                      panY={-340}
                       borderRadius={0}
                       boxShadow="none"
                       border="none"
@@ -502,13 +502,13 @@ export const Reveal: React.FC = () => {
                     <div
                       style={{
                         position: 'absolute',
-                        top: 240,
-                        left: 280,
-                        width: 880,
-                        height: 220,
+                        top: 170,
+                        left: 120,
+                        width: 1200,
+                        height: 460,
                         border: '1px solid #FF8A00',
                         borderRadius: 8,
-                        boxShadow: '0 0 30px rgba(255, 138, 0, 0.25)',
+                        boxShadow: '0 0 35px rgba(255, 138, 0, 0.28)',
                         pointerEvents: 'none',
                       }}
                     />
@@ -517,8 +517,8 @@ export const Reveal: React.FC = () => {
                     <div
                       style={{
                         position: 'absolute',
-                        top: 216,
-                        left: 292,
+                        top: 146,
+                        left: 132,
                         backgroundColor: '#FF8A00',
                         color: '#050505',
                         fontFamily: "'Geist Mono', monospace",
@@ -530,7 +530,7 @@ export const Reveal: React.FC = () => {
                         textTransform: 'uppercase',
                       }}
                     >
-                      AI VERDICT
+                      AI VERDICT // THE ROAST
                     </div>
                   </div>
                 )}
@@ -548,8 +548,9 @@ export const Reveal: React.FC = () => {
                   >
                     <ScreenshotReveal
                       src="roast_page.png"
-                      scale={1.22}
-                      panY={-380}
+                      scale={1.32}
+                      panX={-280}
+                      panY={-20}
                       borderRadius={0}
                       boxShadow="none"
                       border="none"
@@ -559,13 +560,13 @@ export const Reveal: React.FC = () => {
                     <div
                       style={{
                         position: 'absolute',
-                        top: 200,
-                        left: 310,
-                        width: 420,
-                        height: 280,
+                        top: 80,
+                        left: 480,
+                        width: 580,
+                        height: 400,
                         border: '1px solid #FF8A00',
                         borderRadius: 8,
-                        boxShadow: '0 0 24px rgba(255, 138, 0, 0.2)',
+                        boxShadow: '0 0 30px rgba(255, 138, 0, 0.25)',
                         pointerEvents: 'none',
                       }}
                     />
@@ -573,8 +574,8 @@ export const Reveal: React.FC = () => {
                     <div
                       style={{
                         position: 'absolute',
-                        top: 176,
-                        left: 322,
+                        top: 56,
+                        left: 492,
                         backgroundColor: '#FF8A00',
                         color: '#050505',
                         fontFamily: "'Geist Mono', monospace",
@@ -586,7 +587,7 @@ export const Reveal: React.FC = () => {
                         textTransform: 'uppercase',
                       }}
                     >
-                      SCORE BREAKDOWN // 464 PTS
+                      SERIOUSNESS SCORE // 464 / 1000
                     </div>
                   </div>
                 )}
@@ -611,14 +612,14 @@ export const Reveal: React.FC = () => {
                       border="none"
                     />
 
-                    {/* Positive green highlight over the +135 pts score improvement */}
+                    {/* Positive green highlight over the full score improvement bar */}
                     <div
                       style={{
                         position: 'absolute',
                         top: 180,
-                        left: 340,
-                        width: 760,
-                        height: 160,
+                        left: 200,
+                        width: 1040,
+                        height: 150,
                         border: '1px solid #22C55E',
                         borderRadius: 8,
                         boxShadow: '0 0 30px rgba(34, 197, 94, 0.25)',
@@ -630,7 +631,7 @@ export const Reveal: React.FC = () => {
                       style={{
                         position: 'absolute',
                         top: 156,
-                        left: 352,
+                        left: 212,
                         backgroundColor: '#22C55E',
                         color: '#050505',
                         fontFamily: "'Geist Mono', monospace",
