@@ -209,10 +209,10 @@ export const Roast: React.FC = () => {
                   <div
                     style={{
                       position: 'absolute',
-                      top: 310,
+                      top: 275,
                       left: 60,
                       width: 1320,
-                      height: 200,
+                      height: 165,
                       border: '1px solid #FF8A00',
                       borderRadius: 4,
                       background: 'rgba(255, 138, 0, 0.04)',
@@ -370,10 +370,10 @@ export const Roast: React.FC = () => {
               <div
                 style={{
                   position: 'absolute',
-                  top: '38%',
-                  left: '10%',
-                  width: '80%',
-                  height: '24%',
+                  top: 300,
+                  left: 60,
+                  width: 1320,
+                  height: 210,
                   border: '1px solid #FF8A00',
                   borderRadius: 4,
                   background: 'rgba(255, 138, 0, 0.04)',
