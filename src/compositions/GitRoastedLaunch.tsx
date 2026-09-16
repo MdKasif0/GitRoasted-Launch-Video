@@ -24,13 +24,13 @@ export const GitRoastedLaunch: React.FC = () => {
     >
       {/* 80-second Master Scene Timeline */}
       <Series>
-        {/* Scene 1: Cold Open (8s / 240 frames) */}
-        <Series.Sequence durationInFrames={240}>
+        {/* Scene 1: Cold Open (9s / 270 frames) */}
+        <Series.Sequence durationInFrames={270}>
           <ColdOpen />
         </Series.Sequence>
 
-        {/* Scene 2: Problem (9s / 270 frames) */}
-        <Series.Sequence durationInFrames={270}>
+        {/* Scene 2: Problem (8s / 240 frames) */}
+        <Series.Sequence durationInFrames={240}>
           <Problem />
         </Series.Sequence>
 

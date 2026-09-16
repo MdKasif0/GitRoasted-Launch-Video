@@ -4,35 +4,17 @@ import { Audio, Sequence, staticFile } from 'remotion';
 export const AudioTrack: React.FC = () => {
   return (
     <>
-      {/* 1. Cold Open Atmosphere */}
-      <Sequence from={0} durationInFrames={240}>
-        <Audio src={staticFile('audio/drone.wav')} volume={0.4} />
-      </Sequence>
-      {/* Keystrokes for cold open lines */}
-      <Sequence from={15} durationInFrames={15}>
-        <Audio src={staticFile('audio/keystroke.wav')} volume={0.5} />
-      </Sequence>
-      <Sequence from={65} durationInFrames={15}>
-        <Audio src={staticFile('audio/keystroke.wav')} volume={0.5} />
-      </Sequence>
-      <Sequence from={125} durationInFrames={15}>
-        <Audio src={staticFile('audio/keystroke.wav')} volume={0.5} />
-      </Sequence>
-      <Sequence from={185} durationInFrames={15}>
-        <Audio src={staticFile('audio/keystroke.wav')} volume={0.6} />
-      </Sequence>
-
-      {/* 2. Problem Scene Snaps */}
-      <Sequence from={240} durationInFrames={30}>
+      {/* 2. Problem Scene Snaps (270 - 510f) */}
+      <Sequence from={270} durationInFrames={30}>
         <Audio src={staticFile('audio/click.wav')} volume={0.6} />
       </Sequence>
-      <Sequence from={295} durationInFrames={30}>
+      <Sequence from={330} durationInFrames={30}>
         <Audio src={staticFile('audio/click.wav')} volume={0.6} />
       </Sequence>
-      <Sequence from={350} durationInFrames={30}>
+      <Sequence from={390} durationInFrames={30}>
         <Audio src={staticFile('audio/click.wav')} volume={0.6} />
       </Sequence>
-      <Sequence from={410} durationInFrames={60}>
+      <Sequence from={450} durationInFrames={60}>
         <Audio src={staticFile('audio/whoosh.wav')} volume={0.5} />
       </Sequence>
 
