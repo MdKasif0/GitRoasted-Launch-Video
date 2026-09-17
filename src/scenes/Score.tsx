@@ -258,25 +258,21 @@ export const Score: React.FC = () => {
                 />
 
                 {/* Dynamic Live Counter Overlay precisely masking and animating the screenshot score */}
-                {frame < 95 && (
+                {frame < 92 && (
                   <div
                     style={{
                       position: 'absolute',
-                      top: 124,
-                      left: 805,
+                      top: 120,
+                      left: 930,
                       width: 440,
-                      height: 245,
+                      height: 240,
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'flex-start',
                       gap: 8,
                       background: '#080A0C',
-                      padding: '10px 18px',
+                      padding: '12px 24px',
                       borderRadius: 6,
-                      opacity: interpolate(frame, [91, 94], [1, 0], {
-                        extrapolateLeft: 'clamp',
-                        extrapolateRight: 'clamp',
-                      }),
                     }}
                   >
                     <div
@@ -307,27 +303,6 @@ export const Score: React.FC = () => {
                       })}
                       totalSegments={10}
                     />
-
-                    {frame >= 92 && (
-                      <div
-                        style={{
-                          marginTop: 4,
-                          padding: '4px 14px',
-                          borderRadius: 20,
-                          background: 'rgba(255, 138, 0, 0.08)',
-                          border: '1px solid #FF8A00',
-                          color: '#FF8A00',
-                          fontSize: 13,
-                          fontWeight: 700,
-                          fontFamily: "'Geist Mono', monospace",
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: 6,
-                        }}
-                      >
-                        🔥 Rising Developer
-                      </div>
-                    )}
                   </div>
                 )}
 
@@ -336,10 +311,10 @@ export const Score: React.FC = () => {
                   <div
                     style={{
                       position: 'absolute',
-                      top: 115,
-                      left: 865,
-                      width: 390,
-                      height: 265,
+                      top: 110,
+                      left: 895,
+                      width: 485,
+                      height: 260,
                       border: '1px solid rgba(255, 138, 0, 0.5)',
                       borderRadius: 8,
                       background: 'rgba(255, 138, 0, 0.03)',
