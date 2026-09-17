@@ -1,9 +1,7 @@
 import React from 'react';
 import {
-  Audio,
   Img,
   interpolate,
-  Sequence,
   spring,
   staticFile,
   useCurrentFrame,
@@ -63,50 +61,6 @@ export const Score: React.FC = () => {
         overflow: 'hidden',
       }}
     >
-      {/* ─────────────────────────────────────────────────────────────
-          AUDIO ARCHITECTURE
-          ───────────────────────────────────────────────────────────── */}
-      {/* 1. Prologue subtle tone: Frame 0 */}
-      <Sequence from={0} durationInFrames={30}>
-        <Audio src={staticFile('audio/soft_bass.wav')} volume={0.3} />
-      </Sequence>
-      <Sequence from={20} durationInFrames={20}>
-        <Audio src={staticFile('audio/notif_click.wav')} volume={0.35} />
-      </Sequence>
-
-      {/* 2. Low Cinematic Bass Rise: Frames 48 - 94 */}
-      <Sequence from={48} durationInFrames={46}>
-        <Audio src={staticFile('audio/score_rise.wav')} volume={0.65} />
-      </Sequence>
-
-      {/* 3. Soft UI Ticks during count-up: Frames 54 - 90 */}
-      {[54, 60, 66, 72, 78, 84, 90].map((f, i) => (
-        <Sequence key={`tick-${i}`} from={f} durationInFrames={10}>
-          <Audio src={staticFile('audio/tick.wav')} volume={0.35} />
-        </Sequence>
-      ))}
-
-      {/* 4. Single Definitive Impact on Score Reveal: Frame 92 */}
-      <Sequence from={92} durationInFrames={40}>
-        <Audio src={staticFile('audio/score_impact.wav')} volume={0.8} />
-      </Sequence>
-
-      {/* 5. Bass removed at Frame 140 during "BUT THE SCORE ISN'T THE POINT." */}
-      <Sequence from={140} durationInFrames={15}>
-        <Audio src={staticFile('audio/click.wav')} volume={0.4} />
-      </Sequence>
-
-      {/* 6. Return to Energetic Rhythm on "WHAT YOU DO NEXT IS.": Frame 205 */}
-      <Sequence from={205} durationInFrames={65}>
-        <Audio src={staticFile('audio/bridge_energy.wav')} volume={0.6} />
-      </Sequence>
-
-      {/* 7. Whoosh transition into Quick Wins: Frame 252 */}
-      <Sequence from={252} durationInFrames={25}>
-        <Audio src={staticFile('audio/whoosh.wav')} volume={0.45} />
-      </Sequence>
-
-
       {/* ─────────────────────────────────────────────────────────────
           PHASE 1: "YOUR GITHUB SCORE" -> "EVERYTHING HAS A SCORE."
           (Frames 0 - 48 | 0.0s - 1.6s)

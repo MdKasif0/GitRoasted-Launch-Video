@@ -1,9 +1,7 @@
 import React from 'react';
 import {
-  Audio,
   Img,
   interpolate,
-  Sequence,
   spring,
   staticFile,
   useCurrentFrame,
@@ -104,92 +102,6 @@ export const QuickWins: React.FC = () => {
         overflow: 'hidden',
       }}
     >
-      {/* ─────────────────────────────────────────────────────────────
-          SELF-CONTAINED SYNCHRONIZED AUDIO ARCHITECTURE
-          ───────────────────────────────────────────────────────────── */}
-      {/* 1. Opening restrained tone: Frame 0 */}
-      <Sequence from={0} durationInFrames={35}>
-        <Audio src={staticFile('audio/soft_bass.wav')} volume={0.35} />
-      </Sequence>
-
-      {/* 2. Click 1: Keystroke on "THE FIXES ARE THE POINT." (Frame 42) */}
-      <Sequence from={42} durationInFrames={15}>
-        <Audio src={staticFile('audio/keystroke.wav')} volume={0.5} />
-      </Sequence>
-
-      {/* 3. Whoosh 1: Transition into UI Montage (Frame 64) */}
-      <Sequence from={64} durationInFrames={20}>
-        <Audio src={staticFile('audio/whoosh.wav')} volume={0.45} />
-      </Sequence>
-
-      {/* 4. Click 2 + Tick 1: Task 01 Entry (Frame 72) */}
-      <Sequence from={72} durationInFrames={15}>
-        <Audio src={staticFile('audio/notif_click.wav')} volume={0.4} />
-      </Sequence>
-      <Sequence from={72} durationInFrames={12}>
-        <Audio src={staticFile('audio/tick.wav')} volume={0.35} />
-      </Sequence>
-      <Sequence from={92} durationInFrames={12}>
-        <Audio src={staticFile('audio/tick.wav')} volume={0.35} />
-      </Sequence>
-
-      {/* 5. Whoosh 2: Horizontal transition to Task 02 (Frame 112) */}
-      <Sequence from={112} durationInFrames={20}>
-        <Audio src={staticFile('audio/whoosh.wav')} volume={0.5} />
-      </Sequence>
-
-      {/* 6. Click 3 + Tick 2: Task 02 Entry (Frame 122) */}
-      <Sequence from={122} durationInFrames={15}>
-        <Audio src={staticFile('audio/click.wav')} volume={0.45} />
-      </Sequence>
-      <Sequence from={122} durationInFrames={12}>
-        <Audio src={staticFile('audio/tick.wav')} volume={0.35} />
-      </Sequence>
-      <Sequence from={142} durationInFrames={12}>
-        <Audio src={staticFile('audio/tick.wav')} volume={0.35} />
-      </Sequence>
-
-      {/* 7. Whoosh 3: Upward camera sweep to Score/Potential (Frame 160) */}
-      <Sequence from={160} durationInFrames={20}>
-        <Audio src={staticFile('audio/whoosh.wav')} volume={0.45} />
-      </Sequence>
-
-      {/* 8. One Restrained Bass Hit on Score/Potential Lock (Frame 175) */}
-      <Sequence from={175} durationInFrames={45}>
-        <Audio src={staticFile('audio/soft_bass.wav')} volume={0.7} />
-      </Sequence>
-
-      {/* 9. Subtle Green Roadmap Chime (+135 pts) (Frame 180) */}
-      <Sequence from={180} durationInFrames={60}>
-        <Audio src={staticFile('audio/chime.wav')} volume={0.6} />
-      </Sequence>
-
-      {/* 10. Music Building toward Final Reveal (Frames 220 - 360) */}
-      <Sequence from={220} durationInFrames={140}>
-        <Audio src={staticFile('audio/bridge_energy.wav')} volume={0.55} />
-      </Sequence>
-
-      {/* 11. Click 4 on "SMALL FIXES." (Frame 288) */}
-      <Sequence from={288} durationInFrames={15}>
-        <Audio src={staticFile('audio/notif_click.wav')} volume={0.45} />
-      </Sequence>
-
-      {/* 12. Click 5 on "BETTER GITHUB." (Frame 312) */}
-      <Sequence from={312} durationInFrames={15}>
-        <Audio src={staticFile('audio/click.wav')} volume={0.5} />
-      </Sequence>
-
-      {/* 13. Bass punch on "BETTER ROAST." (Frame 336) */}
-      <Sequence from={336} durationInFrames={25}>
-        <Audio src={staticFile('audio/soft_bass.wav')} volume={0.65} />
-      </Sequence>
-
-      {/* 14. Final Scene Exit Whoosh (Frame 355) */}
-      <Sequence from={355} durationInFrames={15}>
-        <Audio src={staticFile('audio/whoosh.wav')} volume={0.5} />
-      </Sequence>
-
-
       {/* ─────────────────────────────────────────────────────────────
           PHASE 1: THE THESIS STATEMENT (Frames 0 - 64 | 0.0s - 2.13s)
           "THE ROAST IS FREE. ... THE FIXES ARE THE POINT."
