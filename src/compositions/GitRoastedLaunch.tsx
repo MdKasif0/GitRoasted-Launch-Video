@@ -22,7 +22,7 @@ export const GitRoastedLaunch: React.FC = () => {
         overflow: 'hidden',
       }}
     >
-      {/* 80-second Master Scene Timeline */}
+      {/* 85-second Master Scene Timeline (2,550 frames @ 30fps) */}
       <Series>
         {/* Scene 1: Cold Open (9s / 270 frames) */}
         <Series.Sequence durationInFrames={270}>
