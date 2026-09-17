@@ -5,6 +5,21 @@
 
 ---
 
+## 🍿 Watch the Official Launch Film (85.0s | 1080p @ 30fps)
+
+https://github.com/MdKasif0/GitRoasted-Launch-Video/raw/main/out/gitroasted_launch.mp4
+
+<p align="center">
+  <video src="https://github.com/MdKasif0/GitRoasted-Launch-Video/raw/main/out/gitroasted_launch.mp4" width="100%" controls preload="metadata">
+    <a href="https://github.com/MdKasif0/GitRoasted-Launch-Video/raw/main/out/gitroasted_launch.mp4">▶️ Watch GitRoasted Launch Video (out/gitroasted_launch.mp4)</a>
+  </video>
+</p>
+
+> 🎬 **[▶️ Click to play / download the master video file (`out/gitroasted_launch.mp4`)](out/gitroasted_launch.mp4)**  
+> *(85.00s runtime • 2,550 frames @ 30.00 fps • 1920×1080 Full HD • EBU R128 -24.8 LUFS)*
+
+---
+
 ## 📊 Scientific Proof You Are Cooked (Real Charts, No Fake Data)
 
 ### Chart 1: Where Developer Time Actually Goes
