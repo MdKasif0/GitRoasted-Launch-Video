@@ -1,10 +1,7 @@
 import React from 'react';
 import {
-  Audio,
   interpolate,
-  Sequence,
   spring,
-  staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from 'remotion';
@@ -143,71 +140,6 @@ export const Reveal: React.FC = () => {
         fontFamily: "'Geist', 'Inter', -apple-system, sans-serif",
       }}
     >
-      {/* ================= AUDIO DESIGN ================= */}
-      {/* 1. Energetic 122 BPM Tech Groove (Starts building at f=0) */}
-      <Sequence from={0} durationInFrames={330}>
-        <Audio src={staticFile('audio/reveal_beat.wav')} volume={0.48} />
-      </Sequence>
-
-      {/* 2. Soft Bass Hit on "MEET" (f=0) */}
-      <Sequence from={0} durationInFrames={25}>
-        <Audio src={staticFile('audio/soft_bass.wav')} volume={0.65} />
-      </Sequence>
-
-      {/* 3. Micro click on Logo appearance (f=20) */}
-      <Sequence from={20} durationInFrames={15}>
-        <Audio src={staticFile('audio/click.wav')} volume={0.5} />
-      </Sequence>
-
-      {/* 4. Subtle Impact on "GITROASTED" (f=30) */}
-      <Sequence from={30} durationInFrames={40}>
-        <Audio src={staticFile('audio/impact.wav')} volume={0.65} />
-      </Sequence>
-
-      {/* 5. Whoosh into Home Page UI (f=72) */}
-      <Sequence from={72} durationInFrames={35}>
-        <Audio src={staticFile('audio/whoosh.wav')} volume={0.45} />
-      </Sequence>
-
-      {/* 6. Keystrokes typing "@MdKasif0" (f=88 to 116) */}
-      {[88, 92, 96, 100, 104, 108, 112, 116].map((f, i) => (
-        <Sequence key={`key-${i}`} from={f} durationInFrames={8}>
-          <Audio src={staticFile('audio/keystroke.wav')} volume={0.4} />
-        </Sequence>
-      ))}
-
-      {/* 7. Crisp UI Click on "Roast Me" button (f=126) */}
-      <Sequence from={126} durationInFrames={20}>
-        <Audio src={staticFile('audio/click.wav')} volume={0.7} />
-      </Sequence>
-
-      {/* 8. Impact on Roast View reveal (f=135) */}
-      <Sequence from={135} durationInFrames={45}>
-        <Audio src={staticFile('audio/impact.wav')} volume={0.7} />
-      </Sequence>
-      <Sequence from={135} durationInFrames={30}>
-        <Audio src={staticFile('audio/whoosh.wav')} volume={0.4} />
-      </Sequence>
-
-      {/* 9. Soft bass hit on Score focus (f=210) */}
-      <Sequence from={210} durationInFrames={25}>
-        <Audio src={staticFile('audio/soft_bass.wav')} volume={0.65} />
-      </Sequence>
-      <Sequence from={218} durationInFrames={15}>
-        <Audio src={staticFile('audio/tick.wav')} volume={0.55} />
-      </Sequence>
-      <Sequence from={228} durationInFrames={15}>
-        <Audio src={staticFile('audio/tick.wav')} volume={0.55} />
-      </Sequence>
-
-      {/* 10. Chime on Quick Wins teaser (f=270) */}
-      <Sequence from={270} durationInFrames={45}>
-        <Audio src={staticFile('audio/chime.wav')} volume={0.55} />
-      </Sequence>
-      <Sequence from={315} durationInFrames={25}>
-        <Audio src={staticFile('audio/whoosh.wav')} volume={0.4} />
-      </Sequence>
-
       {/* ================= PHASE 1: TITLE & LOGO LOCKUP (0 - 74f) ================= */}
       {frame < 75 && (
         <div

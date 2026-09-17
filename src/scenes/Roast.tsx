@@ -1,10 +1,7 @@
 import React from 'react';
 import {
-  Audio,
   interpolate,
-  Sequence,
   spring,
-  staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from 'remotion';
@@ -76,68 +73,6 @@ export const Roast: React.FC = () => {
         transform: `translate(${shakeX}px, ${shakeY}px)`,
       }}
     >
-      {/* ─────────────────────────────────────────────────────────────
-          AUDIO ARCHITECTURE (Self-contained with precise comedic silence)
-          ───────────────────────────────────────────────────────────── */}
-      {/* 1. Ambience Part 1: Frames 0 - 72 */}
-      <Sequence from={0} durationInFrames={72}>
-        <Audio src={staticFile('audio/roast_ambience.wav')} volume={0.45} />
-      </Sequence>
-
-      {/* 2. COMEDIC SILENCE: Frames 72 - 92 (approx 666ms)
-             -> NO AUDIO AT ALL. Complete stillness while viewer reads. */}
-
-      {/* 3. The Tiny Click breaking silence at Frame 92 */}
-      <Sequence from={92} durationInFrames={15}>
-        <Audio src={staticFile('audio/click.wav')} volume={0.5} />
-      </Sequence>
-
-      {/* 4. Ambience Part 2 resumes with subtle bass hit: Frames 94 - 125 */}
-      <Sequence from={94} durationInFrames={31}>
-        <Audio src={staticFile('audio/soft_bass.wav')} volume={0.35} />
-      </Sequence>
-      <Sequence from={94} durationInFrames={31}>
-        <Audio
-          src={staticFile('audio/roast_ambience.wav')}
-          startFrom={94}
-          volume={0.4}
-        />
-      </Sequence>
-
-      {/* 5. Cut to Black Audio: Soft tape stop cutoff at Frame 125 */}
-      <Sequence from={125} durationInFrames={20}>
-        <Audio src={staticFile('audio/tape_stop.wav')} volume={0.35} />
-      </Sequence>
-
-      {/* 6. Cut back to UI at Frame 180: Sub bass hit + crisp click */}
-      <Sequence from={180} durationInFrames={40}>
-        <Audio src={staticFile('audio/soft_bass.wav')} volume={0.6} />
-      </Sequence>
-      <Sequence from={180} durationInFrames={15}>
-        <Audio src={staticFile('audio/notif_click.wav')} volume={0.45} />
-      </Sequence>
-
-      {/* 7. "WE CHECKED THE DATA." at Frame 240 */}
-      <Sequence from={240} durationInFrames={35}>
-        <Audio src={staticFile('audio/soft_bass.wav')} volume={0.5} />
-      </Sequence>
-
-      {/* 8. "IT CHECKED BACK." at Frame 268 */}
-      <Sequence from={268} durationInFrames={20}>
-        <Audio src={staticFile('audio/keystroke.wav')} volume={0.55} />
-      </Sequence>
-
-      {/* 9. "Okay. You have been roasted." at Frame 315 */}
-      <Sequence from={315} durationInFrames={20}>
-        <Audio src={staticFile('audio/notif_click.wav')} volume={0.35} />
-      </Sequence>
-
-      {/* 10. Whoosh transition into the Score scene at Frame 342 */}
-      <Sequence from={342} durationInFrames={25}>
-        <Audio src={staticFile('audio/whoosh.wav')} volume={0.5} />
-      </Sequence>
-
-
       {/* ─────────────────────────────────────────────────────────────
           PHASE 1 & 2: UI Appears & Zoom into Roast Line (Frames 0 - 125)
           ───────────────────────────────────────────────────────────── */}
