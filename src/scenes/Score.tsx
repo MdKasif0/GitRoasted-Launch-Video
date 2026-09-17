@@ -1,5 +1,13 @@
 import React from 'react';
-import { interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
+import {
+  Audio,
+  interpolate,
+  Sequence,
+  spring,
+  staticFile,
+  useCurrentFrame,
+  useVideoConfig,
+} from 'remotion';
 import { DeviceFrame } from '../components/DeviceFrame';
 import { ScreenshotReveal } from '../components/ScreenshotReveal';
 import { ScoreCounter, SegmentedScoreBar } from '../components/ProgressBar';
@@ -8,28 +16,42 @@ export const Score: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  // Phase 1 (0 - 140f): Focus on Seriousness Score (464 / 1000)
-  // Phase 2 (140 - 360f): Focus on Score Breakdown (Consistency 29, Activity 50/50)
-  const panY = interpolate(
+  // Camera dynamics for Phase 2 (Frames 48 - 140)
+  // Starts centered on the score gauge, then slowly pushes toward it to show surrounding metrics
+  const cameraScale = interpolate(
     frame,
-    [0, 50, 140, 210],
-    [-40, -50, -50, -1380],
+    [48, 92, 140],
+    [1.24, 1.28, 1.38],
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
   );
 
-  const zoom = interpolate(
+  const cameraPanY = interpolate(
     frame,
-    [0, 50, 140, 210],
-    [1.0, 1.1, 1.1, 1.18],
+    [48, 92, 140],
+    [-20, -30, -55],
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
   );
 
+  const cameraPanX = interpolate(
+    frame,
+    [48, 92, 140],
+    [-240, -260, -260],
+    { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
+  );
+
+  // Badge entry spring when score settles (Frame 92)
   const badgeSpring = spring({
-    frame: frame - 45,
+    frame: frame - 92,
     fps,
-    config: { damping: 18, stiffness: 140, mass: 0.8 },
+    config: { damping: 16, stiffness: 150 },
   });
-  const badgeScale = interpolate(badgeSpring, [0, 1], [0.97, 1]);
+
+  // Bridge card slide-up in Phase 4 (Frames 220 - 270)
+  const bridgeSlideSpring = spring({
+    frame: frame - 220,
+    fps,
+    config: { damping: 18, stiffness: 140 },
+  });
 
   return (
     <div
@@ -37,174 +59,518 @@ export const Score: React.FC = () => {
         width: 1920,
         height: 1080,
         backgroundColor: '#050505',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
-      {/* Real UI in Device Frame */}
-      <DeviceFrame
-        width={1440}
-        height={820}
-        title="gitroasted.com/roast/MdKasif0 — Seriousness Score & Metrics"
-      >
-        <ScreenshotReveal
-          src="roast_page.png"
-          scale={zoom}
-          panY={panY}
-          borderRadius={0}
-          boxShadow="none"
-          border="none"
-        />
-      </DeviceFrame>
+      {/* ─────────────────────────────────────────────────────────────
+          AUDIO ARCHITECTURE
+          ───────────────────────────────────────────────────────────── */}
+      {/* 1. Prologue subtle tone: Frame 0 */}
+      <Sequence from={0} durationInFrames={30}>
+        <Audio src={staticFile('audio/soft_bass.wav')} volume={0.3} />
+      </Sequence>
+      <Sequence from={20} durationInFrames={20}>
+        <Audio src={staticFile('audio/notif_click.wav')} volume={0.35} />
+      </Sequence>
 
-      {/* Live Monospace Counter Overlay in Phase 1 */}
-      {frame < 140 && (
+      {/* 2. Low Cinematic Bass Rise: Frames 48 - 94 */}
+      <Sequence from={48} durationInFrames={46}>
+        <Audio src={staticFile('audio/score_rise.wav')} volume={0.65} />
+      </Sequence>
+
+      {/* 3. Soft UI Ticks during count-up: Frames 54 - 90 */}
+      {[54, 60, 66, 72, 78, 84, 90].map((f, i) => (
+        <Sequence key={`tick-${i}`} from={f} durationInFrames={10}>
+          <Audio src={staticFile('audio/tick.wav')} volume={0.35} />
+        </Sequence>
+      ))}
+
+      {/* 4. Single Definitive Impact on Score Reveal: Frame 92 */}
+      <Sequence from={92} durationInFrames={40}>
+        <Audio src={staticFile('audio/score_impact.wav')} volume={0.8} />
+      </Sequence>
+
+      {/* 5. Bass removed at Frame 140 during "BUT THE SCORE ISN'T THE POINT." */}
+      <Sequence from={140} durationInFrames={15}>
+        <Audio src={staticFile('audio/click.wav')} volume={0.4} />
+      </Sequence>
+
+      {/* 6. Return to Energetic Rhythm on "WHAT YOU DO NEXT IS.": Frame 205 */}
+      <Sequence from={205} durationInFrames={65}>
+        <Audio src={staticFile('audio/bridge_energy.wav')} volume={0.6} />
+      </Sequence>
+
+      {/* 7. Whoosh transition into Quick Wins: Frame 252 */}
+      <Sequence from={252} durationInFrames={25}>
+        <Audio src={staticFile('audio/whoosh.wav')} volume={0.45} />
+      </Sequence>
+
+
+      {/* ─────────────────────────────────────────────────────────────
+          PHASE 1: "YOUR GITHUB SCORE" -> "EVERYTHING HAS A SCORE."
+          (Frames 0 - 48 | 0.0s - 1.6s)
+          ───────────────────────────────────────────────────────────── */}
+      {frame < 48 && (
         <div
           style={{
             position: 'absolute',
-            top: 130,
-            right: 280,
+            inset: 0,
+            backgroundColor: '#050505',
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'flex-end',
-            gap: 10,
-            background: '#0B0B0B',
-            border: '1px solid #21262D',
-            padding: '20px 30px',
-            borderRadius: 6,
-            boxShadow: '0 20px 40px rgba(0,0,0,0.9)',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 30,
+            opacity: interpolate(frame, [0, 8, 42, 48], [0, 1, 1, 0], {
+              extrapolateRight: 'clamp',
+            }),
           }}
         >
+          {/* Metadata tag */}
           <div
             style={{
-              fontSize: 12,
-              fontWeight: 700,
-              letterSpacing: '0.14em',
+              padding: '6px 18px',
+              borderRadius: 4,
+              background: '#0B0B0B',
+              border: '1px solid #21262D',
               color: '#8B949E',
-              textTransform: 'uppercase',
               fontFamily: "'Geist Mono', monospace",
+              fontSize: 13,
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              marginBottom: 20,
             }}
           >
-            SERIOUSNESS SCORE
+            Audit Telemetry // Seriousness Rating
           </div>
 
-          <ScoreCounter
-            startScore={0}
-            endScore={464}
-            startFrame={10}
-            durationInFrames={40}
-            fontSize={72}
-          />
+          {/* Line 1: YOUR GITHUB SCORE */}
+          <div
+            style={{
+              color: '#F5F5F5',
+              fontFamily: "'Geist', 'Inter', -apple-system, sans-serif",
+              fontSize: 54,
+              fontWeight: 800,
+              letterSpacing: '-0.02em',
+              textAlign: 'center',
+            }}
+          >
+            YOUR GITHUB SCORE
+          </div>
 
-          <SegmentedScoreBar
-            progress={interpolate(frame, [10, 50], [0, 0.464], {
-              extrapolateLeft: 'clamp',
-              extrapolateRight: 'clamp',
-            })}
-            totalSegments={10}
-          />
-
-          {frame >= 45 && (
+          {/* Line 2: EVERYTHING HAS A SCORE. (Frame 20+) */}
+          {frame >= 20 && (
             <div
               style={{
-                marginTop: 6,
-                padding: '4px 14px',
-                borderRadius: 4,
-                background: '#111111',
-                border: '1px solid #21262D',
-                color: '#FF8A00',
-                fontSize: 13,
-                fontWeight: 700,
+                marginTop: 14,
+                color: '#8B949E',
                 fontFamily: "'Geist Mono', monospace",
-                transform: `scale(${badgeScale})`,
+                fontSize: 22,
+                fontWeight: 600,
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+                opacity: interpolate(frame, [20, 28], [0, 1], {
+                  extrapolateRight: 'clamp',
+                }),
               }}
             >
-              🔥 Rising Developer
+              Everything has a score.
             </div>
           )}
         </div>
       )}
 
-      {/* PHASE 2 Commentary: Consistency vs Activity */}
-      {frame >= 160 && frame < 270 && (
+
+      {/* ─────────────────────────────────────────────────────────────
+          PHASE 2: Reveal Real Score UI & Count-Up (Frames 48 - 140)
+          (1.6s - 4.67s)
+          ───────────────────────────────────────────────────────────── */}
+      {frame >= 48 && frame < 140 && (
         <div
           style={{
             position: 'absolute',
-            left: 240,
-            bottom: 24,
+            inset: 0,
             display: 'flex',
             flexDirection: 'column',
-            gap: 6,
-            background: '#0B0B0B',
-            border: '1px solid #21262D',
-            padding: '12px 22px',
-            borderRadius: 6,
-            boxShadow: '0 16px 36px rgba(0,0,0,0.9)',
-            transform: `translateY(${interpolate(
-              frame,
-              [160, 175],
-              [12, 0],
-              { extrapolateRight: 'clamp' }
-            )}px)`,
-            opacity: interpolate(frame, [160, 175], [0, 1], {
+            alignItems: 'center',
+            justifyContent: 'center',
+            opacity: interpolate(frame, [48, 56, 134, 140], [0, 1, 1, 0], {
               extrapolateRight: 'clamp',
             }),
           }}
         >
+          {/* Top disclaimer pill treating it strictly as a real example screenshot */}
           <div
             style={{
+              position: 'absolute',
+              top: 48,
               display: 'flex',
               alignItems: 'center',
-              gap: 10,
+              gap: 12,
+              padding: '6px 20px',
+              borderRadius: 6,
+              background: '#0B0B0B',
+              border: '1px solid #21262D',
+              color: '#8B949E',
               fontFamily: "'Geist Mono', monospace",
-              fontSize: 16,
-              color: '#FF8A00',
-              fontWeight: 700,
+              fontSize: 13,
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+              zIndex: 30,
             }}
           >
-            <span>Consistency: 29 / 200</span>
+            <span style={{ color: '#FF8A00' }}>⚡</span>
+            <span>Example Profile Audit // @MdKasif0</span>
+            <span style={{ color: '#626A75' }}>•</span>
+            <span style={{ color: '#F5F5F5' }}>Seriousness Metric Engine</span>
           </div>
+
+          {/* Device Frame containing roast_page.png */}
+          <DeviceFrame
+            width={1440}
+            height={820}
+            title="gitroasted.com/roast/MdKasif0 — Seriousness Score & Metrics"
+          >
+            <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+              <ScreenshotReveal
+                src="roast_page.png"
+                scale={cameraScale}
+                panX={cameraPanX}
+                panY={cameraPanY}
+                borderRadius={0}
+                boxShadow="none"
+                border="none"
+              />
+
+              {/* Dynamic Live Counter Overlay precisely aligned with the screenshot score */}
+              <div
+                style={{
+                  position: 'absolute',
+                  top: 70,
+                  right: 80,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-end',
+                  gap: 8,
+                  background: 'rgba(11, 11, 11, 0.95)',
+                  border: '1px solid #21262D',
+                  padding: '16px 24px',
+                  borderRadius: 6,
+                  boxShadow: '0 16px 36px rgba(0,0,0,0.9)',
+                  backdropFilter: 'none',
+                }}
+              >
+                <div
+                  style={{
+                    fontSize: 11,
+                    fontWeight: 700,
+                    letterSpacing: '0.12em',
+                    color: '#8B949E',
+                    textTransform: 'uppercase',
+                    fontFamily: "'Geist Mono', monospace",
+                  }}
+                >
+                  SERIOUSNESS SCORE
+                </div>
+
+                <ScoreCounter
+                  startScore={0}
+                  endScore={464}
+                  startFrame={52}
+                  durationInFrames={40}
+                  fontSize={68}
+                />
+
+                <SegmentedScoreBar
+                  progress={interpolate(frame, [52, 92], [0, 0.464], {
+                    extrapolateLeft: 'clamp',
+                    extrapolateRight: 'clamp',
+                  })}
+                  totalSegments={10}
+                />
+
+                {frame >= 92 && (
+                  <div
+                    style={{
+                      marginTop: 4,
+                      padding: '3px 12px',
+                      borderRadius: 4,
+                      background: '#161B22',
+                      border: '1px solid #FF8A00',
+                      color: '#FF8A00',
+                      fontSize: 12,
+                      fontWeight: 700,
+                      fontFamily: "'Geist Mono', monospace",
+                      transform: `scale(${interpolate(badgeSpring, [0, 1], [0.94, 1])})`,
+                    }}
+                  >
+                    🔥 Rising Developer
+                  </div>
+                )}
+              </div>
+
+              {/* Subtle orange hairline accent spotlighting the surrounding metrics after score settles */}
+              {frame >= 92 && (
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: 250,
+                    left: 200,
+                    width: 1040,
+                    height: 480,
+                    border: '1px solid rgba(255, 138, 0, 0.4)',
+                    borderRadius: 6,
+                    background: 'rgba(255, 138, 0, 0.02)',
+                    pointerEvents: 'none',
+                    opacity: interpolate(frame, [92, 105], [0, 1], {
+                      extrapolateRight: 'clamp',
+                    }),
+                  }}
+                >
+                  <div
+                    style={{
+                      position: 'absolute',
+                      top: -11,
+                      left: 20,
+                      background: '#0B0B0B',
+                      border: '1px solid #FF8A00',
+                      padding: '2px 10px',
+                      borderRadius: 3,
+                      color: '#FF8A00',
+                      fontFamily: "'Geist Mono', monospace",
+                      fontSize: 10,
+                      fontWeight: 700,
+                      letterSpacing: '0.08em',
+                      textTransform: 'uppercase',
+                    }}
+                  >
+                    Surrounding Metric Breakdown
+                  </div>
+                </div>
+              )}
+            </div>
+          </DeviceFrame>
+
+          {/* Grounded Monospace Metric Diagnostic Pill */}
           <div
             style={{
+              position: 'absolute',
+              bottom: 36,
+              background: '#0B0B0B',
+              border: '1px solid #21262D',
+              padding: '10px 24px',
+              borderRadius: 6,
+              color: '#F5F5F5',
+              fontFamily: "'Geist Mono', monospace",
               fontSize: 14,
-              color: '#8B949E',
-              fontFamily: "'Geist', 'Inter', sans-serif",
+              boxShadow: '0 12px 28px rgba(0,0,0,0.85)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 12,
             }}
           >
-            One commit on May 20th does not constitute a lifestyle.
+            <span style={{ color: '#FF8A00' }}>464 / 1000</span>
+            <span style={{ color: '#626A75' }}>•</span>
+            <span style={{ color: '#8B949E' }}>Impact 137/250</span>
+            <span style={{ color: '#626A75' }}>•</span>
+            <span style={{ color: '#8B949E' }}>Consistency 29/200</span>
+            <span style={{ color: '#626A75' }}>•</span>
+            <span style={{ color: '#8B949E' }}>Quality 80/150</span>
+            <span style={{ color: '#626A75' }}>•</span>
+            <span style={{ color: '#22C55E' }}>Activity 50/50</span>
           </div>
         </div>
       )}
 
-      {frame >= 280 && (
+
+      {/* ─────────────────────────────────────────────────────────────
+          PHASE 3: "BUT THE SCORE ISN'T THE POINT." (Frames 140 - 205)
+          (4.67s - 6.83s | Serious, Thoughtful Pivot with Bass Removed)
+          ───────────────────────────────────────────────────────────── */}
+      {frame >= 140 && frame < 205 && (
         <div
           style={{
             position: 'absolute',
-            bottom: 24,
+            inset: 0,
+            backgroundColor: '#050505',
             display: 'flex',
+            flexDirection: 'column',
             alignItems: 'center',
-            gap: 14,
-            padding: '12px 28px',
-            borderRadius: 6,
-            background: '#0B0B0B',
-            border: '1px solid #21262D',
-            boxShadow: '0 16px 36px rgba(0,0,0,0.9)',
+            justifyContent: 'center',
+            zIndex: 40,
+            opacity: interpolate(frame, [140, 146, 198, 205], [0, 1, 1, 0], {
+              extrapolateRight: 'clamp',
+            }),
           }}
         >
-          <span
+          {/* Subtle Category Pill */}
+          <div
             style={{
-              fontSize: 18,
-              fontWeight: 700,
-              color: '#F5F5F5',
-              fontFamily: "'Geist', 'Inter', sans-serif",
+              padding: '6px 18px',
+              borderRadius: 4,
+              background: '#0B0B0B',
+              border: '1px solid #21262D',
+              color: '#8B949E',
+              fontFamily: "'Geist Mono', monospace",
+              fontSize: 13,
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              marginBottom: 20,
             }}
           >
-            Numbers do not have feelings. Fortunately.
-          </span>
+            The Reality
+          </div>
+
+          {/* Headline: BUT THE SCORE ISN'T THE POINT. */}
+          <div
+            style={{
+              color: '#F5F5F5',
+              fontFamily: "'Geist', 'Inter', -apple-system, sans-serif",
+              fontSize: 52,
+              fontWeight: 800,
+              letterSpacing: '-0.02em',
+              textAlign: 'center',
+              transform: `translateY(${interpolate(
+                frame,
+                [140, 148],
+                [10, 0],
+                { extrapolateRight: 'clamp' }
+              )}px)`,
+            }}
+          >
+            BUT THE SCORE ISN'T THE POINT.
+          </div>
+
+          {/* Contemplative subtext */}
+          <div
+            style={{
+              marginTop: 18,
+              color: '#626A75',
+              fontFamily: "'Geist Mono', monospace",
+              fontSize: 14,
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+            }}
+          >
+            [ Pause ]
+          </div>
+        </div>
+      )}
+
+
+      {/* ─────────────────────────────────────────────────────────────
+          PHASE 4: "WHAT YOU DO NEXT IS." -> Bridge into Quick Wins
+          (Frames 205 - 270 | 6.83s - 9.0s | Orange Highlight & Energy)
+          ───────────────────────────────────────────────────────────── */}
+      {frame >= 205 && (
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            backgroundColor: '#050505',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 40,
+          }}
+        >
+          {/* Headline: WHAT YOU DO NEXT IS. */}
+          <div
+            style={{
+              color: '#FF8A00',
+              fontFamily: "'Geist', 'Inter', -apple-system, sans-serif",
+              fontSize: 58,
+              fontWeight: 800,
+              letterSpacing: '-0.03em',
+              textAlign: 'center',
+              transform: `scale(${interpolate(
+                spring({ frame: frame - 205, fps, config: { damping: 18, stiffness: 140 } }),
+                [0, 1],
+                [0.96, 1]
+              )})`,
+            }}
+          >
+            WHAT YOU DO NEXT IS.
+          </div>
+
+          {/* Bridge into Quick Wins teaser card */}
+          {frame >= 218 && (
+            <div
+              style={{
+                marginTop: 32,
+                display: 'flex',
+                alignItems: 'center',
+                gap: 20,
+                padding: '14px 28px',
+                borderRadius: 8,
+                background: '#0B0B0B',
+                border: '1px solid #FF8A00',
+                boxShadow: '0 12px 32px rgba(255, 138, 0, 0.15)',
+                transform: `translateY(${interpolate(bridgeSlideSpring, [0, 1], [20, 0])}px)`,
+                opacity: interpolate(bridgeSlideSpring, [0, 1], [0, 1]),
+              }}
+            >
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 10,
+                  fontFamily: "'Geist Mono', monospace",
+                  fontSize: 16,
+                  color: '#F5F5F5',
+                }}
+              >
+                <span style={{ color: '#8B949E' }}>463</span>
+                <span style={{ color: '#FF8A00' }}>➔</span>
+                <span style={{ color: '#22C55E', fontWeight: 700 }}>598</span>
+                <span
+                  style={{
+                    background: 'rgba(34, 197, 94, 0.15)',
+                    border: '1px solid #22C55E',
+                    color: '#22C55E',
+                    padding: '2px 8px',
+                    borderRadius: 4,
+                    fontSize: 12,
+                    fontWeight: 700,
+                  }}
+                >
+                  +135 PTS
+                </span>
+              </div>
+
+              <div style={{ width: 1, height: 20, background: '#21262D' }} />
+
+              <div
+                style={{
+                  fontFamily: "'Geist Mono', monospace",
+                  fontSize: 13,
+                  color: '#FF8A00',
+                  fontWeight: 600,
+                  letterSpacing: '0.06em',
+                  textTransform: 'uppercase',
+                }}
+              >
+                Actionable Quick Wins ➔
+              </div>
+            </div>
+          )}
+
+          {/* Sleek Orange Sweep Line at the bottom */}
+          <div
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
+              height: 3,
+              width: `${interpolate(frame, [205, 270], [0, 100], {
+                extrapolateRight: 'clamp',
+              })}%`,
+              background: '#FF8A00',
+              boxShadow: '0 0 12px #FF8A00',
+            }}
+          />
         </div>
       )}
     </div>
