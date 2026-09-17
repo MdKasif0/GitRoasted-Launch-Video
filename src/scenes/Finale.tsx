@@ -1,19 +1,64 @@
 import React from 'react';
-import { interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
-import { Logo } from '../components/Logo';
+import {
+  interpolate,
+  spring,
+  useCurrentFrame,
+  useVideoConfig,
+} from 'remotion';
+import { FlameIcon } from '../components/Logo';
 
 export const Finale: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  const logoSpring = spring({
-    frame: frame - 10,
-    fps,
-    config: { damping: 18, stiffness: 120, mass: 0.8 },
-  });
-  const logoScale = interpolate(logoSpring, [0, 1], [0.97, 1]);
+  // ─────────────────────────────────────────────────────────────
+  // FINAL BRAND REVEAL ARCHITECTURE (Total: 270 frames / 9.0s @ 30fps)
+  //
+  // 0 - 30f (0.0s - 1.0s):
+  //   Clean silence and space following the abrupt cut of Scene 7.
+  //
+  // 30 - 75f (1.0s - 2.5s):
+  //   Centered flame mark + "GITROASTED" enters with crisp, restrained spring.
+  //
+  // 75 - 110f (2.5s - 3.67s):
+  //   Tagline appears:
+  //   "Roast your GitHub.
+  //    Improve your craft."
+  //   Followed by a small, centered orange line.
+  //
+  // 110 - 270f (3.67s - 9.0s | 5.3+ seconds):
+  //   ABSOLUTE STILLNESS & CLEAN SILENCE.
+  //   The final frame holds for 3+ seconds with zero audio, zero CTA, zero fluff.
+  // ─────────────────────────────────────────────────────────────
 
-  const fadeOut = interpolate(frame, [150, 180], [1, 0], {
+  // Logo entrance spring (Starts at Frame 30)
+  const logoSpring = spring({
+    frame: frame - 30,
+    fps,
+    config: { damping: 18, stiffness: 140, mass: 0.8 },
+  });
+  const logoScale = interpolate(logoSpring, [0, 1], [0.94, 1.0]);
+  const logoOpacity = interpolate(logoSpring, [0, 0.4], [0, 1]);
+
+  // Tagline entrance spring (Starts at Frame 65)
+  const taglineSpring = spring({
+    frame: frame - 65,
+    fps,
+    config: { damping: 18, stiffness: 140, mass: 0.8 },
+  });
+  const taglineTranslateY = interpolate(taglineSpring, [0, 1], [14, 0]);
+  const taglineOpacity = interpolate(taglineSpring, [0, 0.4], [0, 1]);
+
+  // Small orange line width spring (Starts at Frame 90)
+  const lineSpring = spring({
+    frame: frame - 90,
+    fps,
+    config: { damping: 16, stiffness: 160 },
+  });
+  const lineWidth = interpolate(lineSpring, [0, 1], [0, 56]);
+
+  // Subtle URL opacity (Starts at Frame 105)
+  const urlOpacity = interpolate(frame, [105, 120], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
@@ -29,89 +74,101 @@ export const Finale: React.FC = () => {
         alignItems: 'center',
         justifyContent: 'center',
         position: 'relative',
-        opacity: fadeOut,
         overflow: 'hidden',
       }}
     >
+      {/* Centered Brand Lockup */}
       <div
         style={{
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: 30,
           transform: `scale(${logoScale})`,
-          opacity: interpolate(logoSpring, [0, 0.4], [0, 1]),
+          opacity: logoOpacity,
           zIndex: 10,
         }}
       >
-        <Logo size={110} showText={true} />
-
-        <div
-          style={{
-            fontSize: 26,
-            fontWeight: 500,
-            color: '#8B949E',
-            fontFamily: "'Geist', 'Inter', sans-serif",
-            letterSpacing: '-0.02em',
-          }}
-        >
-          Turn GitHub activity into comedy. Then into code.
+        {/* Flame Mark */}
+        <div style={{ marginBottom: 24 }}>
+          <FlameIcon size={108} />
         </div>
 
-        {/* Real terminal badge from website */}
+        {/* Brand Name: GITROASTED */}
         <div
           style={{
+            fontFamily: "'Geist', -apple-system, sans-serif",
+            fontSize: 76,
+            fontWeight: 900,
+            letterSpacing: '-0.035em',
+            lineHeight: 1,
             display: 'flex',
-            alignItems: 'center',
-            gap: 12,
-            padding: '12px 28px',
-            borderRadius: 6,
-            background: '#0B0B0B',
-            border: '1px solid #21262D',
-            fontFamily: "'Geist Mono', monospace",
-            fontSize: 22,
-            color: '#F5F5F5',
-            boxShadow: '0 12px 28px rgba(0, 0, 0, 0.85)',
+            alignItems: 'baseline',
           }}
         >
-          <span style={{ color: '#FF8A00' }}>❯</span>
-          <span>git push --roast</span>
+          <span style={{ color: '#F5F5F5' }}>GIT</span>
+          <span style={{ color: '#FF8A00' }}>ROASTED</span>
         </div>
 
-        {/* Tagline & URL */}
+        {/* Tagline: Two Lines as Specified */}
         <div
           style={{
+            marginTop: 28,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            gap: 8,
-            marginTop: 14,
+            textAlign: 'center',
+            lineHeight: 1.32,
+            opacity: taglineOpacity,
+            transform: `translateY(${taglineTranslateY}px)`,
           }}
         >
           <div
             style={{
-              fontFamily: "'Geist Mono', monospace",
-              fontSize: 15,
-              fontWeight: 700,
-              letterSpacing: '0.22em',
-              color: '#626A75',
-              textTransform: 'uppercase',
-            }}
-          >
-            BRUTAL FEEDBACK. BETTER DEVELOPERS.
-          </div>
-
-          <div
-            style={{
-              fontSize: 24,
-              fontWeight: 700,
+              fontFamily: "'Geist', -apple-system, sans-serif",
+              fontSize: 32,
+              fontWeight: 600,
               color: '#F5F5F5',
               letterSpacing: '-0.02em',
-              fontFamily: "'Geist', 'Inter', sans-serif",
             }}
           >
-            gitroasted.com
+            Roast your GitHub.
           </div>
+          <div
+            style={{
+              fontFamily: "'Geist', -apple-system, sans-serif",
+              fontSize: 32,
+              fontWeight: 600,
+              color: '#8B949E',
+              letterSpacing: '-0.02em',
+            }}
+          >
+            Improve your craft.
+          </div>
+        </div>
+
+        {/* Small Orange Line Underneath */}
+        <div
+          style={{
+            marginTop: 26,
+            width: lineWidth,
+            height: 2,
+            backgroundColor: '#FF8A00',
+            borderRadius: 1,
+          }}
+        />
+
+        {/* Clean Web Address */}
+        <div
+          style={{
+            marginTop: 24,
+            fontFamily: "'Geist Mono', monospace",
+            fontSize: 16,
+            color: '#626A75',
+            letterSpacing: '0.12em',
+            opacity: urlOpacity,
+          }}
+        >
+          gitroasted.com
         </div>
       </div>
     </div>

@@ -59,8 +59,8 @@ export const GitRoastedLaunch: React.FC = () => {
           <ProductMontage />
         </Series.Sequence>
 
-        {/* Scene 8: Finale (4s / 120 frames) */}
-        <Series.Sequence durationInFrames={120}>
+        {/* Scene 8: Final Brand Reveal & Deadpan Silence (9s / 270 frames) */}
+        <Series.Sequence durationInFrames={270}>
           <Finale />
         </Series.Sequence>
       </Series>

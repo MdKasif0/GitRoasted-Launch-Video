@@ -14,11 +14,11 @@ import './styles/global.css';
 export const Root: React.FC = () => {
   return (
     <>
-      {/* 80-second Master Composition (1920x1080 @ 30fps) */}
+      {/* 85-second Master Composition (1920x1080 @ 30fps) */}
       <Composition
         id="GitRoastedLaunch"
         component={GitRoastedLaunch}
-        durationInFrames={2400}
+        durationInFrames={2550}
         fps={30}
         width={1920}
         height={1080}
@@ -84,7 +84,7 @@ export const Root: React.FC = () => {
       <Composition
         id="08-Finale"
         component={Finale}
-        durationInFrames={180}
+        durationInFrames={270}
         fps={30}
         width={1920}
         height={1080}
