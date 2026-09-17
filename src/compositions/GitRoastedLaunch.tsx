@@ -54,13 +54,13 @@ export const GitRoastedLaunch: React.FC = () => {
           <QuickWins />
         </Series.Sequence>
 
-        {/* Scene 7: Product Montage (10s / 300 frames) */}
-        <Series.Sequence durationInFrames={300}>
+        {/* Scene 7: Product Montage (12s / 360 frames) */}
+        <Series.Sequence durationInFrames={360}>
           <ProductMontage />
         </Series.Sequence>
 
-        {/* Scene 8: Finale (6s / 180 frames) */}
-        <Series.Sequence durationInFrames={180}>
+        {/* Scene 8: Finale (4s / 120 frames) */}
+        <Series.Sequence durationInFrames={120}>
           <Finale />
         </Series.Sequence>
       </Series>
