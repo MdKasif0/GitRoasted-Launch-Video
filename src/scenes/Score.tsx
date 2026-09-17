@@ -262,10 +262,10 @@ export const Score: React.FC = () => {
                   <div
                     style={{
                       position: 'absolute',
-                      top: 130,
-                      left: 915,
-                      width: 455,
-                      height: 235,
+                      top: 124,
+                      left: 875,
+                      width: 475,
+                      height: 245,
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'flex-start',
@@ -336,10 +336,10 @@ export const Score: React.FC = () => {
                   <div
                     style={{
                       position: 'absolute',
-                      top: 118,
-                      left: 900,
+                      top: 115,
+                      left: 870,
                       width: 485,
-                      height: 260,
+                      height: 265,
                       border: '1px solid rgba(255, 138, 0, 0.5)',
                       borderRadius: 8,
                       background: 'rgba(255, 138, 0, 0.03)',
