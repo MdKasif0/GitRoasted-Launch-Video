@@ -232,127 +232,145 @@ export const Score: React.FC = () => {
             height={820}
             title="gitroasted.com/roast/MdKasif0 — Seriousness Score & Metrics"
           >
-            <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-              <ScreenshotReveal
-                src="roast_page.png"
-                scale={cameraScale}
-                panX={cameraPanX}
-                panY={cameraPanY}
-                borderRadius={0}
-                boxShadow="none"
-                border="none"
-              />
-
-              {/* Dynamic Live Counter Overlay precisely masking and animating the screenshot score */}
-              {frame < 96 && (
-                <div
+            <div
+              style={{
+                position: 'relative',
+                width: '100%',
+                height: '100%',
+                overflow: 'hidden',
+              }}
+            >
+              <div
+                style={{
+                  position: 'absolute',
+                  width: 1440,
+                  transform: `translate(${cameraPanX}px, ${cameraPanY}px) scale(${cameraScale})`,
+                  transformOrigin: '980px 240px',
+                }}
+              >
+                <Img
+                  src={staticFile('roast_page.png')}
                   style={{
-                    position: 'absolute',
-                    top: 250,
-                    left: 770,
-                    width: 330,
-                    height: 180,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'flex-start',
-                    gap: 6,
-                    background: '#080808',
-                    padding: '8px 12px',
-                    borderRadius: 4,
-                    opacity: interpolate(frame, [92, 96], [1, 0], {
-                      extrapolateLeft: 'clamp',
-                      extrapolateRight: 'clamp',
-                    }),
+                    width: 1440,
+                    height: 'auto',
+                    display: 'block',
                   }}
-                >
-                  <div
-                    style={{
-                      fontSize: 12,
-                      fontWeight: 700,
-                      letterSpacing: '0.1em',
-                      color: '#8B949E',
-                      textTransform: 'uppercase',
-                      fontFamily: "'Geist Mono', monospace",
-                    }}
-                  >
-                    SERIOUSNESS SCORE
-                  </div>
+                />
 
-                  <ScoreCounter
-                    startScore={0}
-                    endScore={464}
-                    startFrame={52}
-                    durationInFrames={40}
-                    fontSize={68}
-                  />
-
-                  <SegmentedScoreBar
-                    progress={interpolate(frame, [52, 92], [0, 0.464], {
-                      extrapolateLeft: 'clamp',
-                      extrapolateRight: 'clamp',
-                    })}
-                    totalSegments={10}
-                  />
-
-                  {frame >= 92 && (
-                    <div
-                      style={{
-                        marginTop: 4,
-                        padding: '3px 12px',
-                        borderRadius: 4,
-                        background: '#161B22',
-                        border: '1px solid #FF8A00',
-                        color: '#FF8A00',
-                        fontSize: 12,
-                        fontWeight: 700,
-                        fontFamily: "'Geist Mono', monospace",
-                      }}
-                    >
-                      🔥 Rising Developer
-                    </div>
-                  )}
-                </div>
-              )}
-
-              {/* Subtle orange hairline accent spotlighting the surrounding metrics after score settles */}
-              {frame >= 96 && (
-                <div
-                  style={{
-                    position: 'absolute',
-                    top: 360,
-                    left: 80,
-                    width: 1280,
-                    height: 380,
-                    border: '1px solid rgba(255, 138, 0, 0.4)',
-                    borderRadius: 6,
-                    background: 'rgba(255, 138, 0, 0.02)',
-                    pointerEvents: 'none',
-                    opacity: interpolate(frame, [96, 110], [0, 1], {
-                      extrapolateRight: 'clamp',
-                    }),
-                  }}
-                >
+                {/* Dynamic Live Counter Overlay precisely masking and animating the screenshot score */}
+                {frame < 96 && (
                   <div
                     style={{
                       position: 'absolute',
-                      top: -11,
-                      left: 20,
-                      background: '#0B0B0B',
-                      border: '1px solid #FF8A00',
-                      padding: '2px 10px',
-                      borderRadius: 3,
-                      color: '#FF8A00',
-                      fontFamily: "'Geist Mono', monospace",
-                      fontSize: 10,
-                      fontWeight: 700,
-                      letterSpacing: '0.08em',
-                      textTransform: 'uppercase',
+                      top: 135,
+                      left: 810,
+                      width: 420,
+                      height: 235,
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'flex-start',
+                      gap: 8,
+                      background: '#080A0C',
+                      padding: '10px 14px',
+                      borderRadius: 6,
+                      opacity: interpolate(frame, [92, 96], [1, 0], {
+                        extrapolateLeft: 'clamp',
+                        extrapolateRight: 'clamp',
+                      }),
                     }}
                   >
-                    Surrounding Interface // Quick Wins & Metrics
+                    <div
+                      style={{
+                        fontSize: 13,
+                        fontWeight: 700,
+                        letterSpacing: '0.12em',
+                        color: '#8B949E',
+                        textTransform: 'uppercase',
+                        fontFamily: "'Geist Mono', monospace",
+                      }}
+                    >
+                      SERIOUSNESS SCORE
+                    </div>
+
+                    <ScoreCounter
+                      startScore={0}
+                      endScore={464}
+                      startFrame={52}
+                      durationInFrames={40}
+                      fontSize={68}
+                    />
+
+                    <SegmentedScoreBar
+                      progress={interpolate(frame, [52, 92], [0, 0.464], {
+                        extrapolateLeft: 'clamp',
+                        extrapolateRight: 'clamp',
+                      })}
+                      totalSegments={10}
+                    />
+
+                    {frame >= 92 && (
+                      <div
+                        style={{
+                          marginTop: 4,
+                          padding: '4px 14px',
+                          borderRadius: 20,
+                          background: 'rgba(255, 138, 0, 0.08)',
+                          border: '1px solid #FF8A00',
+                          color: '#FF8A00',
+                          fontSize: 13,
+                          fontWeight: 700,
+                          fontFamily: "'Geist Mono', monospace",
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: 6,
+                        }}
+                      >
+                        🔥 Rising Developer
+                      </div>
+                    )}
                   </div>
-                </div>
-              )}
+                )}
+
+                {/* Subtle orange hairline accent spotlighting the score & surrounding interface after score settles */}
+                {frame >= 96 && (
+                  <div
+                    style={{
+                      position: 'absolute',
+                      top: 120,
+                      left: 795,
+                      width: 450,
+                      height: 260,
+                      border: '1px solid rgba(255, 138, 0, 0.5)',
+                      borderRadius: 8,
+                      background: 'rgba(255, 138, 0, 0.03)',
+                      pointerEvents: 'none',
+                      opacity: interpolate(frame, [96, 108], [0, 1], {
+                        extrapolateRight: 'clamp',
+                      }),
+                    }}
+                  >
+                    <div
+                      style={{
+                        position: 'absolute',
+                        top: -11,
+                        left: 16,
+                        background: '#0B0B0B',
+                        border: '1px solid #FF8A00',
+                        padding: '2px 10px',
+                        borderRadius: 3,
+                        color: '#FF8A00',
+                        fontFamily: "'Geist Mono', monospace",
+                        fontSize: 10,
+                        fontWeight: 700,
+                        letterSpacing: '0.08em',
+                        textTransform: 'uppercase',
+                      }}
+                    >
+                      VERIFIED SERIOUSNESS SCORE
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
           </DeviceFrame>
 
