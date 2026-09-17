@@ -679,8 +679,8 @@ export const ProductMontage: React.FC = () => {
                 style={{
                   position: 'absolute',
                   width: 1440,
-                  transform: `translate(0px, -1250px) scale(${s5Scale})`,
-                  transformOrigin: '720px 1400px',
+                  transform: `translate(0px, -1480px) scale(${s5Scale})`,
+                  transformOrigin: '720px 1480px',
                 }}
               >
                 <Img
