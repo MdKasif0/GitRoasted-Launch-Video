@@ -243,87 +243,91 @@ export const Score: React.FC = () => {
                 border="none"
               />
 
-              {/* Dynamic Live Counter Overlay precisely aligned with the screenshot score */}
-              <div
-                style={{
-                  position: 'absolute',
-                  top: 70,
-                  right: 80,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'flex-end',
-                  gap: 8,
-                  background: 'rgba(11, 11, 11, 0.95)',
-                  border: '1px solid #21262D',
-                  padding: '16px 24px',
-                  borderRadius: 6,
-                  boxShadow: '0 16px 36px rgba(0,0,0,0.9)',
-                  backdropFilter: 'none',
-                }}
-              >
-                <div
-                  style={{
-                    fontSize: 11,
-                    fontWeight: 700,
-                    letterSpacing: '0.12em',
-                    color: '#8B949E',
-                    textTransform: 'uppercase',
-                    fontFamily: "'Geist Mono', monospace",
-                  }}
-                >
-                  SERIOUSNESS SCORE
-                </div>
-
-                <ScoreCounter
-                  startScore={0}
-                  endScore={464}
-                  startFrame={52}
-                  durationInFrames={40}
-                  fontSize={68}
-                />
-
-                <SegmentedScoreBar
-                  progress={interpolate(frame, [52, 92], [0, 0.464], {
-                    extrapolateLeft: 'clamp',
-                    extrapolateRight: 'clamp',
-                  })}
-                  totalSegments={10}
-                />
-
-                {frame >= 92 && (
-                  <div
-                    style={{
-                      marginTop: 4,
-                      padding: '3px 12px',
-                      borderRadius: 4,
-                      background: '#161B22',
-                      border: '1px solid #FF8A00',
-                      color: '#FF8A00',
-                      fontSize: 12,
-                      fontWeight: 700,
-                      fontFamily: "'Geist Mono', monospace",
-                      transform: `scale(${interpolate(badgeSpring, [0, 1], [0.94, 1])})`,
-                    }}
-                  >
-                    🔥 Rising Developer
-                  </div>
-                )}
-              </div>
-
-              {/* Subtle orange hairline accent spotlighting the surrounding metrics after score settles */}
-              {frame >= 92 && (
+              {/* Dynamic Live Counter Overlay precisely masking and animating the screenshot score */}
+              {frame < 96 && (
                 <div
                   style={{
                     position: 'absolute',
                     top: 250,
-                    left: 200,
-                    width: 1040,
-                    height: 480,
+                    left: 770,
+                    width: 330,
+                    height: 180,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                    gap: 6,
+                    background: '#080808',
+                    padding: '8px 12px',
+                    borderRadius: 4,
+                    opacity: interpolate(frame, [92, 96], [1, 0], {
+                      extrapolateLeft: 'clamp',
+                      extrapolateRight: 'clamp',
+                    }),
+                  }}
+                >
+                  <div
+                    style={{
+                      fontSize: 12,
+                      fontWeight: 700,
+                      letterSpacing: '0.1em',
+                      color: '#8B949E',
+                      textTransform: 'uppercase',
+                      fontFamily: "'Geist Mono', monospace",
+                    }}
+                  >
+                    SERIOUSNESS SCORE
+                  </div>
+
+                  <ScoreCounter
+                    startScore={0}
+                    endScore={464}
+                    startFrame={52}
+                    durationInFrames={40}
+                    fontSize={68}
+                  />
+
+                  <SegmentedScoreBar
+                    progress={interpolate(frame, [52, 92], [0, 0.464], {
+                      extrapolateLeft: 'clamp',
+                      extrapolateRight: 'clamp',
+                    })}
+                    totalSegments={10}
+                  />
+
+                  {frame >= 92 && (
+                    <div
+                      style={{
+                        marginTop: 4,
+                        padding: '3px 12px',
+                        borderRadius: 4,
+                        background: '#161B22',
+                        border: '1px solid #FF8A00',
+                        color: '#FF8A00',
+                        fontSize: 12,
+                        fontWeight: 700,
+                        fontFamily: "'Geist Mono', monospace",
+                      }}
+                    >
+                      🔥 Rising Developer
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Subtle orange hairline accent spotlighting the surrounding metrics after score settles */}
+              {frame >= 96 && (
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: 360,
+                    left: 80,
+                    width: 1280,
+                    height: 380,
                     border: '1px solid rgba(255, 138, 0, 0.4)',
                     borderRadius: 6,
                     background: 'rgba(255, 138, 0, 0.02)',
                     pointerEvents: 'none',
-                    opacity: interpolate(frame, [92, 105], [0, 1], {
+                    opacity: interpolate(frame, [96, 110], [0, 1], {
                       extrapolateRight: 'clamp',
                     }),
                   }}
@@ -345,7 +349,7 @@ export const Score: React.FC = () => {
                       textTransform: 'uppercase',
                     }}
                   >
-                    Surrounding Metric Breakdown
+                    Surrounding Interface // Quick Wins & Metrics
                   </div>
                 </div>
               )}
