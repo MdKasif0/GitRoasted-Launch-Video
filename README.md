@@ -9,10 +9,10 @@
 
 ### Chart 1: Where Developer Time Actually Goes
 ```mermaid
-pie title "What Developers Actually Do All Day (Real & Unfiltered)"
+pie title What Developers Actually Do All Day
     "Writing actual working code" : 4
-    "Creating repos that get abandoned by tomorrow" : 38
-    "Leaving README as 'Coming Soon' for 3 years" : 28
+    "Creating repos that get abandoned tomorrow" : 38
+    "Leaving README as Coming Soon for 3 years" : 28
     "Making 1-line whitespace commits for streak" : 18
     "Staring at merge conflicts at 3 AM" : 12
 ```
@@ -22,7 +22,7 @@ pie title "What Developers Actually Do All Day (Real & Unfiltered)"
 ### Chart 2: The Canonical 3 AM Git Workflow
 ```mermaid
 gitGraph
-    commit id: "init (pure vibes)"
+    commit id: "init vibes"
     commit id: "add button"
     branch feature/delusion
     checkout feature/delusion
@@ -40,17 +40,17 @@ gitGraph
 ### Chart 3: The GitRoasted Emotional Rollercoaster
 ```mermaid
 flowchart TD
-    A([Dev opens GitRoasted]) --> B[Types @username full of confidence]
+    A([Dev opens GitRoasted]) --> B["Types @username full of confidence"]
     B --> C{AI Scans Commit History}
-    C -->|47 empty repos found| D[Emotional Damage 💀]
-    C -->|8-month gap in streak| E[Cooked af fr]
-    C -->|Commit: 'fixed bug final v2'| F[Direct Soul Roast 🔥]
-    D & E & F --> G[Score: 464 / 1000]
-    G --> H[Stage 1: Denial 'The AI is tripping']
-    H --> I[Stage 2: Coping 'Score isn't the point']
-    I --> J[Stage 3: Quick Wins Roadmap]
-    J --> K[Add MIT License + CI/CD Workflow]
-    K --> L[Score +135 pts: WE ARE SO BACK 🚀]
+    C -->|47 empty repos found| D["Emotional Damage 💀"]
+    C -->|8-month gap in streak| E["Cooked af fr"]
+    C -->|Commit: fixed bug final v2| F["Direct Soul Roast 🔥"]
+    D & E & F --> G["Score: 464 / 1000"]
+    G --> H["Stage 1: Denial (The AI is tripping)"]
+    H --> I["Stage 2: Coping (Score is not the point)"]
+    I --> J["Stage 3: Quick Wins Roadmap"]
+    J --> K["Add MIT License + CI/CD Workflow"]
+    K --> L["Score +135 pts: WE ARE SO BACK 🚀"]
 ```
 
 ---
@@ -59,16 +59,16 @@ flowchart TD
 ```mermaid
 quadrantChart
     title GitHub Aura vs Sleep Deprivation
-    x-axis Negative Aura (0 stars) --> Gigachad Aura (10k stars)
+    x-axis Zero Stars Low Aura --> 10k Stars Gigachad Aura
     y-axis Touching Grass --> 3 AM Goblin Mode
     quadrant-1 10x Mythical Beast
     quadrant-2 Insane Night Owl
     quadrant-3 Tutorial Hell NPC
     quadrant-4 Emotionally Stable
-    You (Score 464): [0.35, 0.78]
+    You: [0.35, 0.78]
     Linus Torvalds: [0.95, 0.90]
     Your 47 Empty Repos: [0.15, 0.22]
-    The 'Coming Soon' README: [0.28, 0.45]
+    Coming Soon README: [0.28, 0.45]
 ```
 
 ---
