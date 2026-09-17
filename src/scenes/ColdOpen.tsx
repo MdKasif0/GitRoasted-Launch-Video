@@ -1,10 +1,7 @@
 import React from 'react';
 import {
-  Audio,
   interpolate,
-  Sequence,
   spring,
-  staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from 'remotion';
@@ -49,36 +46,6 @@ export const ColdOpen: React.FC = () => {
         color: '#F5F5F5',
       }}
     >
-      {/* ================= AUDIO DESIGN ================= */}
-      {/* Low-volume cinematic electronic bed */}
-      <Sequence from={0} durationInFrames={258}>
-        <Audio src={staticFile('audio/drone.wav')} volume={0.35} />
-      </Sequence>
-
-      {/* Subtle keyboard typing sound in black pause */}
-      {[108, 111, 114, 117].map((f, i) => (
-        <Sequence key={`key-${i}`} from={f} durationInFrames={8}>
-          <Audio src={staticFile('audio/keystroke.wav')} volume={0.5} />
-        </Sequence>
-      ))}
-
-      {/* UI clicks during rapid inspection flashes */}
-      {[122, 138, 154, 170].map((f, i) => (
-        <Sequence key={`click-${i}`} from={f} durationInFrames={10}>
-          <Audio src={staticFile('audio/click.wav')} volume={0.4} />
-        </Sequence>
-      ))}
-
-      {/* Hard cut logo impact */}
-      <Sequence from={220} durationInFrames={38}>
-        <Audio src={staticFile('audio/impact.wav')} volume={0.65} />
-      </Sequence>
-
-      {/* Fast orange line wipe whoosh */}
-      <Sequence from={258} durationInFrames={12}>
-        <Audio src={staticFile('audio/whoosh.wav')} volume={0.55} />
-      </Sequence>
-
       {/* ================= PHASE 1: DOCUMENTARY OPENING (0 - 105f) ================= */}
       {frame < 105 && (
         <div
