@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Audio,
+  Img,
   interpolate,
   Sequence,
   spring,
@@ -9,7 +10,6 @@ import {
   useVideoConfig,
 } from 'remotion';
 import { DeviceFrame } from '../components/DeviceFrame';
-import { ScreenshotReveal } from '../components/ScreenshotReveal';
 import { ScoreCounter, SegmentedScoreBar } from '../components/ProgressBar';
 
 export const Score: React.FC = () => {
@@ -21,21 +21,21 @@ export const Score: React.FC = () => {
   const cameraScale = interpolate(
     frame,
     [48, 92, 140],
-    [1.22, 1.25, 1.36],
+    [1.18, 1.20, 1.32],
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
   );
 
   const cameraPanY = interpolate(
     frame,
     [48, 92, 140],
-    [-28, -28, -32],
+    [15, 15, 10],
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
   );
 
   const cameraPanX = interpolate(
     frame,
     [48, 92, 140],
-    [-260, -260, -260],
+    [-240, -240, -240],
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
   );
 
