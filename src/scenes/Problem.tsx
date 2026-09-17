@@ -1,10 +1,7 @@
 import React from 'react';
 import {
-  Audio,
   interpolate,
-  Sequence,
   spring,
-  staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from 'remotion';
@@ -109,68 +106,6 @@ export const Problem: React.FC = () => {
         fontFamily: "'Geist', 'Inter', -apple-system, sans-serif",
       }}
     >
-      {/* ================= AUDIO DESIGN ================= */}
-      {/* 1. Minimal Electronic Pulse Bed that filters up (0 - 186f) */}
-      <Sequence from={0} durationInFrames={186}>
-        <Audio src={staticFile('audio/pulse_bed.wav')} volume={0.32} />
-      </Sequence>
-
-      {/* 2. Soft Bass Hit on Beat 1: "YOU BUILD THINGS." */}
-      <Sequence from={0} durationInFrames={30}>
-        <Audio src={staticFile('audio/soft_bass.wav')} volume={0.65} />
-      </Sequence>
-
-      {/* 3. Keystroke Flurry on Beat 2: Code compile log */}
-      {[43, 46, 49, 53].map((f, i) => (
-        <Sequence key={`key-${i}`} from={f} durationInFrames={8}>
-          <Audio src={staticFile('audio/keystroke.wav')} volume={0.38} />
-        </Sequence>
-      ))}
-
-      {/* 4. Soft Bass Hit on Beat 3: "YOU PUSH CODE." */}
-      <Sequence from={72} durationInFrames={30}>
-        <Audio src={staticFile('audio/soft_bass.wav')} volume={0.65} />
-      </Sequence>
-
-      {/* 5. Micro notification clicks on Beat 4: Pipeline */}
-      <Sequence from={114} durationInFrames={15}>
-        <Audio src={staticFile('audio/notif_click.wav')} volume={0.5} />
-      </Sequence>
-      <Sequence from={128} durationInFrames={15}>
-        <Audio src={staticFile('audio/notif_click.wav')} volume={0.5} />
-      </Sequence>
-
-      {/* 6. Soft Bass Hit + tick on Beat 5: "YOU CREATE 47 REPOSITORIES." */}
-      <Sequence from={142} durationInFrames={30}>
-        <Audio src={staticFile('audio/soft_bass.wav')} volume={0.7} />
-      </Sequence>
-      <Sequence from={143} durationInFrames={15}>
-        <Audio src={staticFile('audio/tick.wav')} volume={0.6} />
-      </Sequence>
-
-      {/* 7. Comedic Tape-Stop / Record-Stop on Beat 6: Sudden Pause! */}
-      <Sequence from={186} durationInFrames={25}>
-        <Audio src={staticFile('audio/tape_stop.wav')} volume={0.75} />
-      </Sequence>
-
-      {/* 8. Single quiet mechanical key tap on Beat 7: "AND SOMEHOW..." */}
-      <Sequence from={206} durationInFrames={15}>
-        <Audio src={staticFile('audio/keystroke.wav')} volume={0.4} />
-      </Sequence>
-
-      {/* 9. Dry UI Click on Beat 9: "...your README still says 'coming soon.'" */}
-      <Sequence from={252} durationInFrames={20}>
-        <Audio src={staticFile('audio/click.wav')} volume={0.6} />
-      </Sequence>
-
-      {/* 10. Subtle Chime + Whoosh into Product Reveal (292 - 330f) */}
-      <Sequence from={292} durationInFrames={40}>
-        <Audio src={staticFile('audio/chime.wav')} volume={0.45} />
-      </Sequence>
-      <Sequence from={318} durationInFrames={30}>
-        <Audio src={staticFile('audio/whoosh.wav')} volume={0.4} />
-      </Sequence>
-
       {/* ================= VISUAL BEATS ================= */}
 
       {/* BEAT 1: "YOU BUILD THINGS." (0 - 42f) */}
