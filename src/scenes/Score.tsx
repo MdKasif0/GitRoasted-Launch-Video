@@ -21,21 +21,21 @@ export const Score: React.FC = () => {
   const cameraScale = interpolate(
     frame,
     [48, 92, 140],
-    [1.18, 1.20, 1.32],
+    [1.15, 1.18, 1.28],
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
   );
 
   const cameraPanY = interpolate(
     frame,
     [48, 92, 140],
-    [15, 15, 10],
+    [20, 20, 15],
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
   );
 
   const cameraPanX = interpolate(
     frame,
     [48, 92, 140],
-    [-240, -240, -240],
+    [-320, -320, -320],
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
   );
 
@@ -245,7 +245,7 @@ export const Score: React.FC = () => {
                   position: 'absolute',
                   width: 1440,
                   transform: `translate(${cameraPanX}px, ${cameraPanY}px) scale(${cameraScale})`,
-                  transformOrigin: '980px 240px',
+                  transformOrigin: '1142px 247px',
                 }}
               >
                 <Img
@@ -262,16 +262,16 @@ export const Score: React.FC = () => {
                   <div
                     style={{
                       position: 'absolute',
-                      top: 135,
-                      left: 810,
-                      width: 420,
+                      top: 130,
+                      left: 915,
+                      width: 455,
                       height: 235,
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'flex-start',
                       gap: 8,
                       background: '#080A0C',
-                      padding: '10px 14px',
+                      padding: '10px 18px',
                       borderRadius: 6,
                       opacity: interpolate(frame, [92, 96], [1, 0], {
                         extrapolateLeft: 'clamp',
@@ -336,9 +336,9 @@ export const Score: React.FC = () => {
                   <div
                     style={{
                       position: 'absolute',
-                      top: 120,
-                      left: 795,
-                      width: 450,
+                      top: 118,
+                      left: 900,
+                      width: 485,
                       height: 260,
                       border: '1px solid rgba(255, 138, 0, 0.5)',
                       borderRadius: 8,
