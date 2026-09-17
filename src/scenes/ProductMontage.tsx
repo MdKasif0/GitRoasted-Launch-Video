@@ -1,9 +1,7 @@
 import React from 'react';
 import {
-  Audio,
   Img,
   interpolate,
-  Sequence,
   spring,
   staticFile,
   useCurrentFrame,
@@ -99,75 +97,6 @@ export const ProductMontage: React.FC = () => {
         overflow: 'hidden',
       }}
     >
-      {/* ─────────────────────────────────────────────────────────────
-          SELF-CONTAINED AUDIO ARCHITECTURE
-          Music drives to its strongest peak at frame 225-270,
-          then at Frame 270: ABRUPTLY CUTS TO TOTAL DEADPAN SILENCE.
-          ───────────────────────────────────────────────────────────── */}
-      {/* 1. Main Montage Driving Beat: Frames 0 - 270 */}
-      <Sequence from={0} durationInFrames={270}>
-        <Audio src={staticFile('audio/reveal_beat.wav')} volume={0.8} />
-      </Sequence>
-
-      {/* 2. Secondary Synth Swell for Peak Intensity: Frames 180 - 270 */}
-      <Sequence from={180} durationInFrames={90}>
-        <Audio src={staticFile('audio/bridge_energy.wav')} volume={0.65} />
-      </Sequence>
-
-      {/* 3. Transition Whooshes */}
-      <Sequence from={0} durationInFrames={20}>
-        <Audio src={staticFile('audio/whoosh.wav')} volume={0.4} />
-      </Sequence>
-      <Sequence from={44} durationInFrames={20}>
-        <Audio src={staticFile('audio/whoosh.wav')} volume={0.45} />
-      </Sequence>
-      <Sequence from={89} durationInFrames={20}>
-        <Audio src={staticFile('audio/whoosh.wav')} volume={0.45} />
-      </Sequence>
-      <Sequence from={134} durationInFrames={20}>
-        <Audio src={staticFile('audio/whoosh.wav')} volume={0.45} />
-      </Sequence>
-      <Sequence from={179} durationInFrames={20}>
-        <Audio src={staticFile('audio/whoosh.wav')} volume={0.5} />
-      </Sequence>
-      <Sequence from={224} durationInFrames={20}>
-        <Audio src={staticFile('audio/whoosh.wav')} volume={0.6} />
-      </Sequence>
-
-      {/* 4. Rhythmic Clicks on Word Beats */}
-      <Sequence from={0} durationInFrames={15}>
-        <Audio src={staticFile('audio/notif_click.wav')} volume={0.45} />
-      </Sequence>
-      <Sequence from={45} durationInFrames={15}>
-        <Audio src={staticFile('audio/click.wav')} volume={0.5} />
-      </Sequence>
-      <Sequence from={90} durationInFrames={15}>
-        <Audio src={staticFile('audio/tick.wav')} volume={0.5} />
-      </Sequence>
-      <Sequence from={135} durationInFrames={15}>
-        <Audio src={staticFile('audio/chime.wav')} volume={0.4} />
-      </Sequence>
-      <Sequence from={180} durationInFrames={15}>
-        <Audio src={staticFile('audio/click.wav')} volume={0.5} />
-      </Sequence>
-
-      {/* Rapid Clicks on Final Payoff Typographic Stack (225 - 270) */}
-      <Sequence from={225} durationInFrames={12}>
-        <Audio src={staticFile('audio/keystroke.wav')} volume={0.55} />
-      </Sequence>
-      <Sequence from={236} durationInFrames={12}>
-        <Audio src={staticFile('audio/keystroke.wav')} volume={0.55} />
-      </Sequence>
-      <Sequence from={247} durationInFrames={12}>
-        <Audio src={staticFile('audio/keystroke.wav')} volume={0.6} />
-      </Sequence>
-      <Sequence from={258} durationInFrames={15}>
-        <Audio src={staticFile('audio/soft_bass.wav')} volume={0.7} />
-      </Sequence>
-
-      {/* Frame 270 - 360: DEAD SILENCE. Zero audio. */}
-
-
       {/* ─────────────────────────────────────────────────────────────
           SHOT 1: HOME / PRODUCT IDENTITY (Frames 0 - 45 | 0.0s - 1.5s)
           Narrative Beat: "ANALYZE."
