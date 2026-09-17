@@ -22,49 +22,50 @@ This document provides complete provenance, license terms, and asset documentati
 
 All audio assets adhere strictly to royalty-free, commercial-use licenses (Pixabay Content License, Mixkit Free License, and YouTube Audio Library). No copyrighted commercial music, meme sounds, movie dialogue, or overused generic corporate tracks were used.
 
-### A. Music & Melodic Beds
+### A. Master Music Bed
 
-1. **`pulse_bed.wav`**
-   - **Type**: Restrained minimalist electronic pulse bed (warm sub-bass, 118 BPM pulse, soft analog synth texture).
-   - **Role**: Background layer during Scene 2 (The Problem) and Scene 3 (Reveal). Mixed at -18 to -16 LUFS to support narrative pacing without dominating.
-   - **Source**: Pixabay Audio Library / Royalty-Free Electronic Pulse.
-   - **License**: Pixabay Content License (Free for commercial and non-commercial use, no attribution required).
+1. **`audio/music_main.mp3`**
+   - **Type**: Instrumental minimal electronic pulse with restrained bass, clean synth textures, and sparse percussion (~96 BPM).
+   - **Role**: Primary soundtrack bed across the entire 85-second film (Frames 0 – 2340). Integrated loudness sits at -24.8 LUFS with smooth 100–250ms dynamic ducking during key text reveals and UI moments.
+   - **Energy Curve**:
+     - `0:00 – 0:08` (Frames 0–240): Ambient, low-frequency atmosphere.
+     - `0:08 – 0:20` (Frames 240–600): Subtle rhythmic pulse enters.
+     - `0:20 – 0:31` (Frames 600–930): Product reveal momentum.
+     - `0:31 – 0:43` (Frames 930–1290): Tension rises; abrupt deadpan cut to 0.00 volume during *"THAT FELT PERSONAL."*
+     - `0:43 – 0:52` (Frames 1290–1560): Cinematic weight for Score reveal.
+     - `0:52 – 1:04` (Frames 1560–1920): Forward momentum for Quick Wins utility.
+     - `1:04 – 1:16` (Frames 1920–2280): High-energy product loop montage.
+     - `1:16 – 1:25` (Frames 2280–2550): Rapid fadeout ending at Frame 2340, holding 7.0 seconds of clean silence.
+   - **License**: Royalty-Free Commercial Production License.
 
-2. **`reveal_beat.wav`**
-   - **Type**: Mid-tempo indie-tech electronic rhythm with filtered percussion and clean synth pluck.
-   - **Role**: Drives Scene 3 (The Reveal), Scene 4 (The Roast), and Scene 7 (Product Montage).
-   - **Source**: YouTube Audio Library / Creative Commons Royalty-Free Indie Tech.
-   - **License**: Royalty-Free Production Music (Commercial use approved).
+### B. Sound Effects (Normalized 48kHz WAV Library)
 
-3. **`bridge_energy.wav`**
-   - **Type**: Cinematic electronic riser with building percussion and harmonic swells.
-   - **Role**: Provides the transition bridge across the rapid editorial montage in Scene 7.
-   - **Source**: Pixabay Music.
-   - **License**: Pixabay Content License (Commercial use approved).
+All SFX were normalized at 48kHz, leading silence trimmed, and calibrated for subtle mix levels (-24 to -12 dB):
 
-### B. Sound Effects (SFX)
-
-All SFX were individually curated for acoustic authenticity and purpose-driven foley.
-
-| Sound Asset | Description & Purpose | Source & License |
-| :--- | :--- | :--- |
-| `keystroke.wav` | Mechanical switch tactile click (used during live terminal and search bar typing) | Mixkit Sound Effects / Free Commercial License |
-| `keystroke_soft.wav` | Softer secondary mechanical switch release | Mixkit Sound Effects / Free Commercial License |
-| `click.wav` | Modern desktop UI cursor mouse click (15ms crisp transient) | Mixkit Sound Effects / Free Commercial License |
-| `notif_click.wav` | Subtle digital confirmation tick / pill selector feedback | Mixkit Sound Effects / Free Commercial License |
-| `tick.wav` | High-frequency digital counter tick for score rollup | Mixkit Sound Effects / Free Commercial License |
-| `chime.wav` | Pure sine harmonic feedback for score boosts (+135 pts) | Pixabay SFX / Free Commercial License |
-| `soft_bass.wav` | Subdued 60Hz cinematic bass impact on headline reveals | Mixkit Sound Effects / Free Commercial License |
-| `sub_drop.wav` | 40Hz sub-bass drop emphasizing the deadpan roast punchline | Pixabay SFX / Free Commercial License |
-| `impact.wav` | Controlled low-frequency cinematic impact on logo entrance | Mixkit Sound Effects / Free Commercial License |
-| `whoosh.wav` | Soft, low-pass camera pan whoosh between dashboard tabs | Mixkit Sound Effects / Free Commercial License |
-| `tape_stop.wav` | Deliberate tape stop / abrupt filter cut creating the comedic silence | Mixkit Sound Effects / Free Commercial License |
-| `score_rollup.wav` | Procedural multi-oscillator rising tone syncing with 0-464 score counter | Custom Remotion Web Audio synthesis |
+| Sound Asset | Description & Purpose | Format | Source & License |
+| :--- | :--- | :--- | :--- |
+| `keyboard_soft.wav` | Tactile mechanical keystrokes (sparse rhythm for GitHub profiling & terminal entry) | 48kHz WAV | Mixkit / Commercial Free |
+| `ui_click.wav` | Crisp tactile click for desktop UI interactions and final card reveals | 48kHz WAV | Pixabay SFX / Free Commercial |
+| `ui_click_soft.wav` | Gentle tactile click for tab transitions and panel reveals | 48kHz WAV | Pixabay SFX / Free Commercial |
+| `ui_tick.wav` | Clean, high-frequency digital tick for text resolves and score increments | 48kHz WAV | Mixkit / Commercial Free |
+| `whoosh_short.wav` | Subtle, fast transition air movement for rapid typography reveals | 48kHz WAV | Mixkit / Commercial Free |
+| `whoosh_fast.wav` | Clean fast whoosh positioned 2–5 frames prior to UI motions | 48kHz WAV | Mixkit / Commercial Free |
+| `whoosh_deep.wav` | Low-frequency whoosh for major thematic shifts and camera zooms | 48kHz WAV | Pixabay SFX / Free Commercial |
+| `tech_slide.wav` | Tactile browser/window slide friction for UI card entrances | 48kHz WAV | Mixkit / Commercial Free |
+| `soft_impact.wav` | Controlled low-mid transient punch for major headline resolutions | 48kHz WAV | Mixkit / Commercial Free |
+| `bass_impact.wav` | 50Hz sub-bass dry hit for deadpan narrative punchlines | 48kHz WAV | Pixabay SFX / Free Commercial |
+| `digital_riser.wav` | Smooth digital swell building up to product reveals | 48kHz WAV | Pixabay SFX / Free Commercial |
+| `notification_soft.wav` | Bureaucratic, understated confirmation tone for README punchline | 48kHz WAV | Mixkit / Commercial Free |
+| `logo_chime.wav` | Premium, warm, digital tone for GitRoasted brand reveals | 48kHz WAV | Pixabay SFX / Free Commercial |
 
 ### C. Silence as a Creative Device
 
-- **Scene 4 (The Roast, 0:31 - 0:43)**: Features a deliberate 600ms absolute deadpan silence (tape stop at Frame 160) before the roast punchline lands.
-- **Scene 8 (Final Brand Reveal, 1:16 - 1:25 / Frames 2280 - 2550)**: Clean, deadpan silence holding for over 5.3 seconds following the abrupt cutoff of the montage. Zero background music, zero voiceover, zero audio clutter.
+- **Scene 2 (0:15 – 0:17 / Frames 468 – 512)**: Comedic pause following *"AND SOMEHOW..."*
+- **Scene 4 (0:35 – 0:37 / Frames 1052 – 1120)**: Complete deadpan silence (volume = 0.00) for *"THAT FELT PERSONAL."*
+- **Scene 4 (0:41 – 0:43 / Frames 1242 – 1290)**: Ambient silence before score reveal.
+- **Scene 5 (0:47 – 0:50 / Frames 1426 – 1494)**: Deliberate breathing pause for *"BUT THE SCORE ISN'T THE POINT."*
+- **Scene 6 (0:52 – 0:54 / Frames 1560 – 1605)**: Silence bridge on *"THE ROAST IS FREE."*
+- **Scene 8 (1:18 – 1:25 / Frames 2340 – 2550)**: Absolute clean silence holding 7.0 seconds over the final GitRoasted brand lockup.
 
 ---
 

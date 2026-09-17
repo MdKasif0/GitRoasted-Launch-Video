@@ -50,10 +50,11 @@
 
 All audio tracks and sound effects are royalty-free and approved for commercial use under the **Pixabay Content License**, **Mixkit Free License**, and **YouTube Audio Library**.
 
-- **Music Direction**: Restrained indie-tech electronic pulse beds (`pulse_bed.wav`, `reveal_beat.wav`, `bridge_energy.wav`) featuring warm sub-bass, light synth textures, and clear rhythmic momentum kept at -18 to -14 LUFS.
-- **SFX**: Purpose-driven foley including mechanical keystrokes (`keystroke.wav`), desktop cursor clicks (`click.wav`), soft digital ticks (`tick.wav`), sub-bass impacts (`soft_bass.wav`, `sub_drop.wav`), and a deliberate comedic tape stop (`tape_stop.wav`).
-- **Clean Silence**: Scene 8 deliberately ends with 0 audio, holding 5.3+ seconds in absolute silence for maximum impact.
-- Detailed license records and source manifest are available in [ATTRIBUTION.md](./ATTRIBUTION.md).
+- **Centralized Audio Architecture**: Built strictly following Remotion frame-exact scheduling via `src/audio/audioRegistry.ts`, `src/audio/audioTimeline.ts`, and `src/audio/AudioTrack.tsx`.
+- **Master Music Bed**: Single instrumental track (`audio/music_main.mp3`) running under dynamic volume curve (-24 to -20 LUFS target), smoothly ducking (-2 to -4 dB) during key text reveals and UI interactions.
+- **Normalized 48kHz SFX Foley**: Trimmed, studio-normalized sound library including `keyboard_soft.wav`, `ui_click.wav`, `ui_click_soft.wav`, `ui_tick.wav`, `whoosh_short.wav`, `whoosh_fast.wav`, `whoosh_deep.wav`, `tech_slide.wav`, `soft_impact.wav`, `bass_impact.wav`, `digital_riser.wav`, `notification_soft.wav`, and `logo_chime.wav`.
+- **Negative Space & Intentional Silence**: Comedic restraint is preserved by withholding audio from insignificant visual movements and maintaining deliberate deadpan silence blocks (e.g., Frame 1055–1110 for *"THAT FELT PERSONAL."* and Frame 2340–2550 for the final logo hold).
+- Detailed license records, audio cues, and source manifest are available in [ATTRIBUTION.md](./ATTRIBUTION.md).
 
 ---
 
