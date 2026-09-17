@@ -330,4 +330,89 @@ if (!fs.existsSync(outDir)) {
   writeWavFile(path.join(outDir, 'roast_ambience.wav'), samples);
 }
 
+// 14. Cinematic Low Bass Rise (3.0s) - smooth sub bass frequency sweep from 36Hz to 70Hz with cinematic swell
+{
+  const duration = 3.0;
+  const numSamples = Math.floor(sampleRate * duration);
+  const samples = new Float32Array(numSamples);
+
+  for (let i = 0; i < numSamples; i++) {
+    const t = i / sampleRate;
+    const progress = t / duration;
+
+    // Rising frequency curve
+    const freq = 36 + Math.pow(progress, 1.8) * 36; // 36Hz to 72Hz
+    const phase = 2 * Math.PI * (36 * t + (36 / 2.8) * Math.pow(t, 2.8) / Math.pow(duration, 1.8));
+
+    // Envelope: swells smoothly then cuts off crisply at the end
+    const env = Math.sin(Math.min(1.0, progress * 1.1) * Math.PI * 0.5) * (1 - Math.max(0, (progress - 0.9) * 10));
+
+    // Analog style saturation
+    const fundamental = Math.sin(phase);
+    const harmonic2 = Math.sin(phase * 2) * 0.25;
+    const harmonic3 = Math.sin(phase * 3) * 0.1;
+    const raw = (fundamental + harmonic2 + harmonic3) * env * 0.7;
+
+    samples[i] = Math.tanh(raw * 1.3);
+  }
+  writeWavFile(path.join(outDir, 'score_rise.wav'), samples);
+}
+
+// 15. Tight Cinematic Score Reveal Impact (1.2s) - single definitive, sophisticated thud
+{
+  const duration = 1.2;
+  const numSamples = Math.floor(sampleRate * duration);
+  const samples = new Float32Array(numSamples);
+
+  for (let i = 0; i < numSamples; i++) {
+    const t = i / sampleRate;
+    const env = Math.exp(-t * 9.0);
+    const clickEnv = Math.exp(-t * 120);
+
+    // Pitch drop from 95Hz to 38Hz
+    const pitch = 38 + 57 * Math.exp(-t * 24);
+    const sub = Math.sin(2 * Math.PI * pitch * t) * env * 0.85;
+    const click = (Math.random() * 2 - 1) * clickEnv * 0.15;
+
+    samples[i] = Math.tanh(sub + click);
+  }
+  writeWavFile(path.join(outDir, 'score_impact.wav'), samples);
+}
+
+// 16. Bridge Energy Rhythm (4.0s) - energetic, driving 124 BPM tech groove bridging into Quick Wins
+{
+  const duration = 4.0;
+  const numSamples = Math.floor(sampleRate * duration);
+  const samples = new Float32Array(numSamples);
+  const bpm = 124;
+  const beatDur = 60 / bpm; // ~0.484s
+  const stepDur = beatDur / 4; // ~0.121s
+
+  for (let i = 0; i < numSamples; i++) {
+    const t = i / sampleRate;
+    const beatTime = t % beatDur;
+    const stepTime = t % stepDur;
+    const stepIdx = Math.floor(t / stepDur);
+
+    // Punchy 4-on-the-floor kick
+    const kickEnv = Math.exp(-beatTime * 20);
+    const kickFreq = 120 * Math.exp(-beatTime * 32) + 45;
+    const kick = Math.sin(2 * Math.PI * kickFreq * beatTime) * kickEnv * 0.7;
+
+    // Fast syncopated bass note
+    const bassEnv = Math.exp(-stepTime * 18);
+    const bassFreq = (stepIdx % 4 === 2) ? 82.4 : 73.4; // E2 / D2
+    const bass = (Math.sin(2 * Math.PI * bassFreq * t) + 0.3 * Math.sin(2 * Math.PI * bassFreq * 2 * t)) * bassEnv * 0.4;
+
+    // Crisp hi-hat on offbeats
+    const offbeatTime = (t + stepDur * 0.5) % (stepDur * 2);
+    const hatEnv = Math.exp(-offbeatTime * 80);
+    const hat = (Math.random() * 2 - 1) * hatEnv * 0.09;
+
+    samples[i] = (kick + bass + hat) * 0.8;
+  }
+  writeWavFile(path.join(outDir, 'bridge_energy.wav'), samples);
+}
+
 console.log('All procedural launch film sound cues generated successfully.');
+
