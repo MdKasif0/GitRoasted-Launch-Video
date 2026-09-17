@@ -258,13 +258,13 @@ export const Score: React.FC = () => {
                 />
 
                 {/* Dynamic Live Counter Overlay precisely masking and animating the screenshot score */}
-                {frame < 96 && (
+                {frame < 95 && (
                   <div
                     style={{
                       position: 'absolute',
                       top: 124,
-                      left: 875,
-                      width: 475,
+                      left: 805,
+                      width: 440,
                       height: 245,
                       display: 'flex',
                       flexDirection: 'column',
@@ -273,7 +273,7 @@ export const Score: React.FC = () => {
                       background: '#080A0C',
                       padding: '10px 18px',
                       borderRadius: 6,
-                      opacity: interpolate(frame, [92, 96], [1, 0], {
+                      opacity: interpolate(frame, [91, 94], [1, 0], {
                         extrapolateLeft: 'clamp',
                         extrapolateRight: 'clamp',
                       }),
@@ -337,8 +337,8 @@ export const Score: React.FC = () => {
                     style={{
                       position: 'absolute',
                       top: 115,
-                      left: 870,
-                      width: 485,
+                      left: 865,
+                      width: 390,
                       height: 265,
                       border: '1px solid rgba(255, 138, 0, 0.5)',
                       borderRadius: 8,
