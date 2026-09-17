@@ -17,25 +17,25 @@ export const Score: React.FC = () => {
   const { fps } = useVideoConfig();
 
   // Camera dynamics for Phase 2 (Frames 48 - 140)
-  // Starts centered on the score gauge, then slowly pushes toward it to show surrounding metrics
+  // Starts centered on the score gauge, then slowly pushes and pans down to show surrounding interface
   const cameraScale = interpolate(
     frame,
     [48, 92, 140],
-    [1.24, 1.28, 1.38],
+    [1.24, 1.25, 1.12],
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
   );
 
   const cameraPanY = interpolate(
     frame,
     [48, 92, 140],
-    [-20, -30, -55],
+    [-30, -30, -380],
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
   );
 
   const cameraPanX = interpolate(
     frame,
     [48, 92, 140],
-    [-240, -260, -260],
+    [-260, -260, 0],
     { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }
   );
 
