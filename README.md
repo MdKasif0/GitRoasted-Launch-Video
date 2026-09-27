@@ -5,18 +5,30 @@
 
 ---
 
-## 🍿 Watch the Official Launch Film (85.0s | 1080p @ 30fps)
+## 🍿 Watch the Official Launch Films
 
-https://github.com/MdKasif0/GitRoasted-Launch-Video/raw/main/out/gitroasted_launch.mp4
+### ☀️ Edition 1: GitRoasted Light Launch (46.0s | 1,380 frames @ 30fps)
+*Created in high-end, 100% pure Light Mode matching the visual language, 3D camera moves, isometric bars, and pacing of the reference launch video.*
 
-<p align="center">
-  <video src="https://github.com/MdKasif0/GitRoasted-Launch-Video/raw/main/out/gitroasted_launch.mp4" width="100%" controls preload="metadata">
-    <a href="https://github.com/MdKasif0/GitRoasted-Launch-Video/raw/main/out/gitroasted_launch.mp4">▶️ Watch GitRoasted Launch Video (out/gitroasted_launch.mp4)</a>
-  </video>
-</p>
+- 🎬 **Video File**: [`out/gitroasted_light_launch.mp4`](out/gitroasted_light_launch.mp4) (9.9 MB • 1920×1080 Full HD • 30fps)
+- ⏱️ **Runtime**: 46.00 seconds (1,380 frames)
+- 🎨 **Visual Style**: Pristine light theme, floating 3D glassmorphic elements, isometric 3D metrics, interactive cursor simulation, and synchronized sound design.
 
-> 🎬 **[▶️ Click to play / download the master video file (`out/gitroasted_launch.mp4`)](out/gitroasted_launch.mp4)**  
-> *(85.00s runtime • 2,550 frames @ 30.00 fps • 1920×1080 Full HD • EBU R128 -24.8 LUFS)*
+```bash
+# Render or preview the Light Edition:
+npx remotion preview
+# or render directly:
+npx remotion render src/index.ts GitRoastedLightLaunch out/gitroasted_light_launch.mp4
+```
+
+---
+
+### 🌙 Edition 2: GitRoasted Dark Cinema Edition (85.0s | 2,550 frames @ 30fps)
+*The deadpan, cinematic midnight roast edition.*
+
+- 🎬 **Video File**: [`out/gitroasted_launch.mp4`](out/gitroasted_launch.mp4) (27.5 MB • 1920×1080 Full HD • 30fps)
+- ⏱️ **Runtime**: 85.00 seconds (2,550 frames)
+- 🎨 **Visual Style**: Linear-inspired dark mode, deadpan comedic timing, and deep acoustic sound design.
 
 ---
 

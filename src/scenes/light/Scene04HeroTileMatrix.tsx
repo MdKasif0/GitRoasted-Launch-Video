@@ -52,6 +52,8 @@ export const Scene04HeroTileMatrix: React.FC = () => {
           transform: `translateY(${matrixTranslateY}px) scale(${matrixScale})`,
           opacity: interpolate(tileSpring, [0, 1], [0, 0.45]),
           filter: 'blur(3.5px)',
+          maskImage: 'radial-gradient(ellipse 360px 280px at center, transparent 60%, black 100%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 360px 280px at center, transparent 60%, black 100%)',
           pointerEvents: 'none',
         }}
       >

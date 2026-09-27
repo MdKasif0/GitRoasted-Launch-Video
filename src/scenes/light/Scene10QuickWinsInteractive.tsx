@@ -238,8 +238,7 @@ export const Scene10QuickWinsInteractive: React.FC = () => {
         x={cursorX}
         y={cursorY}
         label="@MdKasif0"
-        color="#FF8A00"
-        clicking={frame >= 58 && frame <= 68}
+        clicked={frame >= 58 && frame <= 68}
       />
 
       {/* Tooltip confirmation on click */}
