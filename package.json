@@ -5,8 +5,11 @@
   "scripts": {
     "dev": "remotion preview src/index.ts",
     "preview": "remotion preview src/index.ts",
-    "build": "remotion render src/index.ts GitRoastedLaunch out/gitroasted_launch.mp4",
-    "still": "remotion still src/index.ts GitRoastedLaunch out/still.png"
+    "build": "remotion render src/index.ts GitRoastedLightLaunch out/gitroasted_light_launch.mp4",
+    "render": "remotion render src/index.ts GitRoastedLightLaunch out/gitroasted_light_launch.mp4",
+    "render:light": "remotion render src/index.ts GitRoastedLightLaunch out/gitroasted_light_launch.mp4",
+    "render:dark": "remotion render src/index.ts GitRoastedLaunch out/gitroasted_launch.mp4",
+    "still": "remotion still src/index.ts GitRoastedLightLaunch out/still.png"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.240",
