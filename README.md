@@ -14,16 +14,26 @@
 - ⏱️ **Runtime**: 46.00 seconds (1,380 frames)
 - 🎨 **Visual Style**: Pristine light theme, floating 3D glassmorphic elements, isometric 3D metrics, interactive cursor simulation, and synchronized sound design.
 
+---
+
+### 🔥 Edition 2: GitRoasted Brag Launch (22.0s | 660 frames @ 30fps)
+*Created with the official **HyperFrames + /brag** pipeline, featuring high-speed 3D choreography, frame 0 poster baking, and motion-matched sound design.*
+
+- 🎬 **Video File**: [`brag-output/brag.mp4`](brag-output/brag.mp4) (3.3 MB • 1920×1080 Full HD • 30fps)
+- 🖼️ **Poster Frame**: [`brag-output/brag.jpg`](brag-output/brag.jpg) (1920×1080 • baked as Frame 0)
+- 📋 **Composition & Plan**: [`brag-output/brag-plan.md`](brag-output/brag-plan.md) & [`brag-output/composition-brief.md`](brag-output/composition-brief.md)
+- ✍️ **Launch Share Copy**: [`brag-output/share-copy.txt`](brag-output/share-copy.txt)
+
 ```bash
-# Render or preview the Light Edition:
-npx remotion preview
-# or render directly:
-npx remotion render src/index.ts GitRoastedLightLaunch out/gitroasted_light_launch.mp4
+# Preview or check composition:
+cd brag-output/composition && npx hyperframes check
+# Re-render with HyperFrames:
+npx hyperframes render --output ../brag.mp4
 ```
 
 ---
 
-### 🌙 Edition 2: GitRoasted Dark Cinema Edition (85.0s | 2,550 frames @ 30fps)
+### 🌙 Edition 3: GitRoasted Dark Cinema Edition (85.0s | 2,550 frames @ 30fps)
 *The deadpan, cinematic midnight roast edition.*
 
 - 🎬 **Video File**: [`out/gitroasted_launch.mp4`](out/gitroasted_launch.mp4) (27.5 MB • 1920×1080 Full HD • 30fps)
