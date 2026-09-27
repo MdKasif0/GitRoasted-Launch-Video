@@ -51,7 +51,10 @@ export const Logo: React.FC<{
   size?: number;
   showText?: boolean;
   tagline?: string;
-}> = ({ size = 48, showText = true, tagline }) => {
+  theme?: 'light' | 'dark';
+}> = ({ size = 48, showText = true, tagline, theme = 'dark' }) => {
+  const isLight = theme === 'light';
+
   return (
     <div
       style={{
@@ -74,7 +77,7 @@ export const Logo: React.FC<{
               alignItems: 'baseline',
             }}
           >
-            <span style={{ color: '#F5F5F5' }}>Git</span>
+            <span style={{ color: isLight ? '#0F172A' : '#F5F5F5' }}>Git</span>
             <span style={{ color: '#FF8A00' }}>Roasted</span>
           </div>
           {tagline && (
@@ -83,7 +86,7 @@ export const Logo: React.FC<{
                 fontSize: size * 0.22,
                 fontWeight: 600,
                 letterSpacing: '0.12em',
-                color: '#8B949E',
+                color: isLight ? '#64748B' : '#8B949E',
                 textTransform: 'uppercase',
                 fontFamily: "'Geist Mono', monospace",
                 marginTop: size * 0.12,
