@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920, height=1080">
+  <title>GitRoasted — Official Launch Video</title>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <style>
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400 800;
+      src: local('Inter'), local('sans-serif');
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #F8FAFC;
+      color: #0F172A;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      overflow: hidden;
+      width: 1920px;
+      height: 1080px;
+    }
+
+    #root {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 45%, #FFFFFF 0%, #F1F5F9 65%, #E2E8F0 100%);
+      overflow: hidden;
+    }
+
+    /* Studio Ambient Lighting Elements */
+    .studio-glow {
+      position: absolute;
+      width: 1200px;
+      height: 800px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(255, 122, 24, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .studio-grid {
+      position: absolute;
+      inset: 0;
+      background-size: 80px 80px;
+      background-image: 
+        linear-gradient(to right, rgba(15, 23, 42, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.025) 1px, transparent 1px);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Clips */
+    .clip {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+
+    /* Common Card Styles */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.08), 0 0 1px 1px rgba(15, 23, 42, 0.05);
+      border-radius: 24px;
+    }
+
+    /* Scene 1: 3D Smartphone & Reaction Burst */
+    #scene1-wrap {
+      perspective: 1400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    #phone-container {
+      position: relative;
+      width: 440px;
+      height: 820px;
+      transform-style: preserve-3d;
+      transform-origin: center center;
+    }
+
+    .phone-chassis {
+      position: absolute;
+      inset: 0;
+      background: #FFFFFF;
+      border-radius: 56px;
+      border: 10px solid #0F172A;
+      box-shadow: 
+        0 40px 100px -20px rgba(15, 23, 42, 0.25),
+        0 15px 35px -10px rgba(15, 23, 42, 0.15),
+        inset 0 0 0 4px #CBD5E1;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      background: #FFFFFF;
+    }
+
+    .dynamic-island {
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 125px;
+      height: 34px;
+      background: #000000;
+      border-radius: 20px;
+      z-index: 50;
+    }
+
+    .phone-screen-header {
+      padding: 56px 24px 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border-bottom: 1px solid #F1F5F9;
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .recruiter-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #0F172A;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .recruiter-info h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #0F172A;
+    }
+
+    .recruiter-info p {
+      font-size: 12px;
+      color: #059669;
+      font-weight: 600;
+    }
+
+    .imessage-feed {
+      flex: 1;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      background: #FAFAFA;
+    }
+
+    .bubble-incoming {
+      align-self: flex-start;
+      max-width: 82%;
+      background: #E2E8F0;
+      color: #0F172A;
+      padding: 14px 18px;
+      border-radius: 22px 22px 22px 4px;
+      font-size: 16px;
+      line-height: 1.4;
+      font-weight: 500;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    }
+
+    .bubble-outgoing {
+      align-self: flex-end;
+      max-width: 82%;
+      background: #2563EB;
+      color: #FFFFFF;
+      padding: 14px 18px;
+      border-radius: 22px 22px 4px 22px;
+      font-size: 16px;
+      line-height: 1.4;
+      font-weight: 500;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    }
+
+    .bubble-panic {
+      align-self: flex-end;
+      max-width: 82%;
+      background: #EA580C;
+      color: #FFFFFF;
+      padding: 14px 18px;
+      border-radius: 22px 22px 4px 22px;
+      font-size: 16px;
+      line-height: 1.4;
+      font-weight: 600;
+      box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
+    }
+
+    /* Floating Reaction Video/Audit Cards */
+    .reaction-card {
+      position: absolute;
+      width: 260px;
+      padding: 18px 20px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(16px);
+      border-radius: 20px;
+      box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.18), 0 0 1px 1px rgba(15, 23, 42, 0.08);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .rc-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .rc-content h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #0F172A;
+      margin-bottom: 2px;
+    }
+
+    .rc-content p {
+      font-size: 11px;
+      color: #64748B;
+      font-weight: 500;
+    }
+
+    #rc1 { top: -20px; left: -260px; }
+    #rc2 { top: 120px; right: -280px; }
+    #rc3 { bottom: 180px; left: -290px; }
+    #rc4 { bottom: -20px; right: -250px; }
+    #rc5 { top: -90px; left: 90px; }
+
+    /* Scene 2: Reality Check Callouts */
+    #scene2-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+      width: 100%;
+      max-width: 1280px;
+    }
+
+    .scene-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 20px;
+      background: #FEF3C7;
+      border: 1px solid #FCD34D;
+      color: #92400E;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .scene-title {
+      font-size: 64px;
+      font-weight: 800;
+      color: #0F172A;
+      letter-spacing: -0.03em;
+      text-align: center;
+    }
+
+    .callout-grid {
+      display: flex;
+      gap: 28px;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .callout-card {
+      flex: 1;
+      padding: 36px 32px;
+      background: #FFFFFF;
+      border-radius: 24px;
+      border: 1px solid #E2E8F0;
+      box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .card-tag {
+      align-self: flex-start;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .tag-red { background: #FEE2E2; color: #991B1B; }
+    .tag-orange { background: #FFEDD5; color: #9A3412; }
+    .tag-purple { background: #F3E8FF; color: #6B21A8; }
+
+    .callout-metric {
+      font-size: 32px;
+      font-weight: 800;
+      color: #0F172A;
+      letter-spacing: -0.02em;
+    }
+
+    .callout-desc {
+      font-size: 16px;
+      color: #475569;
+      line-height: 1.5;
+    }
+
+    /* Scene 3: 3D Layered Dashboard Glide */
+    #scene3-wrap {
+      perspective: 1600px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #stacked-stack {
+      position: relative;
+      width: 1100px;
+      height: 640px;
+      transform-style: preserve-3d;
+      transform: rotateX(24deg) rotateY(-18deg) rotateZ(6deg);
+    }
+
+    .stacked-layer {
+      position: absolute;
+      inset: 0;
+      background: #FFFFFF;
+      border-radius: 28px;
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      box-shadow: 0 30px 70px -15px rgba(15, 23, 42, 0.16);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .layer-topbar {
+      height: 48px;
+      background: #F8FAFC;
+      border-bottom: 1px solid #E2E8F0;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      gap: 10px;
+    }
+
+    .window-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+    .dot-r { background: #EF4444; }
+    .dot-y { background: #F59E0B; }
+    .dot-g { background: #10B981; }
+
+    .layer-url {
+      font-size: 13px;
+      color: #64748B;
+      font-family: ui-monospace, monospace;
+      margin-left: 12px;
+    }
+
+    .layer-body {
+      flex: 1;
+      padding: 24px;
+      display: flex;
+      gap: 20px;
+    }
+
+    /* Layer 1: Code Matrix scan */
+    #layer1 { transform: translateZ(-160px) translateY(80px); }
+    #layer2 { transform: translateZ(-80px) translateY(40px); }
+    #layer3 { transform: translateZ(0px); }
+
+    /* Scene 4: Score Dial Turntable */
+    #scene4-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 70px;
+      width: 100%;
+      max-width: 1400px;
+    }
+
+    .dial-display {
+      position: relative;
+      width: 440px;
+      height: 440px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .dial-svg {
+      position: absolute;
+      inset: 0;
+      transform: rotate(-90deg);
+      width: 100%;
+      height: 100%;
+    }
+
+    .dial-bg-circle {
+      fill: none;
+      stroke: #E2E8F0;
+      stroke-width: 24;
+    }
+
+    .dial-prog-circle {
+      fill: none;
+      stroke: url(#flame-grad);
+      stroke-width: 24;
+      stroke-linecap: round;
+      stroke-dasharray: 1131;
+      stroke-dashoffset: 1131;
+    }
+
+    .dial-center-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .score-label {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #64748B;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .score-number {
+      font-size: 108px;
+      font-weight: 900;
+      line-height: 1;
+      color: #0F172A;
+      letter-spacing: -0.04em;
+    }
+
+    .score-total {
+      font-size: 22px;
+      font-weight: 600;
+      color: #94A3B8;
+      margin-top: 4px;
+    }
+
+    .roast-verdict-box {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .rank-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 24px;
+      background: #FFEDD5;
+      border: 1px solid #FDBA74;
+      border-radius: 100px;
+      color: #C2410C;
+      font-size: 18px;
+      font-weight: 800;
+      align-self: flex-start;
+    }
+
+    .verdict-headline {
+      font-size: 42px;
+      font-weight: 800;
+      color: #0F172A;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    .verdict-quote {
+      font-size: 22px;
+      font-style: italic;
+      color: #475569;
+      line-height: 1.5;
+      border-left: 4px solid #EA580C;
+      padding-left: 20px;
+    }
+
+    /* Scene 5: Quick Wins Boost */
+    #scene5-wrap {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      width: 100%;
+      max-width: 1360px;
+    }
+
+    .qw-card-list {
+      flex: 1.2;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .qw-row {
+      padding: 22px 28px;
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .qw-left {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .qw-check {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      border: 2px solid #CBD5E1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #FFFFFF;
+      font-size: 18px;
+    }
+
+    .qw-check.active {
+      background: #10B981;
+      border-color: #10B981;
+    }
+
+    .qw-text h4 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0F172A;
+      margin-bottom: 3px;
+    }
+
+    .qw-text p {
+      font-size: 13px;
+      color: #64748B;
+    }
+
+    .qw-pts {
+      font-size: 16px;
+      font-weight: 800;
+      color: #047857;
+      background: #ECFDF5;
+      padding: 6px 14px;
+      border-radius: 8px;
+    }
+
+    .leap-hero-card {
+      flex: 0.9;
+      padding: 44px 38px;
+      background: #FFFFFF;
+      border: 2px solid #E2E8F0;
+      border-radius: 32px;
+      box-shadow: 0 30px 80px -20px rgba(15, 23, 42, 0.12);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .leap-title {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: #64748B;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .leap-score-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .score-old {
+      font-size: 48px;
+      font-weight: 700;
+      color: #94A3B8;
+      text-decoration: line-through;
+    }
+
+    .score-new {
+      font-size: 88px;
+      font-weight: 900;
+      color: #047857;
+      letter-spacing: -0.04em;
+    }
+
+    .boost-pill {
+      padding: 10px 24px;
+      background: #D1FAE5;
+      border: 1px solid #6EE7B7;
+      border-radius: 100px;
+      color: #065F46;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .back-stamp {
+      position: absolute;
+      top: -24px;
+      right: -24px;
+      background: #EA580C;
+      color: #FFFFFF;
+      font-size: 16px;
+      font-weight: 900;
+      padding: 10px 22px;
+      border-radius: 100px;
+      box-shadow: 0 10px 25px rgba(234, 88, 12, 0.4);
+      transform: rotate(8deg);
+    }
+
+    /* Scene 6: Brand Lockup */
+    #scene6-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      text-align: center;
+    }
+
+    .brand-flame-icon {
+      width: 110px;
+      height: 110px;
+      filter: drop-shadow(0 20px 30px rgba(234, 88, 12, 0.35));
+    }
+
+    .brand-name {
+      font-size: 84px;
+      font-weight: 900;
+      color: #0F172A;
+      letter-spacing: -0.04em;
+    }
+
+    .brand-tagline {
+      font-size: 28px;
+      font-weight: 600;
+      color: #475569;
+      letter-spacing: -0.01em;
+    }
+
+    .cta-pill {
+      margin-top: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 36px;
+      background: #0F172A;
+      color: #FFFFFF;
+      border-radius: 100px;
+      font-size: 20px;
+      font-weight: 700;
+      box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.3);
+    }
+
+    .cta-flame {
+      color: #FF8A00;
+    }
+  </style>
+</head>
+<body>
+  <div
+    id="root"
+    data-composition-id="main"
+    data-start="0"
+    data-width="1920"
+    data-height="1080"
+    data-duration="22"
+  >
+    <!-- Background Atmosphere -->
+    <div class="studio-glow"></div>
+    <div class="studio-grid"></div>
+
+    <!-- Synchronized Audio Tracks with dedicated track indices -->
+    <audio id="bgm" data-start="0" data-track-index="1" data-volume="0.75" src="assets/music/bgm.mp3"></audio>
+    <audio id="sfx-pop1" data-start="0.6" data-track-index="2" data-volume="0.7" src="assets/sfx/click.ogg"></audio>
+    <audio id="sfx-pop2" data-start="1.4" data-track-index="3" data-volume="0.7" src="assets/sfx/click.ogg"></audio>
+    <audio id="sfx-panic" data-start="2.1" data-track-index="4" data-volume="0.75" src="assets/sfx/click.ogg"></audio>
+    <audio id="sfx-whoosh1" data-start="2.5" data-track-index="5" data-volume="0.8" src="assets/sfx/whoosh.ogg"></audio>
+    <audio id="sfx-card1" data-start="2.8" data-track-index="6" data-volume="0.65" src="assets/sfx/drop.ogg"></audio>
+    <audio id="sfx-card2" data-start="3.1" data-track-index="7" data-volume="0.65" src="assets/sfx/drop.ogg"></audio>
+    <audio id="sfx-card3" data-start="3.4" data-track-index="8" data-volume="0.65" src="assets/sfx/drop.ogg"></audio>
+
+    <audio id="sfx-drop-diag1" data-start="4.8" data-track-index="2" data-volume="0.7" src="assets/sfx/drop.ogg"></audio>
+    <audio id="sfx-drop-diag2" data-start="5.8" data-track-index="3" data-volume="0.7" src="assets/sfx/drop.ogg"></audio>
+    <audio id="sfx-drop-diag3" data-start="6.8" data-track-index="4" data-volume="0.7" src="assets/sfx/drop.ogg"></audio>
+
+    <audio id="sfx-whoosh2" data-start="8.5" data-track-index="5" data-volume="0.8" src="assets/sfx/whoosh.ogg"></audio>
+
+    <audio id="sfx-whoosh3" data-start="12.5" data-track-index="5" data-volume="0.8" src="assets/sfx/whoosh.ogg"></audio>
+    <audio id="sfx-score-chime" data-start="14.2" data-track-index="6" data-volume="0.85" src="assets/sfx/chime.ogg"></audio>
+
+    <audio id="sfx-qw-click" data-start="17.2" data-track-index="2" data-volume="0.7" src="assets/sfx/click.ogg"></audio>
+    <audio id="sfx-qw-boost" data-start="18.0" data-track-index="3" data-volume="0.85" src="assets/sfx/chime.ogg"></audio>
+
+    <audio id="sfx-finale-whoosh" data-start="19.5" data-track-index="5" data-volume="0.8" src="assets/sfx/whoosh.ogg"></audio>
+
+    <!-- SCENE 1: Mobile Hook & 3D Pullback (0.0s - 4.5s) -->
+    <section id="scene-1" class="clip" data-start="0" data-duration="4.5">
+      <div id="scene1-wrap">
+        <div id="phone-container" data-layout-allow-overflow>
+          <!-- Floating Reaction Cards -->
+          <div id="rc1" class="reaction-card" data-layout-allow-overflow>
+            <div class="rc-icon" style="background: #FFEDD5; color: #EA580C;">🔥</div>
+            <div class="rc-content">
+              <h4>AI Roast Engine</h4>
+              <p>Scanning 47 repos...</p>
+            </div>
+          </div>
+          <div id="rc2" class="reaction-card" data-layout-allow-overflow>
+            <div class="rc-icon" style="background: #FEE2E2; color: #DC2626;">💀</div>
+            <div class="rc-content">
+              <h4>0 Commits in 2026</h4>
+              <p>Total profile glacier</p>
+            </div>
+          </div>
+          <div id="rc3" class="reaction-card" data-layout-allow-overflow>
+            <div class="rc-icon" style="background: #FEF3C7; color: #D97706;">🚨</div>
+            <div class="rc-content">
+              <h4>"fixed bug final v2"</h4>
+              <p>Reverted 3 min later</p>
+            </div>
+          </div>
+          <div id="rc4" class="reaction-card" data-layout-allow-overflow>
+            <div class="rc-icon" style="background: #EDE9FE; color: #7C3AED;">⚡</div>
+            <div class="rc-content">
+              <h4>Score: 464 / 1000</h4>
+              <p>Rising Developer (Cooked)</p>
+            </div>
+          </div>
+          <div id="rc5" class="reaction-card" data-layout-allow-overflow>
+            <div class="rc-icon" style="background: #F1F5F9; color: #0F172A;">😭</div>
+            <div class="rc-content">
+              <h4>Linus Would Weep</h4>
+              <p>Unvarnished feedback</p>
+            </div>
+          </div>
+
+          <!-- Phone Chassis -->
+          <div class="phone-chassis">
+            <div class="dynamic-island"></div>
+            <div class="phone-screen-header">
+              <div class="recruiter-avatar">TR</div>
+              <div class="recruiter-info">
+                <h3>Tech Recruiter</h3>
+                <p style="color: #047857; font-weight: 700;">Active Now</p>
+              </div>
+            </div>
+            <div class="imessage-feed">
+              <div id="bubble-1" class="bubble-incoming">
+                Hey! Can you send your GitHub profile over? 👀
+              </div>
+              <div id="bubble-2" class="bubble-outgoing">
+                Yeah sure! Sent it over 🚀
+              </div>
+              <div id="bubble-3" class="bubble-panic">
+                Wait... why is my GitRoasted score only 464?! 💀🔥
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCENE 2: Developer Reality Callouts (4.5s - 8.5s) -->
+    <section id="scene-2" class="clip" data-start="4.5" data-duration="4.0">
+      <div id="scene2-wrap">
+        <div id="s2-badge" class="scene-badge">
+          <span>⚠️</span> Diagnostic Telemetry
+        </div>
+        <h2 id="s2-title" class="scene-title">
+          Your GitHub says what you won't admit.
+        </h2>
+        <div class="callout-grid">
+          <div id="card-diag-1" class="callout-card">
+            <span class="card-tag tag-red">CRITICAL FINDING</span>
+            <div class="callout-metric">47 Empty Repos</div>
+            <p class="callout-desc">
+              Created at 2 AM with massive ambition. Never touched again after initial commit.
+            </p>
+          </div>
+          <div id="card-diag-2" class="callout-card">
+            <span class="card-tag tag-orange">COMMIT SMELL</span>
+            <div class="callout-metric">"fixed final v2"</div>
+            <p class="callout-desc">
+              Followed immediately by "actually fixed", "why is this broken", and "yolo merge".
+            </p>
+          </div>
+          <div id="card-diag-3" class="callout-card">
+            <span class="card-tag tag-purple">STREAK COLLAPSE</span>
+            <div class="callout-metric">8-Month Glacier</div>
+            <p class="callout-desc">
+              Not even a whitespace edit on a README to keep the green squares alive.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCENE 3: 3D Layered Dashboard Glide (8.5s - 12.5s) -->
+    <section id="scene-3" class="clip" data-start="8.5" data-duration="4.0">
+      <div id="scene3-wrap">
+        <div id="stacked-stack">
+          <!-- Layer 1: Code Scanner -->
+          <div id="layer1" class="stacked-layer">
+            <div class="layer-topbar">
+              <div class="window-dots"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div>
+              <div class="layer-url">gitroasted.com/scan/commit-telemetry</div>
+            </div>
+            <div class="layer-body" style="background: #0F172A; color: #38BDF8; font-family: monospace; font-size: 18px; line-height: 1.6; padding: 30px;">
+              <div>
+                <p>> Scanning @MdKasif0 commit history...</p>
+                <p style="color: #F87171;">! [ALERT] 14 commits titled "wip"</p>
+                <p style="color: #FBBF24;">! [WARN] 0 unit tests found in 12 repositories</p>
+                <p style="color: #34D399;">+ [ANALYSIS] Generating brutal roast report...</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Layer 2: Language breakdown -->
+          <div id="layer2" class="stacked-layer">
+            <div class="layer-topbar">
+              <div class="window-dots"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div>
+              <div class="layer-url">gitroasted.com/metrics/repo-distribution</div>
+            </div>
+            <div class="layer-body" style="padding: 30px; display: flex; gap: 30px;">
+              <div style="flex: 1; background: #F8FAFC; border-radius: 16px; padding: 20px; border: 1px solid #E2E8F0;">
+                <h4 style="color: #64748B; font-size: 14px; margin-bottom: 8px;">LANGUAGE DISTRIBUTION</h4>
+                <div style="font-size: 32px; font-weight: 800; color: #0F172A;">42% CSS • 28% JS</div>
+                <div style="font-size: 16px; color: #EA580C; font-weight: 600; margin-top: 8px;">30% Abandoned Templates</div>
+              </div>
+              <div style="flex: 1; background: #F8FAFC; border-radius: 16px; padding: 20px; border: 1px solid #E2E8F0;">
+                <h4 style="color: #64748B; font-size: 14px; margin-bottom: 8px;">AVERAGE COMMITS / MONTH</h4>
+                <div style="font-size: 32px; font-weight: 800; color: #0F172A;">1.4</div>
+                <div style="font-size: 16px; color: #DC2626; font-weight: 600; margin-top: 8px;">Bottom 12% of Ecosystem</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Layer 3: Overview Card -->
+          <div id="layer3" class="stacked-layer">
+            <div class="layer-topbar">
+              <div class="window-dots"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div>
+              <div class="layer-url">gitroasted.com/roast/@MdKasif0</div>
+            </div>
+            <div class="layer-body" style="padding: 30px; display: flex; align-items: center; justify-content: space-between;">
+              <div>
+                <span class="card-tag tag-orange" style="margin-bottom: 12px; display: inline-block;">DEVELOPER VERDICT</span>
+                <h3 style="font-size: 36px; font-weight: 800; color: #0F172A; margin-bottom: 8px;">@MdKasif0 Profile Analysis</h3>
+                <p style="font-size: 18px; color: #64748B;">Identified 47 empty repositories, 8-month gap in streak.</p>
+              </div>
+              <div style="background: #FFEDD5; border: 2px solid #FB923C; padding: 24px 32px; border-radius: 20px; text-align: center;">
+                <div style="font-size: 14px; font-weight: 800; color: #C2410C;">SERIOUSNESS</div>
+                <div style="font-size: 56px; font-weight: 900; color: #9A3412;">464</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCENE 4: Seriousness Score Turntable (12.5s - 16.5s) -->
+    <section id="scene-4" class="clip" data-start="12.5" data-duration="4.0">
+      <div id="scene4-wrap">
+        <!-- Turntable Radial Dial -->
+        <div id="dial-box" class="dial-display">
+          <svg class="dial-svg" viewBox="0 0 400 400">
+            <defs>
+              <linearGradient id="flame-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FF5722" />
+                <stop offset="50%" stop-color="#FF8A00" />
+                <stop offset="100%" stop-color="#FFA000" />
+              </linearGradient>
+            </defs>
+            <circle class="dial-bg-circle" cx="200" cy="200" r="180" />
+            <circle id="dial-circle-fill" class="dial-prog-circle" cx="200" cy="200" r="180" />
+          </svg>
+          <div class="dial-center-stat">
+            <span class="score-label">SERIOUSNESS</span>
+            <span id="score-counter-val" class="score-number">000</span>
+            <span class="score-total">/ 1000 PTS</span>
+          </div>
+        </div>
+
+        <!-- Verdict & Roast Text -->
+        <div id="verdict-box" class="roast-verdict-box">
+          <div class="rank-pill">
+            <span>🔥</span> Rising Developer (Cooked)
+          </div>
+          <h2 class="verdict-headline">
+            Brutal truth.<br>Zero sugarcoating.
+          </h2>
+          <div class="verdict-quote">
+            "Your GitHub profile is saying more about you than you intended. (It's giving unemployable, no cap fr fr)."
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCENE 5: Interactive Quick Wins (+135 pts) (16.5s - 19.5s) -->
+    <section id="scene-5" class="clip" data-start="16.5" data-duration="3.0">
+      <div id="scene5-wrap">
+        <div class="qw-card-list">
+          <div id="qw1" class="qw-row">
+            <div class="qw-left">
+              <div id="chk1" class="qw-check">✓</div>
+              <div class="qw-text">
+                <h4>Add Open-Source MIT License</h4>
+                <p>Instantly unlocks community trust</p>
+              </div>
+            </div>
+            <span class="qw-pts">+35 PTS</span>
+          </div>
+          <div id="qw2" class="qw-row">
+            <div class="qw-left">
+              <div id="chk2" class="qw-check">✓</div>
+              <div class="qw-text">
+                <h4>Configure GitHub Actions CI/CD</h4>
+                <p>Shows recruiters your code actually builds</p>
+              </div>
+            </div>
+            <span class="qw-pts">+45 PTS</span>
+          </div>
+          <div id="qw3" class="qw-row">
+            <div class="qw-left">
+              <div id="chk3" class="qw-check">✓</div>
+              <div class="qw-text">
+                <h4>Archive 42 Empty Cloned Repos</h4>
+                <p>Clean up profile cemetery</p>
+              </div>
+            </div>
+            <span class="qw-pts">+55 PTS</span>
+          </div>
+        </div>
+
+        <!-- Score Leap Hero -->
+        <div id="leap-card" class="leap-hero-card">
+          <div id="stamp-badge" class="back-stamp">WE ARE SO BACK 🚀</div>
+          <span class="leap-title">REHABILITATED SCORE</span>
+          <div class="leap-score-wrap">
+            <span class="score-old">464</span>
+            <span id="leap-score-val" class="score-new">599</span>
+          </div>
+          <div class="boost-pill">+135 PTS RECOVERY</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCENE 6: Definitive Brand Finale (19.5s - 22.0s) -->
+    <section id="scene-6" class="clip" data-start="19.5" data-duration="2.5">
+      <div id="scene6-wrap">
+        <svg id="final-flame" class="brand-flame-icon" viewBox="0 0 100 100" fill="none">
+          <defs>
+            <linearGradient id="brand-flame-grad" x1="20%" y1="100%" x2="80%" y2="0%">
+              <stop offset="0%" stop-color="#FF5722" />
+              <stop offset="60%" stop-color="#FF8A00" />
+              <stop offset="100%" stop-color="#FFA000" />
+            </linearGradient>
+          </defs>
+          <path d="M50 5C45 25 30 35 22 55C14 75 28 95 50 95C72 95 86 75 78 55C70 35 55 25 50 5Z" fill="url(#brand-flame-grad)" />
+          <path d="M50 35C47 48 38 55 35 68C32 80 40 88 50 88C60 88 68 80 65 68C62 55 53 48 50 35Z" fill="#FFFFFF" opacity="0.9" />
+        </svg>
+        <h1 id="brand-title" class="brand-name">GitRoasted</h1>
+        <p id="brand-subtitle" class="brand-tagline">Brutal feedback. Better developers.</p>
+        <div id="brand-cta" class="cta-pill">
+          <span class="cta-flame">🔥</span>
+          <span>github.com/roast</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Register the single paused timeline for HyperFrames
+    const tl = gsap.timeline({ paused: true });
+
+    // ==========================================
+    // SCENE 1: Mobile Hook (0.0s - 4.5s)
+    // ==========================================
+    // Phone enters smoothly
+    tl.fromTo("#phone-container", 
+      { y: 120, opacity: 0, scale: 0.95 }, 
+      { y: 0, opacity: 1, scale: 1, duration: 0.7, ease: "power3.out" }, 
+      0.1
+    );
+
+    // Incoming recruiter bubble
+    tl.fromTo("#bubble-1", 
+      { y: 20, opacity: 0, scale: 0.9 }, 
+      { y: 0, opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.6)" }, 
+      0.6
+    );
+
+    // Outgoing dev response bubble
+    tl.fromTo("#bubble-2", 
+      { y: 20, opacity: 0, scale: 0.9 }, 
+      { y: 0, opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.6)" }, 
+      1.4
+    );
+
+    // Outgoing panic roast bubble
+    tl.fromTo("#bubble-3", 
+      { y: 20, opacity: 0, scale: 0.9 }, 
+      { y: 0, opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.6)" }, 
+      2.1
+    );
+
+    // 3D Pullback & Tilt of Phone (matching reference video frame 10-14)
+    tl.to("#phone-container", {
+      rotateX: 16,
+      rotateY: -14,
+      rotateZ: 4,
+      scale: 0.88,
+      duration: 1.4,
+      ease: "power2.inOut"
+    }, 2.5);
+
+    // Floating reaction cards exploding outward
+    const rcElements = ["#rc1", "#rc2", "#rc3", "#rc4", "#rc5"];
+    rcElements.forEach((selector, i) => {
+      tl.fromTo(selector, 
+        { scale: 0, opacity: 0, z: -100 }, 
+        { scale: 1, opacity: 1, z: 80, duration: 0.5, ease: "back.out(1.8)" }, 
+        2.7 + i * 0.15
+      );
+    });
+
+    // Scene 1 exit
+    tl.to("#scene1-wrap", {
+      scale: 1.15,
+      opacity: 0,
+      duration: 0.35,
+      ease: "power2.in"
+    }, 4.2);
+
+    // ==========================================
+    // SCENE 2: Reality Check Callouts (4.5s - 8.5s)
+    // ==========================================
+    tl.fromTo("#s2-badge", 
+      { y: -20, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 
+      4.55
+    );
+
+    tl.fromTo("#s2-title", 
+      { y: 30, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 
+      4.65
+    );
+
+    // 3 Diagnostic cards landing sequentially on beat
+    tl.fromTo("#card-diag-1", 
+      { y: 60, opacity: 0, rotateX: 20 }, 
+      { y: 0, opacity: 1, rotateX: 0, duration: 0.55, ease: "back.out(1.5)" }, 
+      4.8
+    );
+
+    tl.fromTo("#card-diag-2", 
+      { y: 60, opacity: 0, rotateX: 20 }, 
+      { y: 0, opacity: 1, rotateX: 0, duration: 0.55, ease: "back.out(1.5)" }, 
+      5.8
+    );
+
+    tl.fromTo("#card-diag-3", 
+      { y: 60, opacity: 0, rotateX: 20 }, 
+      { y: 0, opacity: 1, rotateX: 0, duration: 0.55, ease: "back.out(1.5)" }, 
+      6.8
+    );
+
+    // Scene 2 exit
+    tl.to("#scene2-wrap", {
+      y: -50,
+      opacity: 0,
+      duration: 0.35,
+      ease: "power2.in"
+    }, 8.2);
+
+    // ==========================================
+    // SCENE 3: 3D Layered Dashboard Glide (8.5s - 12.5s)
+    // ==========================================
+    // Stack glide in 3D
+    tl.fromTo("#stacked-stack", 
+      { rotateX: 35, rotateY: -30, rotateZ: 10, z: -400, opacity: 0 }, 
+      { rotateX: 20, rotateY: -12, rotateZ: 4, z: 0, opacity: 1, duration: 1.2, ease: "power3.out" }, 
+      8.5
+    );
+
+    // Subtle continuous camera drift
+    tl.to("#stacked-stack", {
+      rotateX: 14,
+      rotateY: -4,
+      rotateZ: 0,
+      z: 100,
+      duration: 2.6,
+      ease: "none"
+    }, 9.7);
+
+    // Scene 3 exit
+    tl.to("#scene3-wrap", {
+      scale: 1.2,
+      opacity: 0,
+      duration: 0.4,
+      ease: "power2.in"
+    }, 12.1);
+
+    // ==========================================
+    // SCENE 4: Score Dial Turntable (12.5s - 16.5s)
+    // ==========================================
+    tl.fromTo("#dial-box", 
+      { scale: 0.7, opacity: 0, rotate: -30 }, 
+      { scale: 1, opacity: 1, rotate: 0, duration: 0.8, ease: "back.out(1.4)" }, 
+      12.5
+    );
+
+    tl.fromTo("#verdict-box", 
+      { x: 60, opacity: 0 }, 
+      { x: 0, opacity: 1, duration: 0.7, ease: "power3.out" }, 
+      12.8
+    );
+
+    // Gauge circle filling: circumference 1131 -> 46.4% = 525 filled
+    tl.to("#dial-circle-fill", {
+      strokeDashoffset: 606,
+      duration: 1.6,
+      ease: "power2.out"
+    }, 12.7);
+
+    // Digital counter rolling 000 -> 464
+    const scoreObj = { val: 0 };
+    tl.to(scoreObj, {
+      val: 464,
+      duration: 1.6,
+      ease: "power2.out",
+      onUpdate: () => {
+        const el = document.getElementById("score-counter-val");
+        if (el) {
+          el.textContent = Math.round(scoreObj.val).toString().padStart(3, "0");
+        }
+      }
+    }, 12.7);
+
+    // Scene 4 exit
+    tl.to("#scene4-wrap", {
+      x: -60,
+      opacity: 0,
+      duration: 0.35,
+      ease: "power2.in"
+    }, 16.2);
+
+    // ==========================================
+    // SCENE 5: Quick Wins Boost (16.5s - 19.5s)
+    // ==========================================
+    tl.fromTo("#qw1", 
+      { x: -50, opacity: 0 }, 
+      { x: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 
+      16.5
+    );
+    tl.fromTo("#qw2", 
+      { x: -50, opacity: 0 }, 
+      { x: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 
+      16.7
+    );
+    tl.fromTo("#qw3", 
+      { x: -50, opacity: 0 }, 
+      { x: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 
+      16.9
+    );
+
+    // Leap hero card entrance
+    tl.fromTo("#leap-card", 
+      { scale: 0.85, opacity: 0 }, 
+      { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.5)" }, 
+      16.7
+    );
+
+    // Checkmarks turning green
+    tl.to(["#chk1", "#chk2", "#chk3"], {
+      backgroundColor: "#10B981",
+      borderColor: "#10B981",
+      duration: 0.3,
+      stagger: 0.15
+    }, 17.2);
+
+    // Stamp badge slamming down
+    tl.fromTo("#stamp-badge", 
+      { scale: 2.2, opacity: 0, rotate: 25 }, 
+      { scale: 1, opacity: 1, rotate: 8, duration: 0.4, ease: "back.out(2.0)" }, 
+      17.7
+    );
+
+    // Scene 5 exit
+    tl.to("#scene5-wrap", {
+      scale: 0.9,
+      opacity: 0,
+      duration: 0.35,
+      ease: "power2.in"
+    }, 19.2);
+
+    // ==========================================
+    // SCENE 6: Brand Finale (19.5s - 22.0s)
+    // ==========================================
+    tl.fromTo("#final-flame", 
+      { scale: 0, opacity: 0, rotate: -20 }, 
+      { scale: 1, opacity: 1, rotate: 0, duration: 0.6, ease: "back.out(1.8)" }, 
+      19.55
+    );
+
+    tl.fromTo("#brand-title", 
+      { y: 30, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 
+      19.75
+    );
+
+    tl.fromTo("#brand-subtitle", 
+      { y: 20, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 
+      19.95
+    );
+
+    tl.fromTo("#brand-cta", 
+      { scale: 0.85, opacity: 0 }, 
+      { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.6)" }, 
+      20.15
+    );
+
+    // Register on the global timelines object
+    window.__timelines = window.__timelines || {};
+    window.__timelines["main"] = tl;
+  </script>
+</body>
+</html>
