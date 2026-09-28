@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=1920, height=1080">
-  <title>GitRoasted — Official Launch Video</title>
+  <title>GitRoasted — Official Launch Video (46s Edition)</title>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
   <style>
     @font-face {
@@ -36,15 +36,15 @@
       overflow: hidden;
     }
 
-    /* Studio Ambient Lighting Elements */
+    /* Ambient Studio Aesthetics */
     .studio-glow {
       position: absolute;
-      width: 1200px;
-      height: 800px;
+      width: 1300px;
+      height: 900px;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      background: radial-gradient(circle, rgba(255, 122, 24, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+      background: radial-gradient(circle, rgba(255, 122, 24, 0.09) 0%, rgba(255, 255, 255, 0) 70%);
       pointer-events: none;
       z-index: 1;
     }
@@ -52,7 +52,7 @@
     .studio-grid {
       position: absolute;
       inset: 0;
-      background-size: 80px 80px;
+      background-size: 60px 60px;
       background-image: 
         linear-gradient(to right, rgba(15, 23, 42, 0.025) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(15, 23, 42, 0.025) 1px, transparent 1px);
@@ -60,7 +60,7 @@
       z-index: 2;
     }
 
-    /* Clips */
+    /* Standard Clip */
     .clip {
       position: absolute;
       inset: 0;
@@ -72,17 +72,7 @@
       z-index: 10;
     }
 
-    /* Common Card Styles */
-    .glass-card {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-      box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.08), 0 0 1px 1px rgba(15, 23, 42, 0.05);
-      border-radius: 24px;
-    }
-
-    /* Scene 1: 3D Smartphone & Reaction Burst */
+    /* Scene 1: 3D Smartphone & Orbiting Reaction Cards */
     #scene1-wrap {
       perspective: 1400px;
       display: flex;
@@ -113,7 +103,6 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      background: #FFFFFF;
     }
 
     .dynamic-island {
@@ -134,7 +123,7 @@
       align-items: center;
       gap: 14px;
       border-bottom: 1px solid #F1F5F9;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.95);
     }
 
     .recruiter-avatar {
@@ -156,12 +145,6 @@
       color: #0F172A;
     }
 
-    .recruiter-info p {
-      font-size: 12px;
-      color: #059669;
-      font-weight: 600;
-    }
-
     .imessage-feed {
       flex: 1;
       padding: 24px 20px;
@@ -173,47 +156,46 @@
 
     .bubble-incoming {
       align-self: flex-start;
-      max-width: 82%;
+      max-width: 84%;
       background: #E2E8F0;
       color: #0F172A;
       padding: 14px 18px;
       border-radius: 22px 22px 22px 4px;
       font-size: 16px;
       line-height: 1.4;
-      font-weight: 500;
+      font-weight: 600;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
     }
 
     .bubble-outgoing {
       align-self: flex-end;
-      max-width: 82%;
+      max-width: 84%;
       background: #2563EB;
       color: #FFFFFF;
       padding: 14px 18px;
       border-radius: 22px 22px 4px 22px;
       font-size: 16px;
       line-height: 1.4;
-      font-weight: 500;
+      font-weight: 600;
       box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
     }
 
     .bubble-panic {
       align-self: flex-end;
-      max-width: 82%;
+      max-width: 84%;
       background: #EA580C;
       color: #FFFFFF;
       padding: 14px 18px;
       border-radius: 22px 22px 4px 22px;
       font-size: 16px;
       line-height: 1.4;
-      font-weight: 600;
+      font-weight: 700;
       box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
     }
 
-    /* Floating Reaction Video/Audit Cards */
     .reaction-card {
       position: absolute;
-      width: 260px;
+      width: 270px;
       padding: 18px 20px;
       background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(16px);
@@ -237,32 +219,32 @@
     }
 
     .rc-content h4 {
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 700;
       color: #0F172A;
       margin-bottom: 2px;
     }
 
     .rc-content p {
-      font-size: 11px;
-      color: #64748B;
-      font-weight: 500;
+      font-size: 12px;
+      color: #475569;
+      font-weight: 600;
     }
 
-    #rc1 { top: -20px; left: -260px; }
-    #rc2 { top: 120px; right: -280px; }
+    #rc1 { top: -20px; left: -270px; }
+    #rc2 { top: 120px; right: -290px; }
     #rc3 { bottom: 180px; left: -290px; }
-    #rc4 { bottom: -20px; right: -250px; }
-    #rc5 { top: -90px; left: 90px; }
+    #rc4 { bottom: -20px; right: -260px; }
+    #rc5 { top: -90px; left: 85px; }
 
-    /* Scene 2: Reality Check Callouts */
+    /* Scene 2: Reality Callouts */
     #scene2-wrap {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 28px;
       width: 100%;
-      max-width: 1280px;
+      max-width: 1320px;
     }
 
     .scene-badge {
@@ -281,7 +263,7 @@
     }
 
     .scene-title {
-      font-size: 64px;
+      font-size: 60px;
       font-weight: 800;
       color: #0F172A;
       letter-spacing: -0.03em;
@@ -332,8 +314,94 @@
       line-height: 1.5;
     }
 
-    /* Scene 3: 3D Layered Dashboard Glide */
+    /* Scene 3: Isometric Rising 3D Bars */
     #scene3-wrap {
+      perspective: 1500px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .iso-container {
+      width: 900px;
+      height: 480px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 40px;
+      transform: rotateX(55deg) rotateZ(-40deg);
+      transform-style: preserve-3d;
+      padding-bottom: 40px;
+    }
+
+    .iso-bar-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transform-style: preserve-3d;
+    }
+
+    .iso-bar {
+      width: 70px;
+      background: linear-gradient(180deg, #FF8A00 0%, #EA580C 100%);
+      border-radius: 12px 12px 0 0;
+      box-shadow: 0 15px 30px rgba(234, 88, 12, 0.4);
+      transform-origin: bottom center;
+    }
+
+    .iso-label {
+      margin-top: 16px;
+      font-size: 16px;
+      font-weight: 800;
+      color: #0F172A;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Scene 4: Hero Tile Matrix */
+    #scene4-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .hero-tile-center {
+      width: 220px;
+      height: 220px;
+      background: linear-gradient(135deg, #FF5722 0%, #FF8A00 100%);
+      border-radius: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 30px 80px rgba(255, 87, 34, 0.45);
+      z-index: 20;
+    }
+
+    .floating-token {
+      position: absolute;
+      padding: 12px 24px;
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 100px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #0F172A;
+      box-shadow: 0 15px 35px -5px rgba(15, 23, 42, 0.12);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Scene 5: 3D Layered Homepage Glide */
+    #scene5-wrap {
       perspective: 1600px;
       width: 100%;
       height: 100%;
@@ -347,7 +415,7 @@
       width: 1100px;
       height: 640px;
       transform-style: preserve-3d;
-      transform: rotateX(24deg) rotateY(-18deg) rotateZ(6deg);
+      transform: rotateX(22deg) rotateY(-16deg) rotateZ(5deg);
     }
 
     .stacked-layer {
@@ -388,25 +456,92 @@
 
     .layer-url {
       font-size: 13px;
-      color: #64748B;
+      color: #475569;
       font-family: ui-monospace, monospace;
       margin-left: 12px;
     }
 
     .layer-body {
       flex: 1;
-      padding: 24px;
-      display: flex;
-      gap: 20px;
+      padding: 28px;
     }
 
-    /* Layer 1: Code Matrix scan */
     #layer1 { transform: translateZ(-160px) translateY(80px); }
     #layer2 { transform: translateZ(-80px) translateY(40px); }
     #layer3 { transform: translateZ(0px); }
 
-    /* Scene 4: Score Dial Turntable */
-    #scene4-wrap {
+    /* Scene 6: Typography Blueprint */
+    #scene6-wrap {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .blueprint-box {
+      width: 540px;
+      height: 540px;
+      border: 2px dashed #94A3B8;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 24px;
+    }
+
+    .spec-letter {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 190px;
+      color: #0F172A;
+      line-height: 1;
+    }
+
+    .spec-label {
+      position: absolute;
+      font-size: 13px;
+      font-weight: 800;
+      color: #475569;
+      background: #F1F5F9;
+      padding: 4px 10px;
+      border-radius: 6px;
+      letter-spacing: 0.05em;
+    }
+
+    /* Scene 7: 3D Vortex Fly-Through */
+    #scene7-wrap {
+      perspective: 1200px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tunnel-container {
+      position: relative;
+      width: 800px;
+      height: 600px;
+      transform-style: preserve-3d;
+    }
+
+    .tunnel-card {
+      position: absolute;
+      padding: 16px 32px;
+      background: #FFFFFF;
+      border-radius: 16px;
+      border: 1px solid #E2E8F0;
+      font-size: 20px;
+      font-weight: 800;
+      color: #0F172A;
+      box-shadow: 0 15px 40px rgba(15, 23, 42, 0.1);
+    }
+
+    /* Scene 8: Score Dial Turntable */
+    #scene8-wrap {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -459,7 +594,7 @@
       font-size: 15px;
       font-weight: 700;
       letter-spacing: 0.12em;
-      color: #64748B;
+      color: #475569;
       text-transform: uppercase;
       margin-bottom: 4px;
     }
@@ -475,7 +610,7 @@
     .score-total {
       font-size: 22px;
       font-weight: 600;
-      color: #94A3B8;
+      color: #475569;
       margin-top: 4px;
     }
 
@@ -517,8 +652,45 @@
       padding-left: 20px;
     }
 
-    /* Scene 5: Quick Wins Boost */
-    #scene5-wrap {
+    /* Scene 9: Annotated Roast Report */
+    #scene9-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .report-card {
+      width: 900px;
+      padding: 48px;
+      background: #FFFFFF;
+      border-radius: 28px;
+      border: 2px solid #E2E8F0;
+      box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.12);
+      position: relative;
+    }
+
+    .stamp-cooked {
+      position: absolute;
+      top: 50%;
+      right: 60px;
+      transform: translateY(-50%) rotate(-12deg);
+      border: 6px solid #DC2626;
+      color: #DC2626;
+      font-size: 48px;
+      font-weight: 900;
+      padding: 16px 36px;
+      border-radius: 16px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      box-shadow: 0 10px 30px rgba(220, 38, 38, 0.25);
+    }
+
+    /* Scene 10: Quick Wins Boost */
+    #scene10-wrap {
       display: flex;
       align-items: center;
       gap: 60px;
@@ -577,7 +749,8 @@
 
     .qw-text p {
       font-size: 13px;
-      color: #64748B;
+      color: #475569;
+      font-weight: 500;
     }
 
     .qw-pts {
@@ -607,7 +780,7 @@
       font-size: 14px;
       font-weight: 800;
       letter-spacing: 0.1em;
-      color: #64748B;
+      color: #475569;
       text-transform: uppercase;
       margin-bottom: 12px;
     }
@@ -657,8 +830,65 @@
       transform: rotate(8deg);
     }
 
-    /* Scene 6: Brand Lockup */
-    #scene6-wrap {
+    /* Scene 11: Floating Metric Pills */
+    #scene11-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      width: 100%;
+      height: 100%;
+    }
+
+    .metric-pill-large {
+      width: 780px;
+      padding: 24px 36px;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid #E2E8F0;
+      border-radius: 100px;
+      box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .pill-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .pill-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .pill-text h4 {
+      font-size: 20px;
+      font-weight: 800;
+      color: #0F172A;
+    }
+
+    .pill-text p {
+      font-size: 14px;
+      color: #475569;
+      font-weight: 600;
+    }
+
+    .pill-stat {
+      font-size: 24px;
+      font-weight: 800;
+      color: #047857;
+    }
+
+    /* Scene 12: Final Brand CTA */
+    #scene12-wrap {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -667,13 +897,13 @@
     }
 
     .brand-flame-icon {
-      width: 110px;
-      height: 110px;
+      width: 120px;
+      height: 120px;
       filter: drop-shadow(0 20px 30px rgba(234, 88, 12, 0.35));
     }
 
     .brand-name {
-      font-size: 84px;
+      font-size: 88px;
       font-weight: 900;
       color: #0F172A;
       letter-spacing: -0.04em;
@@ -691,11 +921,11 @@
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      padding: 16px 36px;
+      padding: 16px 38px;
       background: #0F172A;
       color: #FFFFFF;
       border-radius: 100px;
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 700;
       box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.3);
     }
@@ -712,38 +942,54 @@
     data-start="0"
     data-width="1920"
     data-height="1080"
-    data-duration="22"
+    data-duration="46"
   >
     <!-- Background Atmosphere -->
     <div class="studio-glow"></div>
     <div class="studio-grid"></div>
 
-    <!-- Synchronized Audio Tracks with dedicated durations and track indices -->
-    <audio id="bgm" data-start="0" data-duration="22" data-track-index="1" data-volume="0.75" src="assets/music/bgm.mp3"></audio>
-    <audio id="sfx-pop1" data-start="0.6" data-duration="0.4" data-track-index="2" data-volume="0.7" src="assets/sfx/click.ogg"></audio>
-    <audio id="sfx-pop2" data-start="1.4" data-duration="0.4" data-track-index="2" data-volume="0.7" src="assets/sfx/click.ogg"></audio>
-    <audio id="sfx-panic" data-start="2.1" data-duration="0.4" data-track-index="2" data-volume="0.75" src="assets/sfx/click.ogg"></audio>
-    <audio id="sfx-whoosh1" data-start="2.5" data-duration="0.8" data-track-index="3" data-volume="0.8" src="assets/sfx/whoosh.ogg"></audio>
-    <audio id="sfx-card1" data-start="2.8" data-duration="0.5" data-track-index="4" data-volume="0.65" src="assets/sfx/drop.ogg"></audio>
-    <audio id="sfx-card2" data-start="3.1" data-duration="0.5" data-track-index="5" data-volume="0.65" src="assets/sfx/drop.ogg"></audio>
-    <audio id="sfx-card3" data-start="3.4" data-duration="0.5" data-track-index="6" data-volume="0.65" src="assets/sfx/drop.ogg"></audio>
+    <!-- MASTER SYNCHRONIZED AUDIO TRACK -->
+    <audio id="bgm" data-start="0" data-duration="46" data-track-index="1" data-volume="0.75" src="assets/music/music_main.mp3"></audio>
 
-    <audio id="sfx-drop-diag1" data-start="4.8" data-duration="0.5" data-track-index="2" data-volume="0.7" src="assets/sfx/drop.ogg"></audio>
-    <audio id="sfx-drop-diag2" data-start="5.8" data-duration="0.5" data-track-index="2" data-volume="0.7" src="assets/sfx/drop.ogg"></audio>
-    <audio id="sfx-drop-diag3" data-start="6.8" data-duration="0.5" data-track-index="2" data-volume="0.7" src="assets/sfx/drop.ogg"></audio>
+    <!-- Synchronized Motion SFX -->
+    <audio id="sfx-notif" data-start="0.8" data-duration="0.5" data-track-index="2" data-volume="0.6" src="assets/sfx/notification_soft.wav"></audio>
+    <audio id="sfx-pop1" data-start="2.2" data-duration="0.1" data-track-index="2" data-volume="0.7" src="assets/sfx/click.ogg"></audio>
+    <audio id="sfx-panic" data-start="3.8" data-duration="0.1" data-track-index="2" data-volume="0.75" src="assets/sfx/click.ogg"></audio>
+    <audio id="sfx-pullback" data-start="5.0" data-duration="0.6" data-track-index="3" data-volume="0.8" src="assets/sfx/whoosh_fast.wav"></audio>
 
-    <audio id="sfx-whoosh2" data-start="8.5" data-duration="0.8" data-track-index="3" data-volume="0.8" src="assets/sfx/whoosh.ogg"></audio>
+    <audio id="sfx-trans2" data-start="8.0" data-duration="0.8" data-track-index="3" data-volume="0.8" src="assets/sfx/whoosh_deep.wav"></audio>
+    <audio id="sfx-c1" data-start="8.8" data-duration="0.5" data-track-index="2" data-volume="0.7" src="assets/sfx/soft_impact.wav"></audio>
+    <audio id="sfx-c2" data-start="10.5" data-duration="0.5" data-track-index="2" data-volume="0.7" src="assets/sfx/soft_impact.wav"></audio>
+    <audio id="sfx-c3" data-start="12.2" data-duration="0.5" data-track-index="2" data-volume="0.7" src="assets/sfx/bass_impact.wav"></audio>
 
-    <audio id="sfx-whoosh3" data-start="12.5" data-duration="0.8" data-track-index="3" data-volume="0.8" src="assets/sfx/whoosh.ogg"></audio>
-    <audio id="sfx-score-chime" data-start="14.2" data-duration="1.2" data-track-index="4" data-volume="0.85" src="assets/sfx/chime.ogg"></audio>
+    <audio id="sfx-iso-slide" data-start="14.0" data-duration="0.5" data-track-index="3" data-volume="0.7" src="assets/sfx/tech_slide.wav"></audio>
+    <audio id="sfx-iso-tick1" data-start="14.6" data-duration="0.04" data-track-index="2" data-volume="0.5" src="assets/sfx/tick.wav"></audio>
+    <audio id="sfx-iso-tick2" data-start="15.2" data-duration="0.04" data-track-index="2" data-volume="0.5" src="assets/sfx/tick.wav"></audio>
+    <audio id="sfx-iso-tick3" data-start="15.8" data-duration="0.04" data-track-index="2" data-volume="0.5" src="assets/sfx/tick.wav"></audio>
+    <audio id="sfx-iso-ping" data-start="16.5" data-duration="0.6" data-track-index="4" data-volume="0.7" src="assets/sfx/ui_ping.mp3"></audio>
 
-    <audio id="sfx-qw-click" data-start="17.2" data-duration="0.4" data-track-index="2" data-volume="0.7" src="assets/sfx/click.ogg"></audio>
-    <audio id="sfx-qw-boost" data-start="18.0" data-duration="1.2" data-track-index="4" data-volume="0.85" src="assets/sfx/chime.ogg"></audio>
+    <audio id="sfx-hero-slam" data-start="18.0" data-duration="0.8" data-track-index="2" data-volume="0.8" src="assets/sfx/soft_impact.wav"></audio>
 
-    <audio id="sfx-finale-whoosh" data-start="19.5" data-duration="0.8" data-track-index="3" data-volume="0.8" src="assets/sfx/whoosh.ogg"></audio>
+    <audio id="sfx-stack-slide" data-start="21.0" data-duration="0.5" data-track-index="3" data-volume="0.8" src="assets/sfx/tech_slide.wav"></audio>
 
-    <!-- SCENE 1: Mobile Hook & 3D Pullback (0.0s - 4.5s) -->
-    <section id="scene-1" class="clip" data-start="0" data-duration="4.5">
+    <audio id="sfx-blueprint-cut" data-start="24.0" data-duration="0.6" data-track-index="3" data-volume="0.7" src="assets/sfx/whoosh_fast.wav"></audio>
+
+    <audio id="sfx-vortex-enter" data-start="26.0" data-duration="1.0" data-track-index="3" data-volume="0.8" src="assets/sfx/whoosh_deep.wav"></audio>
+
+    <audio id="sfx-score-rise" data-start="29.0" data-duration="2.0" data-track-index="2" data-volume="0.75" src="assets/sfx/score_rise.wav"></audio>
+    <audio id="sfx-score-impact" data-start="31.2" data-duration="1.2" data-track-index="4" data-volume="0.85" src="assets/sfx/score_impact.wav"></audio>
+
+    <audio id="sfx-stamp-slam" data-start="33.8" data-duration="0.8" data-track-index="2" data-volume="0.85" src="assets/sfx/soft_impact.wav"></audio>
+
+    <audio id="sfx-qw-click" data-start="36.5" data-duration="0.1" data-track-index="2" data-volume="0.7" src="assets/sfx/click.ogg"></audio>
+    <audio id="sfx-qw-chime" data-start="37.4" data-duration="0.05" data-track-index="4" data-volume="0.85" src="assets/sfx/chime.ogg"></audio>
+
+    <audio id="sfx-pills-whoosh" data-start="39.0" data-duration="0.6" data-track-index="3" data-volume="0.7" src="assets/sfx/whoosh_fast.wav"></audio>
+
+    <audio id="sfx-brand-chime" data-start="43.2" data-duration="2.0" data-track-index="4" data-volume="0.9" src="assets/sfx/logo_chime.wav"></audio>
+
+    <!-- SCENE 1: Mobile Hook & 3D Pullback (0.0s - 8.0s) -->
+    <section id="scene-1" class="clip" data-start="0" data-duration="8.0">
       <div id="scene1-wrap">
         <div id="phone-container" data-layout-allow-overflow>
           <!-- Floating Reaction Cards -->
@@ -809,8 +1055,8 @@
       </div>
     </section>
 
-    <!-- SCENE 2: Developer Reality Callouts (4.5s - 8.5s) -->
-    <section id="scene-2" class="clip" data-start="4.5" data-duration="4.0">
+    <!-- SCENE 2: Reality Callouts (8.0s - 14.0s) -->
+    <section id="scene-2" class="clip" data-start="8.0" data-duration="6.0">
       <div id="scene2-wrap">
         <div id="s2-badge" class="scene-badge">
           <span>⚠️</span> Diagnostic Telemetry
@@ -844,9 +1090,67 @@
       </div>
     </section>
 
-    <!-- SCENE 3: 3D Layered Dashboard Glide (8.5s - 12.5s) -->
-    <section id="scene-3" class="clip" data-start="8.5" data-duration="4.0" data-layout-allow-overlap>
+    <!-- SCENE 3: Isometric Rising 3D Bars (14.0s - 18.0s) -->
+    <section id="scene-3" class="clip" data-start="14.0" data-duration="4.0">
       <div id="scene3-wrap">
+        <div class="scene-badge" style="margin-bottom: 24px;">
+          <span>📊</span> Ecosystem Ranking
+        </div>
+        <h2 class="scene-title" style="margin-bottom: 30px;">
+          Telemetry Across 5 Dimensions
+        </h2>
+        <div class="iso-container">
+          <div class="iso-bar-wrap">
+            <div id="bar-1" class="iso-bar" style="height: 140px;"></div>
+            <span class="iso-label">Activity</span>
+          </div>
+          <div class="iso-bar-wrap">
+            <div id="bar-2" class="iso-bar" style="height: 220px;"></div>
+            <span class="iso-label">Streak</span>
+          </div>
+          <div class="iso-bar-wrap">
+            <div id="bar-3" class="iso-bar" style="height: 310px; background: linear-gradient(180deg, #10B981 0%, #059669 100%);"></div>
+            <span class="iso-label">Hygiene</span>
+          </div>
+          <div class="iso-bar-wrap">
+            <div id="bar-4" class="iso-bar" style="height: 180px;"></div>
+            <span class="iso-label">Clarity</span>
+          </div>
+          <div class="iso-bar-wrap">
+            <div id="bar-5" class="iso-bar" style="height: 260px;"></div>
+            <span class="iso-label">Docs</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCENE 4: Hero Tile Matrix (18.0s - 21.0s) -->
+    <section id="scene-4" class="clip" data-start="18.0" data-duration="3.0">
+      <div id="scene4-wrap">
+        <div id="hero-tile" class="hero-tile-center">
+          <svg width="110" height="110" viewBox="0 0 100 100" fill="none">
+            <path d="M50 5C45 25 30 35 22 55C14 75 28 95 50 95C72 95 86 75 78 55C70 35 55 25 50 5Z" fill="#FFFFFF" />
+            <path d="M50 35C47 48 38 55 35 68C32 80 40 88 50 88C60 88 68 80 65 68C62 55 53 48 50 35Z" fill="#FF8A00" />
+          </svg>
+        </div>
+        <div id="token-1" class="floating-token" style="top: 240px; left: 340px;">
+          <span>⚡</span> git commit -m "wip"
+        </div>
+        <div id="token-2" class="floating-token" style="top: 320px; right: 320px;">
+          <span>💀</span> 47 empty repos
+        </div>
+        <div id="token-3" class="floating-token" style="bottom: 220px; left: 400px;">
+          <span>🔥</span> Seriousness: 464
+        </div>
+        <div id="token-4" class="floating-token" style="bottom: 260px; right: 380px;">
+          <span>🚀</span> Quick Wins Active
+        </div>
+      </div>
+    </section>
+
+    <!-- SCENE 5: Layered 3D Homepage Glide (21.0s - 24.0s) -->
+    <section id="scene-5" class="clip" data-start="21.0" data-duration="3.0" data-layout-allow-overlap>
+      <div id="scene5-wrap">
         <div id="stacked-stack" data-layout-allow-overlap>
           <!-- Layer 1: Code Scanner -->
           <div id="layer1" class="stacked-layer" data-layout-allow-overlap>
@@ -854,7 +1158,7 @@
               <div class="window-dots"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div>
               <div class="layer-url" data-layout-allow-overlap>gitroasted.com/scan/commit-telemetry</div>
             </div>
-            <div class="layer-body" data-layout-allow-overlap style="background: #FFFFFF; font-family: monospace; font-size: 18px; line-height: 1.7; padding: 30px;">
+            <div class="layer-body" data-layout-allow-overlap style="background: #FFFFFF; font-family: monospace; font-size: 18px; line-height: 1.7;">
               <div data-layout-allow-overlap>
                 <p data-layout-allow-overlap style="color: #0F172A; font-weight: 600;">> Scanning @MdKasif0 commit history...</p>
                 <p data-layout-allow-overlap style="color: #991B1B; font-weight: 700;">! [ALERT] 14 commits titled "wip"</p>
@@ -870,7 +1174,7 @@
               <div class="window-dots"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div>
               <div class="layer-url" data-layout-allow-overlap>gitroasted.com/metrics/repo-distribution</div>
             </div>
-            <div class="layer-body" data-layout-allow-overlap style="padding: 30px; display: flex; gap: 30px;">
+            <div class="layer-body" data-layout-allow-overlap style="display: flex; gap: 30px;">
               <div data-layout-allow-overlap style="flex: 1; background: #F8FAFC; border-radius: 16px; padding: 20px; border: 1px solid #E2E8F0;">
                 <h4 data-layout-allow-overlap style="color: #475569; font-size: 14px; margin-bottom: 8px;">LANGUAGE DISTRIBUTION</h4>
                 <div data-layout-allow-overlap style="font-size: 32px; font-weight: 800; color: #0F172A;">42% CSS • 28% JS</div>
@@ -890,7 +1194,7 @@
               <div class="window-dots"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div>
               <div class="layer-url" data-layout-allow-overlap>gitroasted.com/roast/@MdKasif0</div>
             </div>
-            <div class="layer-body" data-layout-allow-overlap style="padding: 30px; display: flex; align-items: center; justify-content: space-between;">
+            <div class="layer-body" data-layout-allow-overlap style="display: flex; align-items: center; justify-content: space-between;">
               <div data-layout-allow-overlap>
                 <span class="card-tag tag-orange" data-layout-allow-overlap style="margin-bottom: 12px; display: inline-block;">DEVELOPER VERDICT</span>
                 <h3 data-layout-allow-overlap style="font-size: 36px; font-weight: 800; color: #0F172A; margin-bottom: 8px;">@MdKasif0 Profile Analysis</h3>
@@ -906,9 +1210,42 @@
       </div>
     </section>
 
-    <!-- SCENE 4: Seriousness Score Turntable (12.5s - 16.5s) -->
-    <section id="scene-4" class="clip" data-start="12.5" data-duration="4.0">
-      <div id="scene4-wrap">
+    <!-- SCENE 6: Swiss Typography Blueprint (24.0s - 26.0s) -->
+    <section id="scene-6" class="clip" data-start="24.0" data-duration="2.0">
+      <div id="scene6-wrap">
+        <div id="blueprint" class="blueprint-box">
+          <div class="spec-label" style="top: 20px; left: 24px;">ROAST SERIF TYPE SPEC</div>
+          <div class="spec-label" style="top: 20px; right: 24px;">PLAYFAIR DISPLAY</div>
+          <div class="spec-letter">Aa</div>
+          <div class="spec-label" style="bottom: 20px; left: 24px;">BRAND PALETTE: #FF5722</div>
+          <div class="spec-label" style="bottom: 20px; right: 24px;">SLATE TEXT: #0F172A</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCENE 7: 3D Vortex Fly-Through (26.0s - 29.0s) -->
+    <section id="scene-7" class="clip" data-start="26.0" data-duration="3.0">
+      <div id="scene7-wrap">
+        <div class="tunnel-container">
+          <div id="tc1" class="tunnel-card" style="top: 100px; left: 50px;">
+            ⚠️ 14 commits titled "wip"
+          </div>
+          <div id="tc2" class="tunnel-card" style="top: 220px; right: 80px;">
+            🚨 0 unit tests found
+          </div>
+          <div id="tc3" class="tunnel-card" style="bottom: 120px; left: 160px;">
+            💀 "revert revert revert"
+          </div>
+          <div id="tc4" class="tunnel-card" style="bottom: 200px; right: 100px;">
+            🔥 Score: 464 / 1000
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCENE 8: Score Dial Turntable (29.0s - 33.0s) -->
+    <section id="scene-8" class="clip" data-start="29.0" data-duration="4.0">
+      <div id="scene8-wrap">
         <!-- Turntable Radial Dial -->
         <div id="dial-box" class="dial-display">
           <svg class="dial-svg" viewBox="0 0 400 400">
@@ -923,9 +1260,9 @@
             <circle id="dial-circle-fill" class="dial-prog-circle" cx="200" cy="200" r="180" />
           </svg>
           <div class="dial-center-stat">
-            <span class="score-label" style="color: #475569;">SERIOUSNESS</span>
+            <span class="score-label">SERIOUSNESS</span>
             <span id="score-counter-val" class="score-number">000</span>
-            <span class="score-total" style="color: #475569;">/ 1000 PTS</span>
+            <span class="score-total">/ 1000 PTS</span>
           </div>
         </div>
 
@@ -944,9 +1281,23 @@
       </div>
     </section>
 
-    <!-- SCENE 5: Interactive Quick Wins (+135 pts) (16.5s - 19.5s) -->
-    <section id="scene-5" class="clip" data-start="16.5" data-duration="3.0">
-      <div id="scene5-wrap">
+    <!-- SCENE 9: Annotated Roast Report & Stamp (33.0s - 35.0s) -->
+    <section id="scene-9" class="clip" data-start="33.0" data-duration="2.0">
+      <div id="scene9-wrap">
+        <div class="report-card">
+          <div style="font-size: 14px; font-weight: 800; color: #CB4C0A; margin-bottom: 12px;">OFFICIAL ROAST DOSSIER</div>
+          <h3 style="font-size: 34px; font-weight: 800; color: #0F172A; margin-bottom: 16px;">Candidate Profile: @MdKasif0</h3>
+          <p style="font-size: 20px; color: #475569; line-height: 1.6; max-width: 600px;">
+            "Analysis confirms 47 empty repositories, inconsistent commit cadence, and severe README neglect."
+          </p>
+          <div id="stamp-badge-cooked" class="stamp-cooked" data-layout-allow-overlap>COOKED 🔥</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCENE 10: Interactive Quick Wins (+135 pts) (35.0s - 39.0s) -->
+    <section id="scene-10" class="clip" data-start="35.0" data-duration="4.0">
+      <div id="scene10-wrap">
         <div class="qw-card-list">
           <div id="qw1" class="qw-row">
             <div class="qw-left">
@@ -982,7 +1333,7 @@
 
         <!-- Score Leap Hero -->
         <div id="leap-card" class="leap-hero-card">
-          <div id="stamp-badge" class="back-stamp">WE ARE SO BACK 🚀</div>
+          <div id="stamp-badge-back" class="back-stamp">WE ARE SO BACK 🚀</div>
           <span class="leap-title">REHABILITATED SCORE</span>
           <div class="leap-score-wrap">
             <span class="score-old">464</span>
@@ -993,9 +1344,45 @@
       </div>
     </section>
 
-    <!-- SCENE 6: Definitive Brand Finale (19.5s - 22.0s) -->
-    <section id="scene-6" class="clip" data-start="19.5" data-duration="2.5">
-      <div id="scene6-wrap">
+    <!-- SCENE 11: Floating Metric Pills (39.0s - 42.0s) -->
+    <section id="scene-11" class="clip" data-start="39.0" data-duration="3.0">
+      <div id="scene11-wrap">
+        <div id="pill-1" class="metric-pill-large">
+          <div class="pill-left">
+            <div class="pill-icon" style="background: #E0F2FE; color: #0284C7;">📘</div>
+            <div class="pill-text">
+              <h4>Top Language: TypeScript (82%)</h4>
+              <p>Architecture: Clean & Modular</p>
+            </div>
+          </div>
+          <span class="pill-stat">TOP 15%</span>
+        </div>
+        <div id="pill-2" class="metric-pill-large">
+          <div class="pill-left">
+            <div class="pill-icon" style="background: #ECFDF5; color: #059669;">⚙️</div>
+            <div class="pill-text">
+              <h4>Automated CI/CD Pipeline</h4>
+              <p>GitHub Actions: Active & Passing</p>
+            </div>
+          </div>
+          <span class="pill-stat">100% HEALTH</span>
+        </div>
+        <div id="pill-3" class="metric-pill-large">
+          <div class="pill-left">
+            <div class="pill-icon" style="background: #FEF3C7; color: #D97706;">🏆</div>
+            <div class="pill-text">
+              <h4>Rehabilitated Developer Score</h4>
+              <p>Previous: 464 • Current: 599</p>
+            </div>
+          </div>
+          <span class="pill-stat">+135 PTS</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCENE 12: Final Brand CTA (42.0s - 46.0s) -->
+    <section id="scene-12" class="clip" data-start="42.0" data-duration="4.0">
+      <div id="scene12-wrap">
         <svg id="final-flame" class="brand-flame-icon" viewBox="0 0 100 100" fill="none">
           <defs>
             <linearGradient id="brand-flame-grad" x1="20%" y1="100%" x2="80%" y2="0%">
@@ -1005,7 +1392,7 @@
             </linearGradient>
           </defs>
           <path d="M50 5C45 25 30 35 22 55C14 75 28 95 50 95C72 95 86 75 78 55C70 35 55 25 50 5Z" fill="url(#brand-flame-grad)" />
-          <path d="M50 35C47 48 38 55 35 68C32 80 40 88 50 88C60 88 68 80 65 68C62 55 53 48 50 35Z" fill="#FFFFFF" opacity="0.9" />
+          <path d="M50 35C47 48 38 55 35 68C32 80 40 88 50 88C60 88 68 80 65 68C62 55 53 48 50 35Z" fill="#FFFFFF" opacity="0.95" />
         </svg>
         <h1 id="brand-title" class="brand-name">GitRoasted</h1>
         <p id="brand-subtitle" class="brand-tagline">Brutal feedback. Better developers.</p>
@@ -1018,57 +1405,56 @@
   </div>
 
   <script>
-    // Register the single paused timeline for HyperFrames
+    // Register the single paused timeline for HyperFrames (Total 46.0s)
     const tl = gsap.timeline({ paused: true });
 
     // ==========================================
-    // SCENE 1: Mobile Hook (0.0s - 4.5s)
+    // SCENE 1: Mobile Hook (0.0s - 8.0s)
     // ==========================================
-    // Phone enters smoothly
     tl.fromTo("#phone-container", 
       { y: 120, opacity: 0, scale: 0.95 }, 
-      { y: 0, opacity: 1, scale: 1, duration: 0.7, ease: "power3.out" }, 
+      { y: 0, opacity: 1, scale: 1, duration: 0.8, ease: "power3.out" }, 
       0.1
     );
 
-    // Incoming recruiter bubble
+    // Message 1
     tl.fromTo("#bubble-1", 
       { y: 20, opacity: 0, scale: 0.9 }, 
-      { y: 0, opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.6)" }, 
-      0.6
+      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.6)" }, 
+      0.8
     );
 
-    // Outgoing dev response bubble
+    // Message 2
     tl.fromTo("#bubble-2", 
       { y: 20, opacity: 0, scale: 0.9 }, 
-      { y: 0, opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.6)" }, 
-      1.4
+      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.6)" }, 
+      2.2
     );
 
-    // Outgoing panic roast bubble
+    // Message 3
     tl.fromTo("#bubble-3", 
       { y: 20, opacity: 0, scale: 0.9 }, 
-      { y: 0, opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.6)" }, 
-      2.1
+      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.6)" }, 
+      3.8
     );
 
-    // 3D Pullback & Tilt of Phone (matching reference video frame 10-14)
+    // 3D Pullback & Tilt of Phone (t=5.0s)
     tl.to("#phone-container", {
       rotateX: 16,
-      rotateY: -14,
+      rotateY: -16,
       rotateZ: 4,
-      scale: 0.88,
-      duration: 1.4,
+      scale: 0.86,
+      duration: 1.6,
       ease: "power2.inOut"
-    }, 2.5);
+    }, 5.0);
 
-    // Floating reaction cards exploding outward
+    // Floating reaction cards bursting out
     const rcElements = ["#rc1", "#rc2", "#rc3", "#rc4", "#rc5"];
     rcElements.forEach((selector, i) => {
       tl.fromTo(selector, 
         { scale: 0, opacity: 0, z: -100 }, 
-        { scale: 1, opacity: 1, z: 80, duration: 0.5, ease: "back.out(1.8)" }, 
-        2.7 + i * 0.15
+        { scale: 1, opacity: 1, z: 80, duration: 0.6, ease: "back.out(1.8)" }, 
+        5.2 + i * 0.18
       );
     });
 
@@ -1076,107 +1462,193 @@
     tl.to("#scene1-wrap", {
       scale: 1.15,
       opacity: 0,
-      duration: 0.35,
+      duration: 0.4,
       ease: "power2.in"
-    }, 4.2);
+    }, 7.6);
 
     // ==========================================
-    // SCENE 2: Reality Check Callouts (4.5s - 8.5s)
+    // SCENE 2: Reality Callouts (8.0s - 14.0s)
     // ==========================================
     tl.fromTo("#s2-badge", 
       { y: -20, opacity: 0 }, 
       { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 
-      4.55
+      8.1
     );
 
     tl.fromTo("#s2-title", 
       { y: 30, opacity: 0 }, 
       { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 
-      4.65
+      8.2
     );
 
-    // 3 Diagnostic cards landing sequentially on beat
+    // 3 Diagnostic cards landing on beats
     tl.fromTo("#card-diag-1", 
       { y: 60, opacity: 0, rotateX: 20 }, 
-      { y: 0, opacity: 1, rotateX: 0, duration: 0.55, ease: "back.out(1.5)" }, 
-      4.8
+      { y: 0, opacity: 1, rotateX: 0, duration: 0.6, ease: "back.out(1.5)" }, 
+      8.8
     );
 
     tl.fromTo("#card-diag-2", 
       { y: 60, opacity: 0, rotateX: 20 }, 
-      { y: 0, opacity: 1, rotateX: 0, duration: 0.55, ease: "back.out(1.5)" }, 
-      5.8
+      { y: 0, opacity: 1, rotateX: 0, duration: 0.6, ease: "back.out(1.5)" }, 
+      10.5
     );
 
     tl.fromTo("#card-diag-3", 
       { y: 60, opacity: 0, rotateX: 20 }, 
-      { y: 0, opacity: 1, rotateX: 0, duration: 0.55, ease: "back.out(1.5)" }, 
-      6.8
+      { y: 0, opacity: 1, rotateX: 0, duration: 0.6, ease: "back.out(1.5)" }, 
+      12.2
     );
 
     // Scene 2 exit
     tl.to("#scene2-wrap", {
       y: -50,
       opacity: 0,
-      duration: 0.35,
+      duration: 0.4,
       ease: "power2.in"
-    }, 8.2);
+    }, 13.6);
 
     // ==========================================
-    // SCENE 3: 3D Layered Dashboard Glide (8.5s - 12.5s)
+    // SCENE 3: Isometric Rising 3D Bars (14.0s - 18.0s)
     // ==========================================
-    // Stack glide in 3D
-    tl.fromTo("#stacked-stack", 
-      { rotateX: 35, rotateY: -30, rotateZ: 10, z: -400, opacity: 0 }, 
-      { rotateX: 20, rotateY: -12, rotateZ: 4, z: 0, opacity: 1, duration: 1.2, ease: "power3.out" }, 
-      8.5
+    tl.fromTo("#scene3-wrap", 
+      { opacity: 0, scale: 0.9 }, 
+      { opacity: 1, scale: 1, duration: 0.6, ease: "power2.out" }, 
+      14.0
     );
 
-    // Subtle continuous camera drift
+    const bars = ["#bar-1", "#bar-2", "#bar-3", "#bar-4", "#bar-5"];
+    bars.forEach((bar, i) => {
+      tl.fromTo(bar, 
+        { scaleY: 0 }, 
+        { scaleY: 1, duration: 0.7, ease: "back.out(1.5)" }, 
+        14.4 + i * 0.25
+      );
+    });
+
+    // Scene 3 exit
+    tl.to("#scene3-wrap", {
+      opacity: 0,
+      scale: 1.1,
+      duration: 0.4,
+      ease: "power2.in"
+    }, 17.6);
+
+    // ==========================================
+    // SCENE 4: Hero Tile Matrix (18.0s - 21.0s)
+    // ==========================================
+    tl.fromTo("#hero-tile", 
+      { scale: 0, rotate: -25 }, 
+      { scale: 1, rotate: 0, duration: 0.7, ease: "back.out(1.7)" }, 
+      18.0
+    );
+
+    const tokens = ["#token-1", "#token-2", "#token-3", "#token-4"];
+    tokens.forEach((tok, i) => {
+      tl.fromTo(tok, 
+        { scale: 0, opacity: 0 }, 
+        { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(1.6)" }, 
+        18.4 + i * 0.25
+      );
+    });
+
+    // Scene 4 exit
+    tl.to("#scene4-wrap", {
+      opacity: 0,
+      scale: 1.2,
+      duration: 0.35,
+      ease: "power2.in"
+    }, 20.65);
+
+    // ==========================================
+    // SCENE 5: Layered 3D Homepage Glide (21.0s - 24.0s)
+    // ==========================================
+    tl.fromTo("#stacked-stack", 
+      { rotateX: 35, rotateY: -30, rotateZ: 10, z: -400, opacity: 0 }, 
+      { rotateX: 20, rotateY: -12, rotateZ: 4, z: 0, opacity: 1, duration: 1.0, ease: "power3.out" }, 
+      21.0
+    );
+
     tl.to("#stacked-stack", {
       rotateX: 14,
       rotateY: -4,
       rotateZ: 0,
       z: 100,
-      duration: 2.6,
+      duration: 1.6,
       ease: "none"
-    }, 9.7);
+    }, 22.0);
 
-    // Scene 3 exit
-    tl.to("#scene3-wrap", {
-      scale: 1.2,
+    // Scene 5 exit
+    tl.to("#scene5-wrap", {
+      scale: 1.15,
       opacity: 0,
-      duration: 0.4,
+      duration: 0.35,
       ease: "power2.in"
-    }, 12.1);
+    }, 23.65);
 
     // ==========================================
-    // SCENE 4: Score Dial Turntable (12.5s - 16.5s)
+    // SCENE 6: Swiss Typography Blueprint (24.0s - 26.0s)
+    // ==========================================
+    tl.fromTo("#blueprint", 
+      { scale: 0.8, opacity: 0 }, 
+      { scale: 1, opacity: 1, duration: 0.5, ease: "power2.out" }, 
+      24.05
+    );
+
+    // Scene 6 exit
+    tl.to("#scene6-wrap", {
+      opacity: 0,
+      scale: 1.1,
+      duration: 0.3,
+      ease: "power2.in"
+    }, 25.7);
+
+    // ==========================================
+    // SCENE 7: 3D Vortex Fly-Through (26.0s - 29.0s)
+    // ==========================================
+    const tCards = ["#tc1", "#tc2", "#tc3", "#tc4"];
+    tCards.forEach((tc, i) => {
+      tl.fromTo(tc, 
+        { z: -800, scale: 0.3, opacity: 0 }, 
+        { z: 400, scale: 1.4, opacity: 1, duration: 1.4, ease: "power2.inOut" }, 
+        26.2 + i * 0.35
+      );
+    });
+
+    // Scene 7 exit
+    tl.to("#scene7-wrap", {
+      opacity: 0,
+      duration: 0.35,
+      ease: "power2.in"
+    }, 28.65);
+
+    // ==========================================
+    // SCENE 8: Score Dial Turntable (29.0s - 33.0s)
     // ==========================================
     tl.fromTo("#dial-box", 
       { scale: 0.7, opacity: 0, rotate: -30 }, 
       { scale: 1, opacity: 1, rotate: 0, duration: 0.8, ease: "back.out(1.4)" }, 
-      12.5
+      29.0
     );
 
     tl.fromTo("#verdict-box", 
       { x: 60, opacity: 0 }, 
       { x: 0, opacity: 1, duration: 0.7, ease: "power3.out" }, 
-      12.8
+      29.3
     );
 
-    // Gauge circle filling: circumference 1131 -> 46.4% = 525 filled
+    // Gauge circle filling
     tl.to("#dial-circle-fill", {
       strokeDashoffset: 606,
-      duration: 1.6,
+      duration: 1.8,
       ease: "power2.out"
-    }, 12.7);
+    }, 29.3);
 
     // Digital counter rolling 000 -> 464
     const scoreObj = { val: 0 };
     tl.to(scoreObj, {
       val: 464,
-      duration: 1.6,
+      duration: 1.8,
       ease: "power2.out",
       onUpdate: () => {
         const el = document.getElementById("score-counter-val");
@@ -1184,90 +1656,130 @@
           el.textContent = Math.round(scoreObj.val).toString().padStart(3, "0");
         }
       }
-    }, 12.7);
+    }, 29.3);
 
-    // Scene 4 exit
-    tl.to("#scene4-wrap", {
+    // Scene 8 exit
+    tl.to("#scene8-wrap", {
       x: -60,
       opacity: 0,
       duration: 0.35,
       ease: "power2.in"
-    }, 16.2);
+    }, 32.65);
 
     // ==========================================
-    // SCENE 5: Quick Wins Boost (16.5s - 19.5s)
+    // SCENE 9: Annotated Report & Stamp (33.0s - 35.0s)
+    // ==========================================
+    tl.fromTo(".report-card", 
+      { y: 50, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 
+      33.05
+    );
+
+    tl.fromTo("#stamp-badge-cooked", 
+      { scale: 3.0, opacity: 0 }, 
+      { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(2.2)" }, 
+      33.8
+    );
+
+    // Scene 9 exit
+    tl.to("#scene9-wrap", {
+      scale: 1.1,
+      opacity: 0,
+      duration: 0.35,
+      ease: "power2.in"
+    }, 34.65);
+
+    // ==========================================
+    // SCENE 10: Interactive Quick Wins (35.0s - 39.0s)
     // ==========================================
     tl.fromTo("#qw1", 
       { x: -50, opacity: 0 }, 
-      { x: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 
-      16.5
+      { x: 0, opacity: 1, duration: 0.45, ease: "power2.out" }, 
+      35.05
     );
     tl.fromTo("#qw2", 
       { x: -50, opacity: 0 }, 
-      { x: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 
-      16.7
+      { x: 0, opacity: 1, duration: 0.45, ease: "power2.out" }, 
+      35.35
     );
     tl.fromTo("#qw3", 
       { x: -50, opacity: 0 }, 
-      { x: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 
-      16.9
+      { x: 0, opacity: 1, duration: 0.45, ease: "power2.out" }, 
+      35.65
     );
 
-    // Leap hero card entrance
     tl.fromTo("#leap-card", 
       { scale: 0.85, opacity: 0 }, 
-      { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.5)" }, 
-      16.7
+      { scale: 1, opacity: 1, duration: 0.6, ease: "back.out(1.5)" }, 
+      35.3
     );
 
-    // Checkmarks turning green
     tl.to(["#chk1", "#chk2", "#chk3"], {
       backgroundColor: "#10B981",
       borderColor: "#10B981",
-      duration: 0.3,
-      stagger: 0.15
-    }, 17.2);
+      duration: 0.35,
+      stagger: 0.2
+    }, 36.5);
 
-    // Stamp badge slamming down
-    tl.fromTo("#stamp-badge", 
+    tl.fromTo("#stamp-badge-back", 
       { scale: 2.2, opacity: 0, rotate: 25 }, 
-      { scale: 1, opacity: 1, rotate: 8, duration: 0.4, ease: "back.out(2.0)" }, 
-      17.7
+      { scale: 1, opacity: 1, rotate: 8, duration: 0.45, ease: "back.out(2.0)" }, 
+      37.4
     );
 
-    // Scene 5 exit
-    tl.to("#scene5-wrap", {
+    // Scene 10 exit
+    tl.to("#scene10-wrap", {
       scale: 0.9,
       opacity: 0,
       duration: 0.35,
       ease: "power2.in"
-    }, 19.2);
+    }, 38.65);
 
     // ==========================================
-    // SCENE 6: Brand Finale (19.5s - 22.0s)
+    // SCENE 11: Floating Metric Pills (39.0s - 42.0s)
+    // ==========================================
+    const pills = ["#pill-1", "#pill-2", "#pill-3"];
+    pills.forEach((p, i) => {
+      tl.fromTo(p, 
+        { y: 50, opacity: 0 }, 
+        { y: 0, opacity: 1, duration: 0.5, ease: "back.out(1.5)" }, 
+        39.1 + i * 0.35
+      );
+    });
+
+    // Scene 11 exit
+    tl.to("#scene11-wrap", {
+      y: -40,
+      opacity: 0,
+      duration: 0.35,
+      ease: "power2.in"
+    }, 41.65);
+
+    // ==========================================
+    // SCENE 12: Final Brand CTA (42.0s - 46.0s)
     // ==========================================
     tl.fromTo("#final-flame", 
       { scale: 0, opacity: 0, rotate: -20 }, 
-      { scale: 1, opacity: 1, rotate: 0, duration: 0.6, ease: "back.out(1.8)" }, 
-      19.55
+      { scale: 1, opacity: 1, rotate: 0, duration: 0.7, ease: "back.out(1.8)" }, 
+      42.1
     );
 
     tl.fromTo("#brand-title", 
       { y: 30, opacity: 0 }, 
-      { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 
-      19.75
+      { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 
+      42.35
     );
 
     tl.fromTo("#brand-subtitle", 
       { y: 20, opacity: 0 }, 
-      { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 
-      19.95
+      { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 
+      42.6
     );
 
     tl.fromTo("#brand-cta", 
       { scale: 0.85, opacity: 0 }, 
-      { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.6)" }, 
-      20.15
+      { scale: 1, opacity: 1, duration: 0.6, ease: "back.out(1.6)" }, 
+      42.85
     );
 
     // Register on the global timelines object
