@@ -7,29 +7,30 @@
 
 ## 🍿 Watch the Official Launch Films
 
-### ☀️ Edition 1: GitRoasted Light Launch (46.0s | 1,380 frames @ 30fps)
-*Created in high-end, 100% pure Light Mode matching the visual language, 3D camera moves, isometric bars, and pacing of the reference launch video.*
+### 🔥 Flagship: GitRoasted HyperFrames Launch (46.0s | 1,380 frames @ 30fps)
+*Created using the **brag skill** and **HyperFrames**, meticulously matching the shot-by-shot visual choreography, pacing, camera motion, and structure of `reference_vide4.mp4`.*
 
-- 🎬 **Video File**: [`out/gitroasted_light_launch.mp4`](out/gitroasted_light_launch.mp4) (9.9 MB • 1920×1080 Full HD • 30fps)
+- 🎬 **Video File**: [`brag-output/brag.mp4`](brag-output/brag.mp4) or [`out/gitroasted_brag_launch_46s.mp4`](out/gitroasted_brag_launch_46s.mp4) (5.4 MB • 1920×1080 Full HD • 30fps)
 - ⏱️ **Runtime**: 46.00 seconds (1,380 frames)
-- 🎨 **Visual Style**: Pristine light theme, floating 3D glassmorphic elements, isometric 3D metrics, interactive cursor simulation, and synchronized sound design.
+- 🖼️ **Poster Frame**: [`brag-output/brag.jpg`](brag-output/brag.jpg) (1920×1080 • baked as Frame 0)
+- 📋 **Composition & Plan**: [`brag-output/brag-plan.md`](brag-output/brag-plan.md) & [`brag-output/composition-brief.md`](brag-output/composition-brief.md)
+- ✍️ **Launch Share Copy**: [`brag-output/share-copy.txt`](brag-output/share-copy.txt) & [`brag-output/share-copy-variants.md`](brag-output/share-copy-variants.md)
+
+```bash
+# Preview or validate composition:
+cd brag-output/composition && npx hyperframes check
+
+# Render video with HyperFrames:
+npx hyperframes render --output ../brag.mp4
+```
 
 ---
 
-### 🔥 Edition 2: GitRoasted Brag Launch (22.0s | 660 frames @ 30fps)
-*Created with the official **HyperFrames + /brag** pipeline, featuring high-speed 3D choreography, frame 0 poster baking, and motion-matched sound design.*
+### ☀️ Edition 2: GitRoasted Light Launch (46.0s | 1,380 frames @ 30fps)
+*Remotion Light Mode edition featuring 3D camera moves and isometric bars.*
 
-- 🎬 **Video File**: [`brag-output/brag.mp4`](brag-output/brag.mp4) (3.3 MB • 1920×1080 Full HD • 30fps)
-- 🖼️ **Poster Frame**: [`brag-output/brag.jpg`](brag-output/brag.jpg) (1920×1080 • baked as Frame 0)
-- 📋 **Composition & Plan**: [`brag-output/brag-plan.md`](brag-output/brag-plan.md) & [`brag-output/composition-brief.md`](brag-output/composition-brief.md)
-- ✍️ **Launch Share Copy**: [`brag-output/share-copy.txt`](brag-output/share-copy.txt)
-
-```bash
-# Preview or check composition:
-cd brag-output/composition && npx hyperframes check
-# Re-render with HyperFrames:
-npx hyperframes render --output ../brag.mp4
-```
+- 🎬 **Video File**: [`out/gitroasted_light_launch.mp4`](out/gitroasted_light_launch.mp4) (9.4 MB • 1920×1080 Full HD • 30fps)
+- ⏱️ **Runtime**: 46.00 seconds (1,380 frames)
 
 ---
 
